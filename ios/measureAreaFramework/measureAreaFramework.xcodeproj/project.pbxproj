@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		12B6ABB4E1D3DCE2BBF2AFB4 /* Pods_measureAreaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264829DF1EC862BCD2F66042 /* Pods_measureAreaFramework.framework */; };
+		A573505D285FBDCB0098BE4C /* measureAreaFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = A573505C285FBDCB0098BE4C /* measureAreaFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5735070285FBE510098BE4C /* PlaneDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = A5735064285FBE510098BE4C /* PlaneDetector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5735072285FBE510098BE4C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5735066285FBE510098BE4C /* Extensions.swift */; };
+		A5735074285FBE510098BE4C /* PlaneDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = A5735068285FBE510098BE4C /* PlaneDetector.mm */; };
+		A5735075285FBE510098BE4C /* MeasurementUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5735069285FBE510098BE4C /* MeasurementUnit.swift */; };
+		A5735077285FBE510098BE4C /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A573506B285FBE510098BE4C /* Utility.swift */; };
+		A5735079285FBE510098BE4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A573506D285FBE510098BE4C /* Assets.xcassets */; };
+		A573507A285FBE510098BE4C /* MeasureAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A573506E285FBE510098BE4C /* MeasureAreaViewController.swift */; };
+		A5735080285FBE760098BE4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A573507D285FBE760098BE4C /* Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		264829DF1EC862BCD2F66042 /* Pods_measureAreaFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_measureAreaFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D1BABAC2F4239539E6C8B99 /* Pods-measureAreaFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-measureAreaFramework.release.xcconfig"; path = "Target Support Files/Pods-measureAreaFramework/Pods-measureAreaFramework.release.xcconfig"; sourceTree = "<group>"; };
+		A5735059285FBDCB0098BE4C /* measureAreaFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = measureAreaFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A573505C285FBDCB0098BE4C /* measureAreaFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = measureAreaFramework.h; sourceTree = "<group>"; };
+		A5735064285FBE510098BE4C /* PlaneDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaneDetector.h; sourceTree = "<group>"; };
+		A5735066285FBE510098BE4C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A5735068285FBE510098BE4C /* PlaneDetector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlaneDetector.mm; sourceTree = "<group>"; };
+		A5735069285FBE510098BE4C /* MeasurementUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementUnit.swift; sourceTree = "<group>"; };
+		A573506B285FBE510098BE4C /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		A573506D285FBE510098BE4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A573506E285FBE510098BE4C /* MeasureAreaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureAreaViewController.swift; sourceTree = "<group>"; };
+		A573507E285FBE760098BE4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C2EC73B85267A26CA88A02FA /* Pods-measureAreaFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-measureAreaFramework.debug.xcconfig"; path = "Target Support Files/Pods-measureAreaFramework/Pods-measureAreaFramework.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A5735056285FBDCB0098BE4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12B6ABB4E1D3DCE2BBF2AFB4 /* Pods_measureAreaFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		555B80AAE4E7121F30F9EA13 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				264829DF1EC862BCD2F66042 /* Pods_measureAreaFramework.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58696263BE304CA2642C3041 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C2EC73B85267A26CA88A02FA /* Pods-measureAreaFramework.debug.xcconfig */,
+				3D1BABAC2F4239539E6C8B99 /* Pods-measureAreaFramework.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A573504F285FBDCB0098BE4C = {
+			isa = PBXGroup;
+			children = (
+				A573505B285FBDCB0098BE4C /* measureAreaFramework */,
+				A573505A285FBDCB0098BE4C /* Products */,
+				58696263BE304CA2642C3041 /* Pods */,
+				555B80AAE4E7121F30F9EA13 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A573505A285FBDCB0098BE4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A5735059285FBDCB0098BE4C /* measureAreaFramework.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A573505B285FBDCB0098BE4C /* measureAreaFramework */ = {
+			isa = PBXGroup;
+			children = (
+				A573506D285FBE510098BE4C /* Assets.xcassets */,
+				A5735066285FBE510098BE4C /* Extensions.swift */,
+				A573507D285FBE760098BE4C /* Main.storyboard */,
+				A5735069285FBE510098BE4C /* MeasurementUnit.swift */,
+				A5735064285FBE510098BE4C /* PlaneDetector.h */,
+				A5735068285FBE510098BE4C /* PlaneDetector.mm */,
+				A573506B285FBE510098BE4C /* Utility.swift */,
+				A573506E285FBE510098BE4C /* MeasureAreaViewController.swift */,
+				A573505C285FBDCB0098BE4C /* measureAreaFramework.h */,
+			);
+			path = measureAreaFramework;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A5735054285FBDCB0098BE4C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A573505D285FBDCB0098BE4C /* measureAreaFramework.h in Headers */,
+				A5735070285FBE510098BE4C /* PlaneDetector.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A5735058285FBDCB0098BE4C /* measureAreaFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5735060285FBDCB0098BE4C /* Build configuration list for PBXNativeTarget "measureAreaFramework" */;
+			buildPhases = (
+				C4643CD35FE9A08A94AE244A /* [CP] Check Pods Manifest.lock */,
+				A5735054285FBDCB0098BE4C /* Headers */,
+				A5735055285FBDCB0098BE4C /* Sources */,
+				A5735056285FBDCB0098BE4C /* Frameworks */,
+				A5735057285FBDCB0098BE4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = measureAreaFramework;
+			productName = measureAreaFramework;
+			productReference = A5735059285FBDCB0098BE4C /* measureAreaFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A5735050285FBDCB0098BE4C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					A5735058285FBDCB0098BE4C = {
+						CreatedOnToolsVersion = 13.3;
+						LastSwiftMigration = 1330;
+					};
+				};
+			};
+			buildConfigurationList = A5735053285FBDCB0098BE4C /* Build configuration list for PBXProject "measureAreaFramework" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A573504F285FBDCB0098BE4C;
+			productRefGroup = A573505A285FBDCB0098BE4C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A5735058285FBDCB0098BE4C /* measureAreaFramework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A5735057285FBDCB0098BE4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5735080285FBE760098BE4C /* Main.storyboard in Resources */,
+				A5735079285FBE510098BE4C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C4643CD35FE9A08A94AE244A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-measureAreaFramework-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A5735055285FBDCB0098BE4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5735077285FBE510098BE4C /* Utility.swift in Sources */,
+				A5735072285FBE510098BE4C /* Extensions.swift in Sources */,
+				A573507A285FBE510098BE4C /* MeasureAreaViewController.swift in Sources */,
+				A5735075285FBE510098BE4C /* MeasurementUnit.swift in Sources */,
+				A5735074285FBE510098BE4C /* PlaneDetector.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A573507D285FBE760098BE4C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A573507E285FBE760098BE4C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A573505E285FBDCB0098BE4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A573505F285FBDCB0098BE4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A5735061285FBDCB0098BE4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2EC73B85267A26CA88A02FA /* Pods-measureAreaFramework.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = MRKSQ8P9K4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = infoTech.measureAreaFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A5735062285FBDCB0098BE4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D1BABAC2F4239539E6C8B99 /* Pods-measureAreaFramework.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = MRKSQ8P9K4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = infoTech.measureAreaFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A5735053285FBDCB0098BE4C /* Build configuration list for PBXProject "measureAreaFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A573505E285FBDCB0098BE4C /* Debug */,
+				A573505F285FBDCB0098BE4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5735060285FBDCB0098BE4C /* Build configuration list for PBXNativeTarget "measureAreaFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5735061285FBDCB0098BE4C /* Debug */,
+				A5735062285FBDCB0098BE4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A5735050285FBDCB0098BE4C /* Project object */;
+}

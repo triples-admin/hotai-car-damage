@@ -1,0 +1,1083 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00E356F31AD99517003FC87E /* CarDamageDetectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CarDamageDetectTests.m */; };
+		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
+		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		24B8AC20291CD5460089DF06 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8AC1F291CD5460089DF06 /* PreviewView.swift */; };
+		24B8AC22291CD5520089DF06 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8AC21291CD5520089DF06 /* TextFieldView.swift */; };
+		24B8AC24291CD5590089DF06 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8AC23291CD5590089DF06 /* ButtonView.swift */; };
+		24B8AC26291CD5610089DF06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8AC25291CD5600089DF06 /* ViewController.swift */; };
+		24B8AC28291CD5680089DF06 /* VisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8AC27291CD5680089DF06 /* VisionViewController.swift */; };
+		24B8AC2A291CD5730089DF06 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8AC29291CD5730089DF06 /* StringUtils.swift */; };
+		24B8AC2C291CD57C0089DF06 /* VisionMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B8AC2B291CD57C0089DF06 /* VisionMain.storyboard */; };
+		24B8AC2F291CD60D0089DF06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24B8AC2E291CD60D0089DF06 /* Assets.xcassets */; };
+		24CD3FC7292374B70049899E /* HotaiAppPortalUniversalSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CD3FC3292374B70049899E /* HotaiAppPortalUniversalSDK.framework */; };
+		2AD3F7CBF3BC7F897BE1817D /* libPods-CarDamageDetect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E5EFA43295DE26318EA06C /* libPods-CarDamageDetect.a */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C347ABCA286DECB100D4C41B /* MeasureAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347AB9C286DECB100D4C41B /* MeasureAreaViewController.swift */; };
+		C347ABCB286DECB100D4C41B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C347AB9E286DECB100D4C41B /* Assets.xcassets */; };
+		C347ABCC286DECB100D4C41B /* PlaneDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = C347AB9F286DECB100D4C41B /* PlaneDetector.mm */; };
+		C347ABCD286DECB100D4C41B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C347ABA0286DECB100D4C41B /* LaunchScreen.storyboard */; };
+		C347ABCE286DECB100D4C41B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C347ABA2286DECB100D4C41B /* Main.storyboard */; };
+		C347ABCF286DECB100D4C41B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347ABA4286DECB100D4C41B /* Extensions.swift */; };
+		C347ABD0286DECB100D4C41B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347ABA5286DECB100D4C41B /* Utility.swift */; };
+		C347ABD1286DECB100D4C41B /* MeasurementUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347ABA6286DECB100D4C41B /* MeasurementUnit.swift */; };
+		C347ABD2286DECB100D4C41B /* Pods-measureAreaFramework-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = C347ABB1286DECB100D4C41B /* Pods-measureAreaFramework-acknowledgements.plist */; };
+		C347ABD3286DECB100D4C41B /* Pods-measureAreaFramework-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C347ABB2286DECB100D4C41B /* Pods-measureAreaFramework-Info.plist */; };
+		C347ABD4286DECB100D4C41B /* Pods-measureAreaFramework-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C347ABB3286DECB100D4C41B /* Pods-measureAreaFramework-dummy.m */; };
+		C347ABD5286DECB100D4C41B /* Pods-measureAreaFramework-acknowledgements.markdown in Resources */ = {isa = PBXBuildFile; fileRef = C347ABB4286DECB100D4C41B /* Pods-measureAreaFramework-acknowledgements.markdown */; };
+		C347ABD6286DECB100D4C41B /* Pods-measureAreaFramework.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C347ABB6286DECB100D4C41B /* Pods-measureAreaFramework.release.xcconfig */; };
+		C347ABD7286DECB100D4C41B /* Pods-measureAreaFramework.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C347ABB7286DECB100D4C41B /* Pods-measureAreaFramework.debug.xcconfig */; };
+		C347ABD8286DECB100D4C41B /* OpenCV.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C347ABB9286DECB100D4C41B /* OpenCV.debug.xcconfig */; };
+		C347ABD9286DECB100D4C41B /* OpenCV.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C347ABBA286DECB100D4C41B /* OpenCV.release.xcconfig */; };
+		C347ABDA286DECB100D4C41B /* Manifest.lock in Resources */ = {isa = PBXBuildFile; fileRef = C347ABBB286DECB100D4C41B /* Manifest.lock */; };
+		C347ABDB286DECB100D4C41B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C347ABBE286DECB100D4C41B /* opencv2.framework */; };
+		C347ABDC286DECB100D4C41B /* measureAreaFramework.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = C347ABC0286DECB100D4C41B /* measureAreaFramework.xcworkspace */; };
+		C347ABDD286DECB100D4C41B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C347ABC1286DECB100D4C41B /* Podfile */; };
+		C347ABDE286DECB100D4C41B /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = C347ABC2286DECB100D4C41B /* Podfile.lock */; };
+		C347ABDF286DEDA400D4C41B /* measureAreaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C347ABC5286DECB100D4C41B /* measureAreaFramework.framework */; };
+		C347ABE0286DEDA400D4C41B /* measureAreaFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C347ABC5286DECB100D4C41B /* measureAreaFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C365B60D28579604007897E0 /* PortalHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C365B60C28579604007897E0 /* PortalHUD.bundle */; };
+		C3E72AA4284BBCA800071008 /* NativeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E72AA3284BBCA800071008 /* NativeService.swift */; };
+		C3E72AA6284BBCCC00071008 /* NativeService.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E72AA5284BBCCC00071008 /* NativeService.m */; };
+		CC858312800FB26964A92AAF /* libPods-CarDamageDetect-CarDamageDetectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE05FB166AB80AF2CFA562A /* libPods-CarDamageDetect-CarDamageDetectTests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00E356F41AD99517003FC87E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
+			remoteInfo = CarDamageDetect;
+		};
+		C347ABC4286DECB100D4C41B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C347ABA7286DECB100D4C41B /* measureAreaFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A5735059285FBDCB0098BE4C;
+			remoteInfo = measureAreaFramework;
+		};
+		C347ABC8286DECB100D4C41B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C347ABAB286DECB100D4C41B /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06744C6CA5C321B623E8EEE87AEB1C73;
+			remoteInfo = "Pods-measureAreaFramework";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C347ABE1286DEDA400D4C41B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C347ABE0286DEDA400D4C41B /* measureAreaFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		00E356EE1AD99517003FC87E /* CarDamageDetectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarDamageDetectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* CarDamageDetectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarDamageDetectTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* CarDamageDetect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarDamageDetect.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = CarDamageDetect/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = CarDamageDetect/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CarDamageDetect/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CarDamageDetect/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CarDamageDetect/main.m; sourceTree = "<group>"; };
+		24B8AC1F291CD5460089DF06 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		24B8AC21291CD5520089DF06 /* TextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		24B8AC23291CD5590089DF06 /* ButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		24B8AC25291CD5600089DF06 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		24B8AC27291CD5680089DF06 /* VisionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionViewController.swift; sourceTree = "<group>"; };
+		24B8AC29291CD5730089DF06 /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		24B8AC2B291CD57C0089DF06 /* VisionMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VisionMain.storyboard; sourceTree = "<group>"; };
+		24B8AC2E291CD60D0089DF06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		24CD3FC3292374B70049899E /* HotaiAppPortalUniversalSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HotaiAppPortalUniversalSDK.framework; sourceTree = "<group>"; };
+		24D3F67728505C2500BA205F /* CarDamageDetect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = CarDamageDetect.entitlements; path = CarDamageDetect/CarDamageDetect.entitlements; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = CarDamageDetect/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		86DB3E0AA08EA7EBD5CF3192 /* Pods-CarDamageDetect-CarDamageDetectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarDamageDetect-CarDamageDetectTests.debug.xcconfig"; path = "Target Support Files/Pods-CarDamageDetect-CarDamageDetectTests/Pods-CarDamageDetect-CarDamageDetectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8AC7127810F8871BF601360D /* Pods-CarDamageDetect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarDamageDetect.debug.xcconfig"; path = "Target Support Files/Pods-CarDamageDetect/Pods-CarDamageDetect.debug.xcconfig"; sourceTree = "<group>"; };
+		90BA73E4DF2553A0AF5CA2A0 /* Pods-CarDamageDetect-CarDamageDetectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarDamageDetect-CarDamageDetectTests.release.xcconfig"; path = "Target Support Files/Pods-CarDamageDetect-CarDamageDetectTests/Pods-CarDamageDetect-CarDamageDetectTests.release.xcconfig"; sourceTree = "<group>"; };
+		97E5EFA43295DE26318EA06C /* libPods-CarDamageDetect.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CarDamageDetect.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACE5249D9605921B44008D29 /* Pods-CarDamageDetect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarDamageDetect.release.xcconfig"; path = "Target Support Files/Pods-CarDamageDetect/Pods-CarDamageDetect.release.xcconfig"; sourceTree = "<group>"; };
+		C347AB9B286DECB100D4C41B /* measureAreaFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = measureAreaFramework.h; sourceTree = "<group>"; };
+		C347AB9C286DECB100D4C41B /* MeasureAreaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureAreaViewController.swift; sourceTree = "<group>"; };
+		C347AB9D286DECB100D4C41B /* PlaneDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaneDetector.h; sourceTree = "<group>"; };
+		C347AB9E286DECB100D4C41B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C347AB9F286DECB100D4C41B /* PlaneDetector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlaneDetector.mm; sourceTree = "<group>"; };
+		C347ABA1286DECB100D4C41B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C347ABA3286DECB100D4C41B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C347ABA4286DECB100D4C41B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C347ABA5286DECB100D4C41B /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		C347ABA6286DECB100D4C41B /* MeasurementUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementUnit.swift; sourceTree = "<group>"; };
+		C347ABA7286DECB100D4C41B /* measureAreaFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = measureAreaFramework.xcodeproj; sourceTree = "<group>"; };
+		C347ABAB286DECB100D4C41B /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Pods.xcodeproj; sourceTree = "<group>"; };
+		C347ABB0286DECB100D4C41B /* Pods-measureAreaFramework.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = "Pods-measureAreaFramework.modulemap"; sourceTree = "<group>"; };
+		C347ABB1286DECB100D4C41B /* Pods-measureAreaFramework-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Pods-measureAreaFramework-acknowledgements.plist"; sourceTree = "<group>"; };
+		C347ABB2286DECB100D4C41B /* Pods-measureAreaFramework-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Pods-measureAreaFramework-Info.plist"; sourceTree = "<group>"; };
+		C347ABB3286DECB100D4C41B /* Pods-measureAreaFramework-dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Pods-measureAreaFramework-dummy.m"; sourceTree = "<group>"; };
+		C347ABB4286DECB100D4C41B /* Pods-measureAreaFramework-acknowledgements.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "Pods-measureAreaFramework-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C347ABB5286DECB100D4C41B /* Pods-measureAreaFramework-umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Pods-measureAreaFramework-umbrella.h"; sourceTree = "<group>"; };
+		C347ABB6286DECB100D4C41B /* Pods-measureAreaFramework.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Pods-measureAreaFramework.release.xcconfig"; sourceTree = "<group>"; };
+		C347ABB7286DECB100D4C41B /* Pods-measureAreaFramework.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Pods-measureAreaFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		C347ABB9286DECB100D4C41B /* OpenCV.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = OpenCV.debug.xcconfig; sourceTree = "<group>"; };
+		C347ABBA286DECB100D4C41B /* OpenCV.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = OpenCV.release.xcconfig; sourceTree = "<group>"; };
+		C347ABBB286DECB100D4C41B /* Manifest.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Manifest.lock; sourceTree = "<group>"; };
+		C347ABBE286DECB100D4C41B /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		C347ABC0286DECB100D4C41B /* measureAreaFramework.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = measureAreaFramework.xcworkspace; sourceTree = "<group>"; };
+		C347ABC1286DECB100D4C41B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		C347ABC2286DECB100D4C41B /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
+		C365B60C28579604007897E0 /* PortalHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PortalHUD.bundle; sourceTree = "<group>"; };
+		C3E72AA2284BBCA700071008 /* CarDamageDetect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CarDamageDetect-Bridging-Header.h"; sourceTree = "<group>"; };
+		C3E72AA3284BBCA800071008 /* NativeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeService.swift; sourceTree = "<group>"; };
+		C3E72AA5284BBCCC00071008 /* NativeService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeService.m; sourceTree = "<group>"; };
+		CEE05FB166AB80AF2CFA562A /* libPods-CarDamageDetect-CarDamageDetectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CarDamageDetect-CarDamageDetectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00E356EB1AD99517003FC87E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC858312800FB26964A92AAF /* libPods-CarDamageDetect-CarDamageDetectTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C347ABDF286DEDA400D4C41B /* measureAreaFramework.framework in Frameworks */,
+				C347ABDB286DECB100D4C41B /* opencv2.framework in Frameworks */,
+				2AD3F7CBF3BC7F897BE1817D /* libPods-CarDamageDetect.a in Frameworks */,
+				24CD3FC7292374B70049899E /* HotaiAppPortalUniversalSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00E356EF1AD99517003FC87E /* CarDamageDetectTests */ = {
+			isa = PBXGroup;
+			children = (
+				00E356F21AD99517003FC87E /* CarDamageDetectTests.m */,
+				00E356F01AD99517003FC87E /* Supporting Files */,
+			);
+			path = CarDamageDetectTests;
+			sourceTree = "<group>";
+		};
+		00E356F01AD99517003FC87E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				00E356F11AD99517003FC87E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		13B07FAE1A68108700A75B9A /* CarDamageDetect */ = {
+			isa = PBXGroup;
+			children = (
+				24CD3FC3292374B70049899E /* HotaiAppPortalUniversalSDK.framework */,
+				24D3F67728505C2500BA205F /* CarDamageDetect.entitlements */,
+				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				13B07FB61A68108700A75B9A /* Info.plist */,
+				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
+				13B07FB71A68108700A75B9A /* main.m */,
+				C3E72AA2284BBCA700071008 /* CarDamageDetect-Bridging-Header.h */,
+				C365B60C28579604007897E0 /* PortalHUD.bundle */,
+			);
+			name = CarDamageDetect;
+			sourceTree = "<group>";
+		};
+		24B8AC1B291CD5170089DF06 /* VisionScan */ = {
+			isa = PBXGroup;
+			children = (
+				24B8AC2E291CD60D0089DF06 /* Assets.xcassets */,
+				24B8AC2D291CD5880089DF06 /* fonts */,
+				24B8AC2B291CD57C0089DF06 /* VisionMain.storyboard */,
+				24B8AC29291CD5730089DF06 /* StringUtils.swift */,
+				24B8AC27291CD5680089DF06 /* VisionViewController.swift */,
+				24B8AC25291CD5600089DF06 /* ViewController.swift */,
+				24B8AC23291CD5590089DF06 /* ButtonView.swift */,
+				24B8AC21291CD5520089DF06 /* TextFieldView.swift */,
+				24B8AC1F291CD5460089DF06 /* PreviewView.swift */,
+			);
+			path = VisionScan;
+			sourceTree = "<group>";
+		};
+		24B8AC2D291CD5880089DF06 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
+				97E5EFA43295DE26318EA06C /* libPods-CarDamageDetect.a */,
+				CEE05FB166AB80AF2CFA562A /* libPods-CarDamageDetect-CarDamageDetectTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5BA83E780C3485ED754F9071 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8AC7127810F8871BF601360D /* Pods-CarDamageDetect.debug.xcconfig */,
+				ACE5249D9605921B44008D29 /* Pods-CarDamageDetect.release.xcconfig */,
+				86DB3E0AA08EA7EBD5CF3192 /* Pods-CarDamageDetect-CarDamageDetectTests.debug.xcconfig */,
+				90BA73E4DF2553A0AF5CA2A0 /* Pods-CarDamageDetect-CarDamageDetectTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		83CBB9F61A601CBA00E9B192 = {
+			isa = PBXGroup;
+			children = (
+				24B8AC1B291CD5170089DF06 /* VisionScan */,
+				C347AB99286DECB100D4C41B /* measureAreaFramework */,
+				C3E72AA1284BBC9000071008 /* Bridge */,
+				13B07FAE1A68108700A75B9A /* CarDamageDetect */,
+				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				00E356EF1AD99517003FC87E /* CarDamageDetectTests */,
+				83CBBA001A601CBA00E9B192 /* Products */,
+				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				5BA83E780C3485ED754F9071 /* Pods */,
+			);
+			indentWidth = 2;
+			sourceTree = "<group>";
+			tabWidth = 2;
+			usesTabs = 0;
+		};
+		83CBBA001A601CBA00E9B192 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13B07F961A680F5B00A75B9A /* CarDamageDetect.app */,
+				00E356EE1AD99517003FC87E /* CarDamageDetectTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C347AB99286DECB100D4C41B /* measureAreaFramework */ = {
+			isa = PBXGroup;
+			children = (
+				C347AB9A286DECB100D4C41B /* measureAreaFramework */,
+				C347ABA7286DECB100D4C41B /* measureAreaFramework.xcodeproj */,
+				C347ABAA286DECB100D4C41B /* Pods */,
+				C347ABC0286DECB100D4C41B /* measureAreaFramework.xcworkspace */,
+				C347ABC1286DECB100D4C41B /* Podfile */,
+				C347ABC2286DECB100D4C41B /* Podfile.lock */,
+			);
+			path = measureAreaFramework;
+			sourceTree = "<group>";
+		};
+		C347AB9A286DECB100D4C41B /* measureAreaFramework */ = {
+			isa = PBXGroup;
+			children = (
+				C347AB9B286DECB100D4C41B /* measureAreaFramework.h */,
+				C347AB9C286DECB100D4C41B /* MeasureAreaViewController.swift */,
+				C347AB9D286DECB100D4C41B /* PlaneDetector.h */,
+				C347AB9E286DECB100D4C41B /* Assets.xcassets */,
+				C347AB9F286DECB100D4C41B /* PlaneDetector.mm */,
+				C347ABA0286DECB100D4C41B /* LaunchScreen.storyboard */,
+				C347ABA2286DECB100D4C41B /* Main.storyboard */,
+				C347ABA4286DECB100D4C41B /* Extensions.swift */,
+				C347ABA5286DECB100D4C41B /* Utility.swift */,
+				C347ABA6286DECB100D4C41B /* MeasurementUnit.swift */,
+			);
+			path = measureAreaFramework;
+			sourceTree = "<group>";
+		};
+		C347ABA8286DECB100D4C41B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C347ABC5286DECB100D4C41B /* measureAreaFramework.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C347ABAA286DECB100D4C41B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C347ABAB286DECB100D4C41B /* Pods.xcodeproj */,
+				C347ABAE286DECB100D4C41B /* Target Support Files */,
+				C347ABBB286DECB100D4C41B /* Manifest.lock */,
+				C347ABBC286DECB100D4C41B /* Local Podspecs */,
+				C347ABBD286DECB100D4C41B /* OpenCV */,
+				C347ABBF286DECB100D4C41B /* Headers */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C347ABAC286DECB100D4C41B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C347ABC9286DECB100D4C41B /* Pods-measureAreaFramework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C347ABAE286DECB100D4C41B /* Target Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C347ABAF286DECB100D4C41B /* Pods-measureAreaFramework */,
+				C347ABB8286DECB100D4C41B /* OpenCV */,
+			);
+			path = "Target Support Files";
+			sourceTree = "<group>";
+		};
+		C347ABAF286DECB100D4C41B /* Pods-measureAreaFramework */ = {
+			isa = PBXGroup;
+			children = (
+				C347ABB0286DECB100D4C41B /* Pods-measureAreaFramework.modulemap */,
+				C347ABB1286DECB100D4C41B /* Pods-measureAreaFramework-acknowledgements.plist */,
+				C347ABB2286DECB100D4C41B /* Pods-measureAreaFramework-Info.plist */,
+				C347ABB3286DECB100D4C41B /* Pods-measureAreaFramework-dummy.m */,
+				C347ABB4286DECB100D4C41B /* Pods-measureAreaFramework-acknowledgements.markdown */,
+				C347ABB5286DECB100D4C41B /* Pods-measureAreaFramework-umbrella.h */,
+				C347ABB6286DECB100D4C41B /* Pods-measureAreaFramework.release.xcconfig */,
+				C347ABB7286DECB100D4C41B /* Pods-measureAreaFramework.debug.xcconfig */,
+			);
+			path = "Pods-measureAreaFramework";
+			sourceTree = "<group>";
+		};
+		C347ABB8286DECB100D4C41B /* OpenCV */ = {
+			isa = PBXGroup;
+			children = (
+				C347ABB9286DECB100D4C41B /* OpenCV.debug.xcconfig */,
+				C347ABBA286DECB100D4C41B /* OpenCV.release.xcconfig */,
+			);
+			path = OpenCV;
+			sourceTree = "<group>";
+		};
+		C347ABBC286DECB100D4C41B /* Local Podspecs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Local Podspecs";
+			sourceTree = "<group>";
+		};
+		C347ABBD286DECB100D4C41B /* OpenCV */ = {
+			isa = PBXGroup;
+			children = (
+				C347ABBE286DECB100D4C41B /* opencv2.framework */,
+			);
+			path = OpenCV;
+			sourceTree = "<group>";
+		};
+		C347ABBF286DECB100D4C41B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		C3E72AA1284BBC9000071008 /* Bridge */ = {
+			isa = PBXGroup;
+			children = (
+				C3E72AA3284BBCA800071008 /* NativeService.swift */,
+				C3E72AA5284BBCCC00071008 /* NativeService.m */,
+			);
+			path = Bridge;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00E356ED1AD99517003FC87E /* CarDamageDetectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "CarDamageDetectTests" */;
+			buildPhases = (
+				B39D8D0AFBD87624EB936090 /* [CP] Check Pods Manifest.lock */,
+				00E356EA1AD99517003FC87E /* Sources */,
+				00E356EB1AD99517003FC87E /* Frameworks */,
+				00E356EC1AD99517003FC87E /* Resources */,
+				EAE74014CEEF6DEF00ADCA54 /* [CP] Embed Pods Frameworks */,
+				8A9C70F786738F3CD136C501 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00E356F51AD99517003FC87E /* PBXTargetDependency */,
+			);
+			name = CarDamageDetectTests;
+			productName = CarDamageDetectTests;
+			productReference = 00E356EE1AD99517003FC87E /* CarDamageDetectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		13B07F861A680F5B00A75B9A /* CarDamageDetect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "CarDamageDetect" */;
+			buildPhases = (
+				D441E85A703CE62BBE3FEFBE /* [CP] Check Pods Manifest.lock */,
+				FD10A7F022414F080027D42C /* Start Packager */,
+				13B07F871A680F5B00A75B9A /* Sources */,
+				13B07F8C1A680F5B00A75B9A /* Frameworks */,
+				13B07F8E1A680F5B00A75B9A /* Resources */,
+				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				C347ABE1286DEDA400D4C41B /* Embed Frameworks */,
+				6E1EA9C2E49A2A51EBA6E0D4 /* [CP] Embed Pods Frameworks */,
+				4F61D37FE4542E0565F73DCB /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CarDamageDetect;
+			productName = CarDamageDetect;
+			productReference = 13B07F961A680F5B00A75B9A /* CarDamageDetect.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83CBB9F71A601CBA00E9B192 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					00E356ED1AD99517003FC87E = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						LastSwiftMigration = 1330;
+					};
+				};
+			};
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "CarDamageDetect" */;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 83CBB9F61A601CBA00E9B192;
+			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C347ABA8286DECB100D4C41B /* Products */;
+					ProjectRef = C347ABA7286DECB100D4C41B /* measureAreaFramework.xcodeproj */;
+				},
+				{
+					ProductGroup = C347ABAC286DECB100D4C41B /* Products */;
+					ProjectRef = C347ABAB286DECB100D4C41B /* Pods.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				13B07F861A680F5B00A75B9A /* CarDamageDetect */,
+				00E356ED1AD99517003FC87E /* CarDamageDetectTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C347ABC5286DECB100D4C41B /* measureAreaFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = measureAreaFramework.framework;
+			remoteRef = C347ABC4286DECB100D4C41B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C347ABC9286DECB100D4C41B /* Pods-measureAreaFramework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			name = "Pods-measureAreaFramework";
+			path = Pods_measureAreaFramework.framework;
+			remoteRef = C347ABC8286DECB100D4C41B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00E356EC1AD99517003FC87E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F8E1A680F5B00A75B9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				C347ABD2286DECB100D4C41B /* Pods-measureAreaFramework-acknowledgements.plist in Resources */,
+				C347ABDE286DECB100D4C41B /* Podfile.lock in Resources */,
+				24B8AC2F291CD60D0089DF06 /* Assets.xcassets in Resources */,
+				C365B60D28579604007897E0 /* PortalHUD.bundle in Resources */,
+				C347ABD3286DECB100D4C41B /* Pods-measureAreaFramework-Info.plist in Resources */,
+				C347ABD5286DECB100D4C41B /* Pods-measureAreaFramework-acknowledgements.markdown in Resources */,
+				C347ABD7286DECB100D4C41B /* Pods-measureAreaFramework.debug.xcconfig in Resources */,
+				C347ABDC286DECB100D4C41B /* measureAreaFramework.xcworkspace in Resources */,
+				C347ABCB286DECB100D4C41B /* Assets.xcassets in Resources */,
+				C347ABD6286DECB100D4C41B /* Pods-measureAreaFramework.release.xcconfig in Resources */,
+				C347ABD9286DECB100D4C41B /* OpenCV.release.xcconfig in Resources */,
+				C347ABDD286DECB100D4C41B /* Podfile in Resources */,
+				C347ABD8286DECB100D4C41B /* OpenCV.debug.xcconfig in Resources */,
+				C347ABCE286DECB100D4C41B /* Main.storyboard in Resources */,
+				C347ABDA286DECB100D4C41B /* Manifest.lock in Resources */,
+				C347ABCD286DECB100D4C41B /* LaunchScreen.storyboard in Resources */,
+				24B8AC2C291CD57C0089DF06 /* VisionMain.storyboard in Resources */,
+				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		4F61D37FE4542E0565F73DCB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarDamageDetect/Pods-CarDamageDetect-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarDamageDetect/Pods-CarDamageDetect-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CarDamageDetect/Pods-CarDamageDetect-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E1EA9C2E49A2A51EBA6E0D4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarDamageDetect/Pods-CarDamageDetect-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarDamageDetect/Pods-CarDamageDetect-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CarDamageDetect/Pods-CarDamageDetect-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A9C70F786738F3CD136C501 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarDamageDetect-CarDamageDetectTests/Pods-CarDamageDetect-CarDamageDetectTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarDamageDetect-CarDamageDetectTests/Pods-CarDamageDetect-CarDamageDetectTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CarDamageDetect-CarDamageDetectTests/Pods-CarDamageDetect-CarDamageDetectTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B39D8D0AFBD87624EB936090 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CarDamageDetect-CarDamageDetectTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D441E85A703CE62BBE3FEFBE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CarDamageDetect-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAE74014CEEF6DEF00ADCA54 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarDamageDetect-CarDamageDetectTests/Pods-CarDamageDetect-CarDamageDetectTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarDamageDetect-CarDamageDetectTests/Pods-CarDamageDetect-CarDamageDetectTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CarDamageDetect-CarDamageDetectTests/Pods-CarDamageDetect-CarDamageDetectTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD10A7F022414F080027D42C /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00E356EA1AD99517003FC87E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00E356F31AD99517003FC87E /* CarDamageDetectTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F871A680F5B00A75B9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				24B8AC22291CD5520089DF06 /* TextFieldView.swift in Sources */,
+				C347ABCA286DECB100D4C41B /* MeasureAreaViewController.swift in Sources */,
+				24B8AC24291CD5590089DF06 /* ButtonView.swift in Sources */,
+				C347ABCC286DECB100D4C41B /* PlaneDetector.mm in Sources */,
+				24B8AC20291CD5460089DF06 /* PreviewView.swift in Sources */,
+				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				C347ABD1286DECB100D4C41B /* MeasurementUnit.swift in Sources */,
+				C347ABD0286DECB100D4C41B /* Utility.swift in Sources */,
+				24B8AC26291CD5610089DF06 /* ViewController.swift in Sources */,
+				C3E72AA6284BBCCC00071008 /* NativeService.m in Sources */,
+				24B8AC28291CD5680089DF06 /* VisionViewController.swift in Sources */,
+				24B8AC2A291CD5730089DF06 /* StringUtils.swift in Sources */,
+				C347ABD4286DECB100D4C41B /* Pods-measureAreaFramework-dummy.m in Sources */,
+				C3E72AA4284BBCA800071008 /* NativeService.swift in Sources */,
+				C347ABCF286DECB100D4C41B /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B07F861A680F5B00A75B9A /* CarDamageDetect */;
+			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C347ABA0286DECB100D4C41B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C347ABA1286DECB100D4C41B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C347ABA2286DECB100D4C41B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C347ABA3286DECB100D4C41B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		00E356F61AD99517003FC87E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86DB3E0AA08EA7EBD5CF3192 /* Pods-CarDamageDetect-CarDamageDetectTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CarDamageDetectTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarDamageDetect.app/CarDamageDetect";
+			};
+			name = Debug;
+		};
+		00E356F71AD99517003FC87E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90BA73E4DF2553A0AF5CA2A0 /* Pods-CarDamageDetect-CarDamageDetectTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = CarDamageDetectTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarDamageDetect.app/CarDamageDetect";
+			};
+			name = Release;
+		};
+		13B07F941A680F5B00A75B9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AC7127810F8871BF601360D /* Pods-CarDamageDetect.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CarDamageDetect/CarDamageDetect.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 28;
+				DEVELOPMENT_TEAM = BRAT5675T3;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = BRAT5675T3;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/measureAreaFramework/Pods/OpenCV",
+				);
+				INFOPLIST_FILE = CarDamageDetect/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "智能估價";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.2.5;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hotai.evaapp;
+				PRODUCT_NAME = CarDamageDetect;
+				PROVISIONING_PROFILE_SPECIFIER = "202201 Hotai EVAAPP Dev";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "202201 Hotai EVAAPP";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "CarDamageDetect-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		13B07F951A680F5B00A75B9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACE5249D9605921B44008D29 /* Pods-CarDamageDetect.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CarDamageDetect/CarDamageDetect.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 28;
+				DEVELOPMENT_TEAM = BRAT5675T3;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = BRAT5675T3;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/measureAreaFramework/Pods/OpenCV",
+				);
+				INFOPLIST_FILE = CarDamageDetect/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "智能估價";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.2.5;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hotai.evaapp;
+				PRODUCT_NAME = CarDamageDetect;
+				PROVISIONING_PROFILE_SPECIFIER = "202201 Hotai EVAAPP Dev";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "202201 Hotai EVAAPP";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "CarDamageDetect-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		83CBBA201A601CBA00E9B192 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		83CBBA211A601CBA00E9B192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "CarDamageDetectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00E356F61AD99517003FC87E /* Debug */,
+				00E356F71AD99517003FC87E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "CarDamageDetect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13B07F941A680F5B00A75B9A /* Debug */,
+				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "CarDamageDetect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83CBBA201A601CBA00E9B192 /* Debug */,
+				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
+}

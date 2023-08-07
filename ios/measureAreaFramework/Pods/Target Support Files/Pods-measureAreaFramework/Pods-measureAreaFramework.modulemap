@@ -1,0 +1,6 @@
+framework module Pods_measureAreaFramework {
+  umbrella header "Pods-measureAreaFramework-umbrella.h"
+
+  export *
+  module * { export * }
+}

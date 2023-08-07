@@ -1,0 +1,155 @@
+/* 
+  File.strings
+  HotaiAppPortalUniversal
+
+  Created by weiwu on 2018/1/5.
+  Copyright © 2018年 weiwu. All rights reserved.
+*/
+
+common_btn_0 = "請稍候";
+common_btn_1 = "確定";
+common_btn_2 = "取消";
+common_btn_3 = "是";
+common_btn_4 = "否";
+common_btn_5 = "完成";
+common_btn_6 = "同意";
+common_btn_7 = "不同意";
+common_btn_8 = "確認";
+common_btn_9 = "送出";
+common_btn_10 = "重新連線";
+common_btn_11 = "返回上頁";
+common_btn_12 = "回到首頁";
+common_btn_13 = "更多";
+common_btn_14 = "返回";
+common_btn_15 = "關閉";
+common_btn_16 = "登入";
+common_btn_17 = "登出";
+common_btn_18 = "使用模擬登入";
+common_btn_19 = "結束模擬";
+common_btn_20 = "返回";
+common_btn_21 = "強制更新";
+common_btn_22= "直接開啟";
+common_btn_23 = "更新";
+common_btn_24 = "生物辨識登入";
+common_btn_25_1 = "(限和泰)輸入開機帳號";
+common_btn_25_2 = "輸入員工編號";
+common_btn_26 = "＊Domain登入僅限和泰使用，非和泰員工請勿勾選";
+
+common_text_0 = "推薦";
+common_text_1 = "已安裝";
+common_text_2 = "未安裝";
+common_text_3 = "使用者登入";
+common_text_4 = "員工編號";
+common_text_5 = "經銷商";
+common_text_6 = "營業所";
+common_text_7 = "和泰汽車";
+common_text_8 = "APP列表";
+common_text_9 = "公告消息";
+common_text_10 = "今天";
+common_text_11 = "沒有更多%@，回到最上";
+common_text_12 = "消息";
+common_text_13_1 = "Welcome back to";
+common_text_13_2 = "Welcome %@ back to";
+common_text_13_3_1 = "Welcome!";
+common_text_13_3_2 = "Welcome! %@";
+common_text_14 = "員編";
+common_text_15 = "版本";
+common_text_16 = "安裝";
+common_text_17 = "最新版本";
+common_text_18 = "請點擊開啟或安裝最新版本";    //請點擊安裝下載或開啟QRcode
+common_text_19 = "以拖曳來編排順序";
+common_text_20 = "目前沒有App可供下載";
+common_text_21 = "此篇為最上一則";
+common_text_22 = "此篇為最下一則";
+common_text_23 = "開啟";
+common_text_24 = "處理中，請稍候";
+common_text_25 = "請輸入帳號";
+common_text_26 = "請輸入密碼";
+common_text_27 = "請輸入員工編號";
+common_text_28 = "請輸入舊密碼";
+common_text_29 = "請輸入新密碼";
+common_text_30 = "請輸入確認密碼";
+common_text_31 = "新密碼與確認密碼不符";
+common_text_32 = "登入資料同步中...";
+
+announce_news_text_0 = "more";
+
+account_edit_0 = "帳號  ";
+account_edit_1 = "舊密碼  ";
+account_edit_2 = "新密碼  ";
+account_edit_3 = "確認密碼  ";
+account_edit_4 = "變更密碼";
+account_edit_5 = "密碼  ";
+
+login_text_0 = "模擬登入";
+login_text_1 = "員工編號";
+login_text_2 = "經銷商";
+login_text_3 = "營業所";
+login_text_4 = "記住帳號";
+login_text_5 = "Domain";
+login_text_6 = "使用模擬登入";
+login_text_7 = "使用生物辨識登入";
+
+user_info_text_0 = "使用者";
+user_info_text_1 = "職稱";
+user_info_text_2 = "經銷商";
+user_info_text_3 = "營業所";
+user_info_text_4 = "和泰汽車";
+user_info_text_5 = "凌志汽車";
+user_info_text_6 = "日野汽車";
+user_info_text_7 = "版本";
+
+sort_btn_text_0 = "回復預設值";
+sort_btn_text_1 = "儲存";
+
+news_detail_text_0 = "上一則";
+news_detail_text_1 = "下一則";
+
+alert_text_0 = "請檢查網路連線";
+alert_text_1 = "連線錯誤";
+alert_text_2 = "強制更新";
+alert_text_3 = "版本更新";
+alert_text_4_1 = "請強制更新App Portal。";
+alert_text_4_2 = "您可以更新App Portal，\n或是直接開啟現有版本。";
+alert_text_5 = "App Portal 有新版本";
+alert_text_6 = "有新的版本";
+alert_text_7_1 = "提醒";
+alert_text_7_2_1 = "此裝置尚未支援生物辨識功能";
+alert_text_7_2_2 = "此裝置生物辨識功能尚未啟用";
+alert_text_7_2_3 = "啟用生物辨識功能之前，請先設定密碼";
+alert_text_7_2_4 = "此裝置生物辨識功能已被鎖定";
+alert_text_7_3 = "欲使用生物辨識登入服務者，需先輸入一次帳號和密碼，以確保您的資料正確性";
+alert_text_7_4 = "此次登入者與前次不同，生物辨識功能會自動取消";
+alert_text_8_1 = "離線已超過7日，請連網路重新登入";
+alert_text_8_2 = "離線登入";
+alert_text_8_3 = "身份驗證成功。";
+alert_text_8_4 = "密碼錯誤！";
+alert_text_8_5 = "無登入資訊。";
+alert_text_9 = "您尚未申請此App可用的被模擬對象，將由您的身分登入";
+alert_text_10_1 = "版本更新";
+alert_text_10_2 = "目前有新版本，請先安裝最新版，再行使用。";
+alert_text_10_3 = "確定";
+
+alert_text_system_1 = "系統狀態驗證中...";
+alert_text_system_2 = "系統維護暫停服務";
+alert_text_system_3 = "無法解析的訊息格式";
+alert_text_system_4 = "未知的例外錯誤";
+
+simulation_view_text_0 = "模擬登入對象選擇";
+simulation_view_text_1 = "以自己身份登入使用";
+simulation_view_text_2 = "以模擬身份登入使用";
+simulation_view_text_3_1 = "和泰";
+simulation_view_text_3_2 = "TOYOTA";
+simulation_view_text_3_3 = "LEXUS";
+simulation_view_text_3_4 = "其他";
+
+scenario_text_1 = "提醒";
+scenario_text_2 = "請先確認網路連線是否正常，再進行後續動作。";
+//scenario_text_3_1 = "裝置未連上網路(離線)";
+//scenario_text_3_2 = "裝置未連上網路(離線)，執行離線登入";
+//scenario_text_4 = "無登入資料，請重新登入";
+//scenario_text_5 = "已超過七天閒置時間，請重新登入";
+//scenario_text_6 = "用戶尚未登入，請重新登入";
+scenario_text_7 = "已超過系統閒置時間，請重新登入";
+scenario_text_8 = "裝置沒有該APP的被模擬者資料，開啟模擬登入頁面";
+//scenario_text_9 = "以前次操作此APP的用戶或被模擬身份繼續使用APP";
