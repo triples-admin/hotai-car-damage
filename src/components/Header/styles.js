@@ -1,5 +1,5 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import {colors} from '../../theme';
+import { StyleSheet, Dimensions } from 'react-native';
+import { colors } from '../../theme';
 
 export default StyleSheet.create({
   container: {
@@ -10,9 +10,7 @@ export default StyleSheet.create({
     backgroundColor: colors.primary,
     flexDirection: 'row',
     alignItems: 'center',
-    borderBottomLeftRadius: 24,
-    borderBottomRightRadius: 24,
-    minHeight: 55,
+    minHeight: 70,
   },
   viewTextHeader: {
     paddingVertical: 8,
@@ -24,11 +22,11 @@ export default StyleSheet.create({
     fontSize: 18,
     color: colors.white,
     fontWeight: '600',
-    marginLeft: 20
+    marginLeft: 30
   },
   textHeader: {
-    fontSize: 32,
-    color: colors.white,
+    fontSize: 36,
+    color: colors.lightBlue,
     fontWeight: 'bold',
   },
   buttonLogout: {
@@ -36,23 +34,24 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft: 10,
-    marginRight: 20,
+    marginRight: 30,
     borderRadius: 50,
   },
   textLogout: {
     fontSize: 20,
-    color: colors.secondary,
+    color: colors.primary,
     paddingHorizontal: 32,
     paddingVertical: 4,
+    lineHeight: 30,
   },
   viewImageBack: {
     paddingLeft: 20,
     paddingRight: 10,
   },
-  imageBack: {height: 28, width: 28},
+  imageBack: { height: 28, width: 28 },
   viewImageHome: {
     paddingLeft: 15,
     paddingRight: 15
   },
-  imageHome: {height: 36, width: 36, tintColor: 'white'},
+  imageHome: { height: 36, width: 36, tintColor: 'white' },
 });

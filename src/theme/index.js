@@ -1,7 +1,7 @@
-import {Platform} from 'react-native';
+import { Platform } from 'react-native';
 
 export const colors = {
-    primary: '#FD9702',
+    primary: '#1E2832',
     secondary: '#FE4301',
     third: '#FFC700',
     background: '#F6F6F6',
@@ -22,5 +22,6 @@ export const colors = {
     royalBlue: '#007AFF',
     backgroundSecondFlatList: '#FFF8E7',
     backgroundDisable: '#ECEEF0',
-    yellow: '#FFD700'
+    yellow: '#FFD700',
+    lightBlue: '#AED2E1',
 };

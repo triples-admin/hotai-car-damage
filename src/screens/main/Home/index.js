@@ -12,20 +12,20 @@ import {
   FlatList,
   KeyboardAvoidingView,
 } from 'react-native';
-import React, {useState, useRef, useEffect, useCallback} from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import styles from './styles';
-import {icons} from '../../../assets';
+import { icons } from '../../../assets';
 import Header from '../../../components/Header';
-import {routes} from '../../../navigation/routes';
-import {useNavigation} from '@react-navigation/native';
-import {TextInput} from 'react-native-gesture-handler';
-import {SwipeListView} from 'react-native-swipe-list-view';
-import {colors} from '../../../theme';
+import { routes } from '../../../navigation/routes';
+import { useNavigation } from '@react-navigation/native';
+import { TextInput } from 'react-native-gesture-handler';
+import { SwipeListView } from 'react-native-swipe-list-view';
+import { colors } from '../../../theme';
 import caseListPageStorage from '../../../api/storage/caseListPage';
 import authenStorage from '../../../api/storage/authen';
 import caseListPageAPI from '../../../api/axios/caseListPage';
 import procedureAPI from '../../../api/axios/procedure';
-import {convertFromDate} from '../../../utils/utils';
+import { convertFromDate } from '../../../utils/utils';
 import i18n from '../../../utils/i18n';
 import LoadingView from '../../../components/Loading';
 import {
@@ -53,7 +53,7 @@ const HomeScreen = () => {
   // const [sortName, setSortName] = useState(false);
   // const [sortCaseNo, setSortCaseNo] = useState(false);
 
-  const [headerSort, setHeaderSort] = useState({position: 0, arrow: false});
+  const [headerSort, setHeaderSort] = useState({ position: 0, arrow: false });
 
   const bkCaseList = useRef();
   const [filterd, setFilterd] = useState([]);
@@ -302,7 +302,7 @@ const HomeScreen = () => {
     let newList = bkCaseList.current;
     for (let i = newList.length - 1; i >= 0; i--) {
       if (newList[i]?.selected) {
-        const temp = {...newList[i]};
+        const temp = { ...newList[i] };
         deleteList.push(temp);
         newList.splice(i, 1);
       }
@@ -324,36 +324,36 @@ const HomeScreen = () => {
     return (
       <View>
         {progress == 1 ? ( // license plate
-          <View style={{flexDirection: 'row'}}>
-            <View style={{...styles.viewImageProgress}}>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_complete_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_complete_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_complete_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_complete_icon}
@@ -362,36 +362,36 @@ const HomeScreen = () => {
             </View>
           </View>
         ) : progress == 2 ? ( // document photo
-          <View style={{flexDirection: 'row'}}>
-            <View style={{...styles.viewImageProgress}}>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_complete_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_complete_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_complete_icon}
@@ -400,36 +400,36 @@ const HomeScreen = () => {
             </View>
           </View>
         ) : progress == 3 || progress == 4 ? ( // damage part select
-          <View style={{flexDirection: 'row'}}>
-            <View style={{...styles.viewImageProgress}}>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_complete_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_complete_icon}
@@ -438,36 +438,36 @@ const HomeScreen = () => {
             </View>
           </View>
         ) : progress == 5 || progress == 6 ? (
-          <View style={{flexDirection: 'row'}}>
-            <View style={{...styles.viewImageProgress}}>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_complete_icon}
@@ -476,36 +476,36 @@ const HomeScreen = () => {
             </View>
           </View>
         ) : (
-          <View style={{flexDirection: 'row'}}>
-            <View style={{...styles.viewImageProgress}}>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
                 style={styles.imageProgress}
               />
             </View>
-            <View style={{...styles.viewImageProgress}}>
+            <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
@@ -522,70 +522,70 @@ const HomeScreen = () => {
   const onPressHeaderSortItem = numberSort => {
     if (numberSort == 1) {
       if (headerSort.arrow === true) {
-        setHeaderSort({position: 1, arrow: false});
+        setHeaderSort({ position: 1, arrow: false });
         filterd.sort((a, b) => (a.licensePlate > b.licensePlate ? 1 : -1));
       } else {
-        setHeaderSort({position: 1, arrow: true});
+        setHeaderSort({ position: 1, arrow: true });
         filterd.sort((a, b) => (a.licensePlate < b.licensePlate ? 1 : -1));
       }
     } else if (numberSort == 2) {
       if (headerSort.arrow === true) {
-        setHeaderSort({position: 2, arrow: false});
+        setHeaderSort({ position: 2, arrow: false });
         filterd.sort((a, b) => (a.createdTime > b.createdTime ? 1 : -1));
       } else {
-        setHeaderSort({position: 2, arrow: true});
+        setHeaderSort({ position: 2, arrow: true });
         filterd.sort((a, b) => (a.createdTime < b.createdTime ? 1 : -1));
       }
     } else if (numberSort == 3) {
       if (headerSort.arrow === true) {
-        setHeaderSort({position: 3, arrow: false});
+        setHeaderSort({ position: 3, arrow: false });
         filterd.sort((a, b) => (a.progress > b.progress ? 1 : -1));
       } else {
-        setHeaderSort({position: 3, arrow: true});
+        setHeaderSort({ position: 3, arrow: true });
         filterd.sort((a, b) => (a.progress < b.progress ? 1 : -1));
       }
     } else if (numberSort == 4) {
       if (headerSort.arrow === true) {
-        setHeaderSort({position: 4, arrow: false});
+        setHeaderSort({ position: 4, arrow: false });
         filterd.sort((a, b) =>
           a.assessment?.insuranceCompany?.label >
-          b.assessment?.insuranceCompany?.label
+            b.assessment?.insuranceCompany?.label
             ? 1
             : -1,
         );
       } else {
-        setHeaderSort({position: 4, arrow: true});
+        setHeaderSort({ position: 4, arrow: true });
         filterd.sort((a, b) =>
           a.assessment?.insuranceCompany?.label <
-          b.assessment?.insuranceCompany?.label
+            b.assessment?.insuranceCompany?.label
             ? 1
             : -1,
         );
       }
     } else if (numberSort == 5) {
       if (headerSort.arrow === true) {
-        setHeaderSort({position: 5, arrow: false});
+        setHeaderSort({ position: 5, arrow: false });
         filterd.sort((a, b) => (a.source > b.source ? 1 : -1));
       } else {
-        setHeaderSort({position: 5, arrow: true});
+        setHeaderSort({ position: 5, arrow: true });
         filterd.sort((a, b) => (a.source < b.source ? 1 : -1));
       }
     } else if (numberSort == 6) {
       if (headerSort.arrow === true) {
-        setHeaderSort({position: 6, arrow: false});
+        setHeaderSort({ position: 6, arrow: false });
         filterd.sort((a, b) => (a.name > b.name ? 1 : -1));
       } else {
-        setHeaderSort({position: 6, arrow: true});
+        setHeaderSort({ position: 6, arrow: true });
         filterd.sort((a, b) => (a.name < b.name ? 1 : -1));
       }
     } else {
       if (headerSort.arrow === true) {
-        setHeaderSort({position: 7, arrow: false});
+        setHeaderSort({ position: 7, arrow: false });
         filterd.sort((a, b) =>
           a.assessment?.caseNumber > b.assessment?.caseNumber ? 1 : -1,
         );
       } else {
-        setHeaderSort({position: 7, arrow: true});
+        setHeaderSort({ position: 7, arrow: true });
         filterd.sort((a, b) =>
           a.assessment?.caseNumber < b.assessment?.caseNumber ? 1 : -1,
         );
@@ -594,7 +594,7 @@ const HomeScreen = () => {
   };
 
   const onPressNewCase = async () => {
-    navigation.navigate(routes.LICENSEPLATESCREEN, {authen: authen});
+    navigation.navigate(routes.LICENSEPLATESCREEN, { authen: authen });
   };
 
   const checkShowDeleteItem = arrData => {
@@ -627,7 +627,7 @@ const HomeScreen = () => {
         style={styles.viewInFormBody}
         onPress={() => onPressItemCase(item)}>
         <View
-          style={[styles.viewItemInFormBody, {minHeight: 100, marginTop: 10}]}>
+          style={[styles.viewItemInFormBody, { minHeight: 100, marginTop: 10 }]}>
           <View style={[styles.viewCheckBoxItem, {}]}>
             <TouchableOpacity
               onPress={() => onPressSelectedRemove(item)}
@@ -651,7 +651,7 @@ const HomeScreen = () => {
             </TouchableOpacity>
           </View>
           <View style={styles.viewItemInForm}>
-            <Text style={[styles.textItemInForm, , {color: colors.primary}]}>
+            <Text style={[styles.textItemInForm, , { color: colors.primary }]}>
               {item?.licensePlate.toUpperCase()}
             </Text>
           </View>
@@ -697,16 +697,16 @@ const HomeScreen = () => {
     );
   };
 
-  const _renderHide = ({item, index}) => {
+  const _renderHide = ({ item, index }) => {
     return (
       <TouchableOpacity
         onPress={() => DeleteButtonAlert(item)}
-        style={[styles.buttonDeleteHide, {minHeight: 100, marginTop: 10}]}>
+        style={[styles.buttonDeleteHide, { minHeight: 100, marginTop: 10 }]}>
         <View style={styles.viewImageDeleteHide}>
           <Image
             resizeMode="contain"
             source={icons.trash_icon}
-            style={{height: 35, width: 35}}
+            style={{ height: 35, width: 35 }}
           />
         </View>
       </TouchableOpacity>
@@ -767,7 +767,7 @@ const HomeScreen = () => {
             onPress={() => onPressSelectedAll()}
             style={[
               styles.viewCheckBoxForm,
-              {backgroundColor: !selectedAll ? colors.primary : colors.white},
+              { backgroundColor: !selectedAll ? colors.primary : colors.white },
             ]}>
             {selectedAll && (
               <View style={styles.viewImageSelect}>
@@ -785,9 +785,9 @@ const HomeScreen = () => {
         </View>
 
         <TouchableOpacity
-          style={{...styles.viewItemForm}}
+          style={{ ...styles.viewItemForm }}
           onPress={() => onPressHeaderSortItem(1)}>
-          <View style={{...styles.viewItemForm}}>
+          <View style={{ ...styles.viewItemForm }}>
             <Text style={styles.textTitleForm}>{_license_plate}</Text>
             <Image
               resizeMode="contain"
@@ -801,9 +801,9 @@ const HomeScreen = () => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
-          style={{...styles.viewItemForm}}
+          style={{ ...styles.viewItemForm }}
           onPress={() => onPressHeaderSortItem(2)}>
-          <View style={{...styles.viewItemForm}}>
+          <View style={{ ...styles.viewItemForm }}>
             <Text style={styles.textTitleForm}>{_time}</Text>
             <Image
               resizeMode="contain"
@@ -817,9 +817,9 @@ const HomeScreen = () => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
-          style={{...styles.viewItemForm}}
+          style={{ ...styles.viewItemForm }}
           onPress={() => onPressHeaderSortItem(3)}>
-          <View style={{...styles.viewItemForm}}>
+          <View style={{ ...styles.viewItemForm }}>
             <Text style={styles.textTitleForm}>{_progress}</Text>
             <Image
               resizeMode="contain"
@@ -833,9 +833,9 @@ const HomeScreen = () => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
-          style={{...styles.viewItemForm}}
+          style={{ ...styles.viewItemForm }}
           onPress={() => onPressHeaderSortItem(4)}>
-          <View style={{...styles.viewItemForm}}>
+          <View style={{ ...styles.viewItemForm }}>
             <Text style={styles.textTitleForm}>{_insurance_comapny}</Text>
             <Image
               resizeMode="contain"
@@ -849,9 +849,9 @@ const HomeScreen = () => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
-          style={{...styles.viewItemForm}}
+          style={{ ...styles.viewItemForm }}
           onPress={() => onPressHeaderSortItem(5)}>
-          <View style={{...styles.viewItemForm}}>
+          <View style={{ ...styles.viewItemForm }}>
             <Text style={styles.textTitleForm}>{_source}</Text>
             <Image
               resizeMode="contain"
@@ -865,9 +865,9 @@ const HomeScreen = () => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
-          style={{...styles.viewItemForm}}
+          style={{ ...styles.viewItemForm }}
           onPress={() => onPressHeaderSortItem(6)}>
-          <View style={{...styles.viewItemForm}}>
+          <View style={{ ...styles.viewItemForm }}>
             <Text style={styles.textTitleForm}>{_name}</Text>
             <Image
               resizeMode="contain"
@@ -891,28 +891,43 @@ const HomeScreen = () => {
         <View style={styles.viewSearch}>
           <Text style={styles.textVC}>
             {_vehicle_claims}
-            <Text style={styles.textNumberVC}>{'(' + caseCount + ')'}</Text>
+            <Text style={styles.textNumberVC}>{' (' + caseCount + ')'}</Text>
           </Text>
-          <TouchableOpacity
-            onPress={() => setShowModal(true)}
-            style={styles.viewImageSearch}>
-            <Image
-              resizeMode="contain"
-              source={icons.search_icon}
-              style={styles.imageSearch}
-            />
-          </TouchableOpacity>
+          <View style={styles.viewSearchFunc}>
+            <TouchableOpacity
+              disabled={!isShowDelete}
+              onPress={() => DeleteItemSelected()}
+              style={[
+                styles.buttonDelete,
+                { backgroundColor: isShowDelete ? colors.blackGray : colors.gray },
+              ]}>
+              <Image
+                resizeMode="contain"
+                source={icons.trash_icon}
+                style={styles.imageDeleteButton}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => setShowModal(true)}
+              style={styles.viewImageSearch}>
+              <Image
+                resizeMode="contain"
+                source={icons.search_icon}
+                style={styles.imageSearch}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
 
         {renderListHeader()}
 
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
           <SwipeListView
             stopLeftSwipe={1}
             showsVerticalScrollIndicator={false}
             data={filterd}
-            renderItem={({item, index}) => _renderItem(item)}
-            renderHiddenItem={({item, index}) => (
+            renderItem={({ item, index }) => _renderItem(item)}
+            renderHiddenItem={({ item, index }) => (
               <_renderHide item={item} index={index} />
             )}
             rightOpenValue={-76}
@@ -984,30 +999,15 @@ const HomeScreen = () => {
   const renderFooter = () => {
     return (
       <View style={styles.viewFooter}>
-        <TouchableOpacity
-          disabled={!isShowDelete}
-          onPress={() => DeleteItemSelected()}
-          style={[
-            styles.buttonDelete,
-            {backgroundColor: isShowDelete ? colors.blackGray : colors.gray},
-          ]}>
-          <Image
-            resizeMode="contain"
-            source={icons.trash_icon}
-            style={styles.imageDeleteButton}
-          />
-        </TouchableOpacity>
-        <View style={{marginHorizontal: 16}}>
+        <View style={{ marginHorizontal: 16 }}>
           <TouchableOpacity
             onPress={() => onPressNewCase()}
             style={styles.buttonNew}>
-            <View style={styles.viewImageNew}>
-              <Image
-                resizeMode="contain"
-                source={icons.plus_icon}
-                style={styles.imageNew}
-              />
-            </View>
+            <Image
+              resizeMode="contain"
+              source={icons.plus_icon}
+              style={styles.imageNew}
+            />
             <View style={styles.viewTextNew}>
               <Text style={styles.textNew}>{_home_new}</Text>
             </View>
@@ -1040,14 +1040,14 @@ const HomeScreen = () => {
     Alert.alert('', _home_failed_search, [
       {
         text: _home_ok,
-        onPress: () => {}, //setShowModal(false)
+        onPress: () => { }, //setShowModal(false)
       },
     ]);
   };
 
   const gotoNextPage = (itemData, dataConfig) => {
     let onlyFullBodyPaint = false;
-    if(itemData?.damagedPart.length == 1 && itemData?.damagedPart[0]?.id == 13){
+    if (itemData?.damagedPart.length == 1 && itemData?.damagedPart[0]?.id == 13) {
       onlyFullBodyPaint = true;
     }
     if (itemData.progress == 1) {
@@ -1091,7 +1091,7 @@ const HomeScreen = () => {
         onlyFullBodyPaint: onlyFullBodyPaint,
       });
     } else if (itemData.progress == 6) {
-      if(onlyFullBodyPaint){
+      if (onlyFullBodyPaint) {
         navigation.navigate(routes.MAINPROCEDURESCREEN, {
           caseData: itemData,
           dataConfig: dataConfig,
@@ -1137,7 +1137,7 @@ const HomeScreen = () => {
           style={styles.viewPopupContainer}>
           <Animated.View style={styles.viewPopup}>
             <View style={{}}>
-              <View style={{alignItems: 'flex-end'}}>
+              <View style={{ alignItems: 'flex-end' }}>
                 <TouchableOpacity
                   onPress={() => setShowModal(false)}
                   style={styles.buttonClose}>
@@ -1147,7 +1147,7 @@ const HomeScreen = () => {
                   />
                 </TouchableOpacity>
               </View>
-              <View style={{paddingBottom: 32}}>
+              <View style={{ paddingBottom: 32 }}>
                 <Text style={styles.textTitlePopup}>
                   {_home_adventure_search}
                 </Text>
@@ -1202,9 +1202,9 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header 
-      // onPressReloadHome={onPressReloadHome} 
-      title={_title} logout />
+      <Header
+        // onPressReloadHome={onPressReloadHome} 
+        title={_title} logout />
       {renderBody()}
       {renderFooter()}
       {renderModalFilter()}

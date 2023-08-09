@@ -68,12 +68,12 @@ const Header = ({ iconBack, onPressBack, onPressReloadHome, iconHome, onPressHom
           </TouchableOpacity>
         )}
         {logout && (
-          <Text style={styles.textVersion} numberOfLines={1}>v{_version}</Text>
+          <Text style={styles.textVersion} numberOfLines={1}>V{_version}</Text>
         )}
         {leftButton && (
           <TouchableOpacity
             onPress={onPressLeft}
-            style={_.isString(leftButton) ? styles.buttonLogout : styles.viewImageBack }>
+            style={_.isString(leftButton) ? styles.buttonLogout : styles.viewImageBack}>
             {_.isString(leftButton) ? (
               <Text style={styles.textLogout}>{leftButton}</Text>
             ) : (
@@ -82,14 +82,14 @@ const Header = ({ iconBack, onPressBack, onPressReloadHome, iconHome, onPressHom
                 source={icons.arrow_left_icon}
                 style={styles.imageBack}
               />
-            ) }
+            )}
           </TouchableOpacity>
         )}
       </View>
       <View style={styles.viewTextHeader}>
         <Text style={styles.textHeader} numberOfLines={1}>{title}</Text>
       </View>
-      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', minWidth: 200}}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', minWidth: 200 }}>
         {logout && (
           <TouchableOpacity
             onPress={() => onPressLogout()}

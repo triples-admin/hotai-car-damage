@@ -1,6 +1,5 @@
 {
   "logout": "Logout",
-
   "case_list_page_title": "Intelligent Assessment",
   "case_list_page_logout": "Logout",
   "case_list_page_vehicle_claims": "Vehicle Claims",
@@ -11,7 +10,6 @@
   "case_list_page_source": "Source",
   "case_list_page_name": "Name",
   "case_list_page_case_no": "Case No.",
-  
   "home_new": "New",
   "home_adventure_search": "Adventure Search",
   "home_license_plate": "License Plate",
@@ -21,7 +19,6 @@
   "home_ok": "OK",
   "home_title_delete": "Do you want to delete the case ?",
   "home_content_delete": "Once the file deleted, you won't get it back",
-
   "smart_pricing_title_failed": "Failed",
   "smart_pricing_license_plate_empty": "License Plate is empty",
   "smart_pricing_ok": "OK",
@@ -37,21 +34,19 @@
   "smart_pricing_next_confirm_content": "Once it is confirmed to be sent, it cannot be returned to modify.",
   "license_plate_message_error": "No such car number",
   "license_plate_permission_camera": "Setting Camera",
-
   "damaged_part_pls_select_damaged_part": "Please select Damaged Part",
   "damaged_part_back": "Back",
   "damaged_part_next": "Next",
   "damaged_part_ok": "OK",
-  "damaged_part_confirm_title" : "Are you sure you want to start shooting?",
-  "damaged_part_confirm_content" : "Once it is confirmed to be sent, it cannot be returned to modify.",
-  "damaged_part_special_alert_title" : "Notification",
-  "damaged_part_special_alert_content" : "Please choose the angle for「ZZZZ」",
-  "damaged_part_special_alert_left" : "Left",
-  "damaged_part_special_alert_right" : "Right",
+  "damaged_part_confirm_title": "Are you sure you want to start shooting?",
+  "damaged_part_confirm_content": "Once it is confirmed to be sent, it cannot be returned to modify.",
+  "damaged_part_special_alert_title": "Notification",
+  "damaged_part_special_alert_content": "Please choose the angle for「ZZZZ」",
+  "damaged_part_special_alert_left": "Left",
+  "damaged_part_special_alert_right": "Right",
   "damaged_part_full_body_paint": "Full Body paint",
   "damaged_part_including_roof": "including roof",
   "damaged_part_exclude_roof": "exclude roof",
-
   "main_procedure_document": "Document",
   "main_procedure_damage_photos": "Damage Photos",
   "main_procedure_assessment": "Assessment",
@@ -64,7 +59,6 @@
   "main_procedure_title_delete": "Do you want to delete the case ?",
   "main_procedure_content_delete": "Once the file deleted, you won't get it back",
   "main_procedure_done": "Done",
-
   "ar_special_coating": "Special Coating",
   "ar_paint_film": "Paint Film",
   "ar_save": "Save",
@@ -82,7 +76,6 @@
   "ar_finish": "Finish",
   "ar_next_step": "Next Step",
   "ar_valuation": "Valuation",
-
   "component_procedure_title": "Components",
   "component_procedure_disaassemble": "Disassemble",
   "component_procedure_replace": "Replace",
@@ -92,7 +85,6 @@
   "component_procedure_content_estimate": "Once submiting the form, you are not able to modify the content anymore",
   "component_prodedure_conetnt_empty": "Data response empty",
   "component_procedure_done": "Done",
-
   "assessment_title": "Assessment",
   "assessment_insurance_comapny": "Insurance Comapny",
   "assessment_case_number": "Case Number",
@@ -120,7 +112,6 @@
   "assessment_procedure_content_insurance_echo": "Once uploading to ECHO, it can only modify on ECHO",
   "assessment_procedure_contact": "Contact",
   "assessment_procedure_contact_number": "Phone Number",
-
   "driving_license_photo_1": "理賠申請書",
   "driving_license_photo_2": "Passport ",
   "driving_license_photo_3": "Driving License",
@@ -131,30 +122,24 @@
   "driving_license_photo_8": "和解書",
   "driving_license_photo_9": "個資同意書",
   "driving_license_photo_10": "Other",
-  
   "driving_license_camera_re_take_photo": "Re-take Photo",
   "driving_license_camera_next_step": "Next Step",
   "driving_license_camera_message_title": "Are you sure you want to send the photo?",
   "driving_license_camera_message_content": "Once it is confirmed to be sent, it cannot be returned to modify.",
-
   "car_damage_photos_message_title": "Has the car damage photo been taken?",
   "car_damage_photos_message_content": "Once you press Finish, it means that you agree to the valuation, and you cannot go back and modify it again.",
   "car_damage_photos_right_front_45": "Right front 45 degree angle",
   "car_damage_photos_right_rear_45": "Right rear 45 degree angle",
   "car_damage_photos_left_rear_45": "Left rear 45 degree angle",
   "car_damage_photos_left_front_45": "Left front 45 degree angle",
-
-  "measure_area_damage_angle" : "Damaged angle shot",
-  "measure_area_damage_area" : "Damaged area photo",
-  "measure_area_confirm_title" : "Are you sure you want a valuation?",
-  "measure_area_confirm_content" : "Once it is confirmed to be sent, it cannot be returned to modify.",
-
-  "measure_area_detail_take_photos" : "Take a photo",
-
+  "measure_area_damage_angle": "Damaged angle shot",
+  "measure_area_damage_area": "Damaged area photo",
+  "measure_area_confirm_title": "Are you sure you want a valuation?",
+  "measure_area_confirm_content": "Once it is confirmed to be sent, it cannot be returned to modify.",
+  "measure_area_detail_take_photos": "Take a photo",
   "measure_camera_confirm_title": "Do you need to take additional photos?",
   "measure_camera_confirm_option_1": "Take pictures of the damaged area",
   "measure_camera_confirm_option_2": "Take a photo",
   "measure_camera_confirm_option_3": "No",
   "login_wellcome": "Welcome  o  o  o   back"
-
 }

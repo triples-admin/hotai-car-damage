@@ -1,5 +1,5 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import {colors} from '../../../theme';
+import { StyleSheet, Dimensions } from 'react-native';
+import { colors } from '../../../theme';
 
 export default StyleSheet.create({
   container: {
@@ -47,22 +47,26 @@ export default StyleSheet.create({
     backgroundColor: colors.primary,
     borderRadius: 8,
     flexDirection: 'row',
-    paddingVertical: 12,
+    paddingVertical: 8,
     marginBottom: 16,
   },
   viewSearch: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: 16,
+    paddingVertical: 20,
+    alignItems: 'center',
+  },
+  viewSearchFunc: {
+    flexDirection: 'row',
     alignItems: 'center',
   },
   textVC: {
-    fontSize: 24,
+    fontSize: 28,
     color: colors.black,
   },
   textNumberVC: {
     fontSize: 18,
-    color: colors.colorText,
+    color: colors.primary,
   },
   viewImageSearch: {
     backgroundColor: colors.primary,
@@ -70,8 +74,9 @@ export default StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 50,
     padding: 12,
+    marginLeft: 15,
   },
-  imageSearch: {height: 24, width: 24},
+  imageSearch: { height: 24, width: 24 },
   viewFooter: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -86,7 +91,7 @@ export default StyleSheet.create({
     paddingHorizontal: 5,
   },
   viewCheckBox: {
-    flex: 1,
+    marginLeft: 25,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -97,7 +102,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   textTitleForm: {
-    fontSize: 20,
+    fontSize: 22,
     color: colors.white,
     fontWeight: 'bold',
     paddingRight: 8,
@@ -108,11 +113,10 @@ export default StyleSheet.create({
     borderColor: colors.white,
     borderRadius: 4,
     borderWidth: 2,
-    height: 40,
-    width: 40,
+    height: 30,
+    width: 30,
     alignItems: 'center',
     justifyContent: 'center',
-    marginLeft: 10,
   },
   viewCheckBoxFormItem: {
     backgroundColor: colors.white,
@@ -128,12 +132,11 @@ export default StyleSheet.create({
   viewImageDelete: {
     height: 40,
     width: 40,
-    paddingLeft: 15,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  imageIconForm: {height: 14, width: 12},
-  imageDelete: {height: 30, width: 30},
+  imageIconForm: { height: 14, width: 12 },
+  imageDelete: { height: 25, width: 25 },
   viewImageSelect: {
     height: 20,
     width: 20,
@@ -142,8 +145,8 @@ export default StyleSheet.create({
     height: 20,
     width: 20,
   },
-  imageSelect: {height: 20, width: 20, tintColor: colors.primary},
-  imageSelectItem: {height: 20, width: 20, tintColor: colors.white},
+  imageSelect: { height: 20, width: 20, tintColor: colors.primary },
+  imageSelectItem: { height: 20, width: 20, tintColor: colors.white },
   viewInFormBody: {
     backgroundColor: colors.white,
     borderRadius: 8,
@@ -156,10 +159,10 @@ export default StyleSheet.create({
     paddingVertical: 16,
     backgroundColor: 'white'
   },
-  viewItemInForm: {flex: 1.3, justifyContent: 'center', paddingHorizontal: 10},
-  textItemInForm: {fontSize: 16, color: colors.black, paddingRight: 4},
-  viewImageProgress: {height: 24, width: 16},
-  imageProgress: {height: 24, width: 16},
+  viewItemInForm: { flex: 1.3, justifyContent: 'center', paddingHorizontal: 10 },
+  textItemInForm: { fontSize: 16, color: colors.black, paddingRight: 4 },
+  viewImageProgress: { height: 24, width: 16 },
+  imageProgress: { height: 24, width: 16 },
   buttonDelete: {
     backgroundColor: colors.backgroundStatusBar,
     width: 48,
@@ -168,7 +171,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 50,
   },
-  imageDeleteButton: {height: 32, width: 32},
+  imageDeleteButton: { height: 32, width: 32 },
   buttonNew: {
     height: 48,
     backgroundColor: colors.primary,
@@ -176,20 +179,15 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 32,
+    paddingHorizontal: 30,
   },
-  viewImageNew: {
-    backgroundColor: colors.white,
-    borderRadius: 50,
-    padding: 4,
-  },
-  imageNew: {height: 16, width: 16, tintColor: colors.backgroundLogin},
+  imageNew: { height: 20, width: 20, tintColor: colors.lightBlue },
   viewTextNew: {
     paddingLeft: 16,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  textNew: {fontSize: 24, color: colors.white, fontWeight: 'bold'},
+  textNew: { fontSize: 24, color: colors.lightBlue, fontWeight: 'bold' },
   viewPopupContainer: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.5)',
@@ -208,7 +206,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  imageCloseButton: {height: 24, width: 24},
+  imageCloseButton: { height: 24, width: 24 },
   buttonSearchPopup: {
     backgroundColor: colors.primary,
     borderRadius: 50,
@@ -221,13 +219,13 @@ export default StyleSheet.create({
     paddingVertical: 4,
     borderRadius: 50,
   },
-  imageSearchPopup: {height: 28, width: 28},
+  imageSearchPopup: { height: 28, width: 28 },
   viewTextSearchPopup: {
     paddingLeft: 16,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  textSearchPopup: {fontSize: 28, color: colors.white, fontWeight: 'bold'},
+  textSearchPopup: { fontSize: 28, color: colors.white, fontWeight: 'bold' },
   textTitlePopup: {
     fontSize: 35,
     color: colors.black,

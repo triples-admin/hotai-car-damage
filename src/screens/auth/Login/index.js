@@ -11,13 +11,13 @@ import {
   Platform,
   ActivityIndicator
 } from 'react-native';
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './styles';
-import {icons} from '../../../assets';
-import {colors} from '../../../theme';
+import { icons } from '../../../assets';
+import { colors } from '../../../theme';
 import Input from '../../../components/TextInput';
-import {useNavigation} from '@react-navigation/core';
-import {routes} from '../../../navigation/routes';
+import { useNavigation } from '@react-navigation/core';
+import { routes } from '../../../navigation/routes';
 import authenStorage from '../../../api/storage/authen';
 import i18n from '../../../utils/i18n';
 
@@ -48,7 +48,7 @@ const LoginScreen = () => {
       if (resUserInfo) {
         // console.log("----------- UserInfo --------------- ");
         await authenStorage.set(resUserInfo);
-        navigation.reset({ routes: [{name: routes.HOMESCREEN}] });
+        navigation.reset({ routes: [{ name: routes.HOMESCREEN }] });
         // navigation.navigate(routes.HOMESCREEN);
       } else {
         let resLogin = await NativeService.login();
@@ -79,12 +79,12 @@ const LoginScreen = () => {
   };
 
   //Custom Switch
-  const SwitchCustom = ({titleSwitch, style}) => {
+  const SwitchCustom = ({ titleSwitch, style }) => {
     const [isEnableSwitch, setEnableSwitch] = useState(true);
     return (
-      <View style={{...styles.viewSwitch, ...style}}>
+      <View style={{ ...styles.viewSwitch, ...style }}>
         <Switch
-          trackColor={{true: colors.white, false: colors.backgroundLogin}}
+          trackColor={{ true: colors.white, false: colors.backgroundLogin }}
           thumbColor={!isEnableSwitch ? colors.white : colors.colorSwitchOff}
           onValueChange={() => setEnableSwitch(!isEnableSwitch)}
           value={isEnableSwitch}
@@ -146,7 +146,7 @@ const LoginScreen = () => {
             placeholder={'请输入您的帐户'}
             onChangeText={text => setUsername(text)}
             value={username}
-            style={{marginBottom: 16}}
+            style={{ marginBottom: 16 }}
           />
           <Input
             title={'密碼'}
@@ -182,19 +182,19 @@ const LoginScreen = () => {
 
   const AccountEmpty = () => {
     Alert.alert('登入失敗', '請輸入使用者帳號', [
-      {text: '好', onPress: () => console.log('OK')},
+      { text: '好', onPress: () => console.log('OK') },
     ]);
   };
 
   const UsernameEmpty = () => {
     Alert.alert('登入失敗', '您輸入的使用者帳號無效', [
-      {text: '好', onPress: () => console.log('OK')},
+      { text: '好', onPress: () => console.log('OK') },
     ]);
   };
 
   const PasswordEmpty = () => {
     Alert.alert('登入失敗', '您輸入的密碼不正確', [
-      {text: '好', onPress: () => console.log('OK')},
+      { text: '好', onPress: () => console.log('OK') },
     ]);
   };
 
@@ -203,7 +203,7 @@ const LoginScreen = () => {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         {/* <Text>{_wellcome}</Text> */}
         <ActivityIndicator size="large" color={colors.secondary} />
-        
+
       </View>
     );
   };

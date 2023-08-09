@@ -18,8 +18,8 @@ const getLanguageCode = () => {
 const languageDetector = {
   type: "languageDetector",
   detect: () => getLanguageCode(),
-  init: () => {},
-  cacheUserLanguage: () => {}
+  init: () => { },
+  cacheUserLanguage: () => { }
 };
 
 i18n
