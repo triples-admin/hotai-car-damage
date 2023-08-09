@@ -17,6 +17,7 @@
   "home_failed_search": "Could not find the case ",
   "home_cancel": "Cancel",
   "home_ok": "OK",
+  "home_delete": "DELETE",
   "home_title_delete": "Do you want to delete the case ?",
   "home_content_delete": "Once the file deleted, you won't get it back",
   "smart_pricing_title_failed": "Failed",

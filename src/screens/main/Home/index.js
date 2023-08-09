@@ -79,6 +79,7 @@ const HomeScreen = () => {
   const _home_failed_search = i18n.t('home_failed_search');
   const _home_cancel = i18n.t('home_cancel');
   const _home_ok = i18n.t('home_ok');
+  const _home_delete = i18n.t('home_delete');
   const _home_title_delete = i18n.t('home_title_delete');
   const _home_content_delete = i18n.t('home_content_delete');
   const ar_api_message_error = i18n.t('ar_api_message_error');
@@ -329,7 +330,7 @@ const HomeScreen = () => {
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
-                style={styles.imageProgress}
+                style={[styles.imageProgress, styles.imageProgressCompleted]}
               />
             </View>
             <View style={{ ...styles.viewImageProgress }}>
@@ -367,14 +368,14 @@ const HomeScreen = () => {
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
-                style={styles.imageProgress}
+                style={[styles.imageProgress, styles.imageProgressCompleted]}
               />
             </View>
             <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
-                style={styles.imageProgress}
+                style={[styles.imageProgress, styles.imageProgressCompleted]}
               />
             </View>
             <View style={{ ...styles.viewImageProgress }}>
@@ -405,21 +406,21 @@ const HomeScreen = () => {
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
-                style={styles.imageProgress}
+                style={[styles.imageProgress, styles.imageProgressCompleted]}
               />
             </View>
             <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
-                style={styles.imageProgress}
+                style={[styles.imageProgress, styles.imageProgressCompleted]}
               />
             </View>
             <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
-                style={styles.imageProgress}
+                style={[styles.imageProgress, styles.imageProgressCompleted]}
               />
             </View>
             <View style={{ ...styles.viewImageProgress }}>
@@ -443,28 +444,28 @@ const HomeScreen = () => {
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
-                style={styles.imageProgress}
+                style={[styles.imageProgress, styles.imageProgressCompleted]}
               />
             </View>
             <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
-                style={styles.imageProgress}
+                style={[styles.imageProgress, styles.imageProgressCompleted]}
               />
             </View>
             <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
-                style={styles.imageProgress}
+                style={[styles.imageProgress, styles.imageProgressCompleted]}
               />
             </View>
             <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
-                style={styles.imageProgress}
+                style={[styles.imageProgress, styles.imageProgressCompleted]}
               />
             </View>
             <View style={{ ...styles.viewImageProgress }}>
@@ -481,35 +482,35 @@ const HomeScreen = () => {
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
-                style={styles.imageProgress}
+                style={[styles.imageProgress, styles.imageProgressCompleted]}
               />
             </View>
             <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
-                style={styles.imageProgress}
+                style={[styles.imageProgress, styles.imageProgressCompleted]}
               />
             </View>
             <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
-                style={styles.imageProgress}
+                style={[styles.imageProgress, styles.imageProgressCompleted]}
               />
             </View>
             <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
-                style={styles.imageProgress}
+                style={[styles.imageProgress, styles.imageProgressCompleted]}
               />
             </View>
             <View style={{ ...styles.viewImageProgress }}>
               <Image
                 resizeMode="contain"
                 source={icons.progress_completed_icon}
-                style={styles.imageProgress}
+                style={[styles.imageProgress, styles.imageProgressCompleted]}
               />
             </View>
           </View>
@@ -627,7 +628,7 @@ const HomeScreen = () => {
         style={styles.viewInFormBody}
         onPress={() => onPressItemCase(item)}>
         <View
-          style={[styles.viewItemInFormBody, { minHeight: 100, marginTop: 10 }]}>
+          style={[styles.viewItemInFormBody, { minHeight: 80, marginTop: 10 }]}>
           <View style={[styles.viewCheckBoxItem, {}]}>
             <TouchableOpacity
               onPress={() => onPressSelectedRemove(item)}
@@ -657,10 +658,7 @@ const HomeScreen = () => {
           </View>
           <View style={styles.viewItemInForm}>
             <Text style={styles.textItemInForm}>
-              {convertFromDate(item?.createdTime, 'YYYY/MM/DD')}
-            </Text>
-            <Text style={styles.textItemInForm}>
-              {convertFromDate(item?.createdTime, 'HH:mm')}
+              {convertFromDate(item?.createdTime, 'YYYY/MM/DD')} {convertFromDate(item?.createdTime, 'HH:mm')}
             </Text>
           </View>
           <View
@@ -701,7 +699,7 @@ const HomeScreen = () => {
     return (
       <TouchableOpacity
         onPress={() => DeleteButtonAlert(item)}
-        style={[styles.buttonDeleteHide, { minHeight: 100, marginTop: 10 }]}>
+        style={[styles.buttonDeleteHide, { minHeight: 80, marginTop: 10 }]}>
         <View style={styles.viewImageDeleteHide}>
           <Image
             resizeMode="contain"
@@ -899,7 +897,7 @@ const HomeScreen = () => {
               onPress={() => DeleteItemSelected()}
               style={[
                 styles.buttonDelete,
-                { backgroundColor: isShowDelete ? colors.blackGray : colors.gray },
+                { backgroundColor: isShowDelete ? colors.primary : colors.gray },
               ]}>
               <Image
                 resizeMode="contain"
@@ -986,11 +984,12 @@ const HomeScreen = () => {
         style: 'cancel',
       },
       {
-        text: _home_ok,
+        text: _home_delete,
         onPress: () => {
           console.log('OK Pressed');
           submitDeleteItemSelected();
         },
+        style: 'destructive',
       },
     ]);
   };
@@ -1027,11 +1026,12 @@ const HomeScreen = () => {
         style: 'cancel',
       },
       {
-        text: _home_ok,
+        text: _home_delete,
         onPress: () => {
           console.log('OK Pressed');
           submitDeleteCase(item);
         },
+        style: 'destructive'
       },
     ]);
   };

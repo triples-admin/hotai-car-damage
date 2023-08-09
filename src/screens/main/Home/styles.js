@@ -48,7 +48,7 @@ export default StyleSheet.create({
     borderRadius: 8,
     flexDirection: 'row',
     paddingVertical: 8,
-    marginBottom: 16,
+    marginBottom: 8,
   },
   viewSearch: {
     flexDirection: 'row',
@@ -61,7 +61,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   textVC: {
-    fontSize: 28,
+    fontSize: 24,
     color: colors.black,
   },
   textNumberVC: {
@@ -91,18 +91,21 @@ export default StyleSheet.create({
     paddingHorizontal: 5,
   },
   viewCheckBox: {
-    marginLeft: 25,
+    width: 80,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    paddingLeft: 15,
   },
   viewCheckBoxItem: {
-    flex: 1.1,
+    width: 80,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'flex-start',
+    paddingLeft: 15,
   },
   textTitleForm: {
-    fontSize: 22,
+    fontSize: 20,
     color: colors.white,
     fontWeight: 'bold',
     paddingRight: 8,
@@ -123,11 +126,10 @@ export default StyleSheet.create({
     borderColor: colors.primary,
     borderRadius: 4,
     borderWidth: 2,
-    height: 40,
-    width: 40,
+    height: 30,
+    width: 30,
     alignItems: 'center',
     justifyContent: 'center',
-    marginLeft: 15,
   },
   viewImageDelete: {
     height: 40,
@@ -163,6 +165,7 @@ export default StyleSheet.create({
   textItemInForm: { fontSize: 16, color: colors.black, paddingRight: 4 },
   viewImageProgress: { height: 24, width: 16 },
   imageProgress: { height: 24, width: 16 },
+  imageProgressCompleted: { tintColor: colors.lightBlue },
   buttonDelete: {
     backgroundColor: colors.backgroundStatusBar,
     width: 48,
@@ -187,7 +190,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  textNew: { fontSize: 24, color: colors.lightBlue, fontWeight: 'bold' },
+  textNew: { fontSize: 20, color: colors.lightBlue, fontWeight: 'bold' },
   viewPopupContainer: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.5)',
