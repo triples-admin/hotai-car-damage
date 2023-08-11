@@ -12,19 +12,19 @@ import {
   ActivityIndicator,
   Image,
 } from 'react-native';
-import React, {useState, useRef, useEffect} from 'react';
-import {icons} from '../../../assets';
+import React, { useState, useRef, useEffect } from 'react';
+import { icons } from '../../../assets';
 import Header from '../../../components/Header';
 import styles from './styles';
-import {colors} from '../../../theme';
-import {routes} from '../../../navigation/routes';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import { colors } from '../../../theme';
+import { routes } from '../../../navigation/routes';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import caseListPageStorage from '../../../api/storage/caseListPage';
 import caseListPageAPI from '../../../api/axios/caseListPage';
-import {createNewCase, apiDataConfig} from '../../../utils/CaseModel';
+import { createNewCase, apiDataConfig } from '../../../utils/CaseModel';
 import i18n from '../../../utils/i18n';
 import LoadingView from '../../../components/Loading';
-import {NativeService, EventEmitter} from '../../../bridge/NativeService';
+import { NativeService, EventEmitter } from '../../../bridge/NativeService';
 import {
   check,
   request,
@@ -236,7 +236,7 @@ const LicensePlate = () => {
       );
       console.log(
         '----------- JS send -- startScanPlateNumber : ' +
-          JSON.stringify(resData),
+        JSON.stringify(resData),
       );
     } else if (isShowCamera.current === false) {
       checkCamera();
@@ -402,7 +402,7 @@ const LicensePlate = () => {
     let filter = arrList.filter(lp => lp.licensePlate == licenPlate);
     if (filter && filter.length > 1) {
       Alert.alert(_failed, _smart_pricing_duplicated, [
-        {text: _ok, onPress: () => console.log('OK')},
+        { text: _ok, onPress: () => console.log('OK') },
       ]);
       return false;
     }
@@ -411,7 +411,7 @@ const LicensePlate = () => {
 
   const showAlertEmpty = () => {
     Alert.alert(_failed, _licensePlateEmpty, [
-      {text: _ok, onPress: () => console.log('OK')},
+      { text: _ok, onPress: () => console.log('OK') },
     ]);
   };
 
@@ -456,7 +456,7 @@ const LicensePlate = () => {
     }, 500);
   };
 
-  const onManualInputDone = () => {};
+  const onManualInputDone = () => { };
 
   const validateInput = text => {
     if (/^[0-9a-zA-Z]+$/.test(text)) {
@@ -488,13 +488,13 @@ const LicensePlate = () => {
               placeholderTextColor={colors.backgroundStatusBar}
               onChangeText={text => onChangeTextPrefix(text)}
               value={prefix}
-              style={[styles.textInput, {width: 150}]}
+              style={[styles.textInput, { width: 150 }]}
               maxLength={3}
               returnKeyType={'go'}
               onSubmitEditing={event => onManualInputDone()}
             />
             <Image
-              style={{marginHorizontal: 10, width: 40, height: 5}}
+              style={{ marginHorizontal: 10, width: 40, height: 5 }}
               source={require('../../../assets/icons/ic_line.png')}
             />
             <TextInput
@@ -503,7 +503,7 @@ const LicensePlate = () => {
               placeholderTextColor={colors.backgroundStatusBar}
               onChangeText={validateInput}
               value={suffix}
-              style={[styles.textInput, {width: 150}]}
+              style={[styles.textInput, { width: 150 }]}
               maxLength={4}
               keyboardType='number-pad'
               returnKeyType={'go'}
@@ -548,7 +548,7 @@ const LicensePlate = () => {
       {isManual ? (
         <KeyboardAvoidingView
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-          style={{flex: 1}}>
+          style={{ flex: 1 }}>
           <View
             style={{
               flex: 1,
@@ -572,11 +572,11 @@ const LicensePlate = () => {
               }}>
               <TouchableOpacity
                 onPress={() => onPressBackVisionScan()}
-                style={{width: 50, width: 100}}>
+                style={{ width: 50, width: 100 }}>
                 <Image
                   resizeMode="contain"
                   source={icons.arrow_left_icon}
-                  style={{width: 25, height: 25}}
+                  style={{ width: 25, height: 25 }}
                 />
               </TouchableOpacity>
               <View
@@ -586,7 +586,7 @@ const LicensePlate = () => {
                   justifyContent: 'center',
                 }}>
                 <Text
-                  style={{fontSize: 32, fontWeight: 'bold', color: 'white'}}>
+                  style={{ fontSize: 32, fontWeight: 'bold', color: 'white' }}>
                   {_smart_pricing_title}
                 </Text>
               </View>
@@ -600,7 +600,7 @@ const LicensePlate = () => {
                   paddingVertical: 5,
                   borderRadius: 20,
                 }}>
-                <Text style={{fontSize: 18, color: colors.secondary}}>
+                <Text style={{ fontSize: 18, color: colors.secondary }}>
                   {_logout}
                 </Text>
               </TouchableOpacity>
@@ -609,9 +609,9 @@ const LicensePlate = () => {
           </View>
         </KeyboardAvoidingView>
       ) : (
-        <View style={{flex: 1, backgroundColor: 'white'}}>
-          <Header onPressReloadHome={() => {}} title={''} logout />
-          <View style={{flex: 1}}></View>
+        <View style={{ flex: 1, backgroundColor: 'white' }}>
+          <Header onPressReloadHome={() => { }} title={''} logout />
+          <View style={{ flex: 1 }}></View>
         </View>
       )}
       {isLoading && <LoadingView />}

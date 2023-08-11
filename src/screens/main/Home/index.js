@@ -1067,6 +1067,7 @@ const HomeScreen = () => {
         onlyFullBodyPaint: onlyFullBodyPaint,
       });
     } else if (itemData.progress == 3) {
+      console.log('jzjz+aaa', dataConfig);
       navigation.navigate(routes.DAMAGEPARTSCREEN, {
         caseData: itemData,
         dataConfig: dataConfig,

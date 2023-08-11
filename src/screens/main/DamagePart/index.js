@@ -8,18 +8,18 @@ import {
   SafeAreaView,
   Alert,
 } from 'react-native';
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './styles';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import Header from '../../../components/Header';
 import LoadingView from '../../../components/Loading';
-import {colors} from '../../../theme';
-import {icons, images} from '../../../assets';
-import {routes} from '../../../navigation/routes';
+import { colors } from '../../../theme';
+import { icons, images } from '../../../assets';
+import { routes } from '../../../navigation/routes';
 import Button from '../../../components/Button';
 import Toggle from '../../../components/Toggle';
-const {width} = Dimensions.get('screen');
-const {height} = Dimensions.get('screen');
+const { width } = Dimensions.get('screen');
+const { height } = Dimensions.get('screen');
 import caseListPageStorage from '../../../api/storage/caseListPage';
 import i18n from '../../../utils/i18n';
 
@@ -179,7 +179,7 @@ const DamagePart = () => {
       selected12
     ) {
       return true;
-    } else if(setAlert) {
+    } else if (setAlert) {
       SelectAlert();
     }
     return false;
@@ -187,7 +187,7 @@ const DamagePart = () => {
 
   const SelectAlert = () => {
     Alert.alert('', _damaged_part_pls_select_damaged_part, [
-      {text: _damaged_part_ok, onPress: () => console.log('OK Pressed')},
+      { text: _damaged_part_ok, onPress: () => console.log('OK Pressed') },
     ]);
   };
 
@@ -533,7 +533,7 @@ const DamagePart = () => {
   const onPressGoHome = async () => {
     await saveToStorage();
     navigation.reset({
-      routes: [{name: routes.HOMESCREEN}],
+      routes: [{ name: routes.HOMESCREEN }],
     });
   };
 
@@ -566,10 +566,10 @@ const DamagePart = () => {
     ]);
   });
 
-  const onPressNext = async() => {
+  const onPressNext = async () => {
     if (checkNext(false) === false) {
       // check selected
-      if(selectedBodyPaint){
+      if (selectedBodyPaint) {
         goToAssessment();
       } else {
         SelectAlert();
@@ -578,42 +578,42 @@ const DamagePart = () => {
     }
     let frontAngle = [];
     let rearAngle = [];
-    if((selected7 || selected1) && selected8 && selected2){
+    if ((selected7 || selected1) && selected8 && selected2) {
       frontAngle = ['leftFront', 'rightFront'];
-    }else if((selected7 || selected1) && selected8 && !selected2){
+    } else if ((selected7 || selected1) && selected8 && !selected2) {
       frontAngle = ['leftFront'];
-    } else if((selected7 || selected1) && !selected8 && selected2) {
+    } else if ((selected7 || selected1) && !selected8 && selected2) {
       frontAngle = ['rightFront'];
-    } else if(selected7 && selected1) {
+    } else if (selected7 && selected1) {
       frontAngle = ['rightFront'];
     }
-    if((selected6 || selected12) && selected11 && !selected5){ 
+    if ((selected6 || selected12) && selected11 && !selected5) {
       rearAngle = ['leftRear', 'rightRear'];
-    }else if((selected6 || selected12) && selected11 && !selected5){
+    } else if ((selected6 || selected12) && selected11 && !selected5) {
       rearAngle = ['leftRear'];
-    } else if((selected6 || selected12) && !selected11 && selected5) {
+    } else if ((selected6 || selected12) && !selected11 && selected5) {
       rearAngle = ['rightRear'];
-    } else if(selected6 && selected12) {
+    } else if (selected6 && selected12) {
       rearAngle = ['rightRear'];
     }
-    Promise.all(array.map(async(value, index) => {
+    Promise.all(array.map(async (value, index) => {
       if (checkSpecialPart(index) === true) {
         // check 1 part special selected (frontBumper, hood, luggage, rearBumper)
         const partName = array[index]?.REGIONM;
         if (
-          frontAngle.length > 0  && 
+          frontAngle.length > 0 &&
           (
-            array[index].ENGNAME === 'frontBumper' || 
+            array[index].ENGNAME === 'frontBumper' ||
             array[index].ENGNAME === 'hood'
           )
         ) {
           array[index].group = frontAngle;
-        } else if( 
-          rearAngle.length > 0  && 
-          ( 
+        } else if (
+          rearAngle.length > 0 &&
+          (
             array[index].ENGNAME === 'luggage' ||
-            array[index].ENGNAME === 'rearBumper' 
-          ) 
+            array[index].ENGNAME === 'rearBumper'
+          )
         ) {
           array[index].group = rearAngle;
         } else {
@@ -795,9 +795,9 @@ const DamagePart = () => {
   const saveToStorage = async () => {
     const arrAngle = getListAngle();
     let newArrAngle = arrAngle.map((item, i) => {
-      if(caseData.current?.damagedAngle){
+      if (caseData.current?.damagedAngle) {
         let index = caseData.current?.damagedAngle.findIndex(x => x.value === item.value);
-        if(index > -1){
+        if (index > -1) {
           return Object.assign({}, item, caseData.current?.damagedAngle[index]);
         }
       }
@@ -845,11 +845,11 @@ const DamagePart = () => {
           source={images.car_image_2doors}
           style={styles.imageCar}
         />
-        <View style={[styles.viewDamagedPart, {top: 40, right: 0, left: -280}]}>
+        <View style={[styles.viewDamagedPart, { top: 40, right: 0, left: -280 }]}>
           <TouchableOpacity
             disabled={false}
             onPress={() => toggle7()}
-            style={[styles.viewCheckBoxItem, {marginRight: 5}]}>
+            style={[styles.viewCheckBoxItem, { marginRight: 5 }]}>
             <View
               style={[
                 styles.viewCheckBoxFormItem,
@@ -873,7 +873,7 @@ const DamagePart = () => {
             <Text
               style={[
                 styles.textSelect,
-                {textAlign: 'center', color: colors.blackGray},
+                { textAlign: 'center', color: colors.blackGray },
               ]}>
               {data[12]?.REGIONM}
             </Text>
@@ -882,15 +882,15 @@ const DamagePart = () => {
           <Image
             resizeMode="contain"
             source={images.lineTopLeft1}
-            style={{width: 164, height: 17}}
+            style={{ width: 164, height: 17 }}
           />
         </View>
         <View
-          style={[styles.viewDamagedPart, {top: 110, right: 0, left: -312}]}>
+          style={[styles.viewDamagedPart, { top: 110, right: 0, left: -312 }]}>
           <TouchableOpacity
             disabled={false}
             onPress={() => toggle8()}
-            style={[styles.viewCheckBoxItem, {marginRight: 5}]}>
+            style={[styles.viewCheckBoxItem, { marginRight: 5 }]}>
             <View
               style={[
                 styles.viewCheckBoxFormItem,
@@ -914,7 +914,7 @@ const DamagePart = () => {
             <Text
               style={[
                 styles.textSelect,
-                {textAlign: 'center', color: colors.blackGray},
+                { textAlign: 'center', color: colors.blackGray },
               ]}>
               {data[2]?.REGIONM}
             </Text>
@@ -923,15 +923,15 @@ const DamagePart = () => {
           <Image
             resizeMode="contain"
             source={images.lineTopLeft1}
-            style={{width: 164, height: 17}}
+            style={{ width: 164, height: 17 }}
           />
         </View>
         <View
-          style={[styles.viewDamagedPart, {top: 220, right: 0, left: -312}]}>
+          style={[styles.viewDamagedPart, { top: 220, right: 0, left: -312 }]}>
           <TouchableOpacity
             disabled={false}
             onPress={() => toggle9()}
-            style={[styles.viewCheckBoxItem, {marginRight: 5}]}>
+            style={[styles.viewCheckBoxItem, { marginRight: 5 }]}>
             <View
               style={[
                 styles.viewCheckBoxFormItem,
@@ -955,7 +955,7 @@ const DamagePart = () => {
             <Text
               style={[
                 styles.textSelect,
-                {textAlign: 'center', color: colors.blackGray},
+                { textAlign: 'center', color: colors.blackGray },
               ]}>
               {data[4]?.REGIONM}
             </Text>
@@ -964,7 +964,7 @@ const DamagePart = () => {
           <Image
             resizeMode="contain"
             source={images.lineTopLeft1}
-            style={{width: 164, height: 17}}
+            style={{ width: 164, height: 17 }}
           />
         </View>
         {/* <View
@@ -1005,11 +1005,11 @@ const DamagePart = () => {
           />
         </View> */}
         <View
-          style={[styles.viewDamagedPart, {top: 335, right: 0, left: -310}]}>
+          style={[styles.viewDamagedPart, { top: 335, right: 0, left: -310 }]}>
           <TouchableOpacity
             disabled={false}
             onPress={() => toggle11()}
-            style={[styles.viewCheckBoxItem, {marginRight: 5}]}>
+            style={[styles.viewCheckBoxItem, { marginRight: 5 }]}>
             <View
               style={[
                 styles.viewCheckBoxFormItem,
@@ -1033,7 +1033,7 @@ const DamagePart = () => {
             <Text
               style={[
                 styles.textSelect,
-                {textAlign: 'center', color: colors.blackGray},
+                { textAlign: 'center', color: colors.blackGray },
               ]}>
               {data[8]?.REGIONM}
             </Text>
@@ -1042,15 +1042,15 @@ const DamagePart = () => {
           <Image
             resizeMode="contain"
             source={images.lineTopLeft1}
-            style={{width: 164, height: 17}}
+            style={{ width: 164, height: 17 }}
           />
         </View>
         <View
-          style={[styles.viewDamagedPart, {top: 390, right: 0, left: -285}]}>
+          style={[styles.viewDamagedPart, { top: 390, right: 0, left: -285 }]}>
           <TouchableOpacity
             disabled={false}
             onPress={() => toggle12()}
-            style={[styles.viewCheckBoxItem, {marginRight: 5, top: 4}]}>
+            style={[styles.viewCheckBoxItem, { marginRight: 5, top: 4 }]}>
             <View
               style={[
                 styles.viewCheckBoxFormItem,
@@ -1074,7 +1074,7 @@ const DamagePart = () => {
             <Text
               style={[
                 styles.textSelect,
-                {textAlign: 'center', color: colors.blackGray},
+                { textAlign: 'center', color: colors.blackGray },
               ]}>
               {data[11]?.REGIONM}
             </Text>
@@ -1083,21 +1083,21 @@ const DamagePart = () => {
           <Image
             resizeMode="contain"
             source={images.lineTopLeft3}
-            style={{width: 164, height: 17}}
+            style={{ width: 164, height: 17 }}
           />
         </View>
 
-        <View style={[styles.viewDamagedPart, {top: 50, right: 0, left: 136}]}>
+        <View style={[styles.viewDamagedPart, { top: 50, right: 0, left: 136 }]}>
           <Image
             resizeMode="contain"
             source={images.lineTopRight1}
-            style={{width: 240, height: 38}}
+            style={{ width: 240, height: 38 }}
           />
 
           <TouchableOpacity
             disabled={false}
             onPress={() => toggle1()}
-            style={[styles.viewCheckBoxItem, {marginLeft: 16, height: 24}]}>
+            style={[styles.viewCheckBoxItem, { marginLeft: 16, height: 24 }]}>
             <View
               style={[
                 styles.viewCheckBoxFormItem,
@@ -1118,16 +1118,16 @@ const DamagePart = () => {
                 </View>
               )}
             </View>
-            <Text style={[styles.textSelect, {color: colors.blackGray}]}>
+            <Text style={[styles.textSelect, { color: colors.blackGray }]}>
               {data[0]?.REGIONM}
             </Text>
           </TouchableOpacity>
         </View>
-        <View style={[styles.viewDamagedPart, {top: 110, left: 193}]}>
+        <View style={[styles.viewDamagedPart, { top: 110, left: 193 }]}>
           <Image
             resizeMode="contain"
             source={images.lineTopRight2}
-            style={{width: 164, height: 17}}
+            style={{ width: 164, height: 17 }}
           />
 
           <TouchableOpacity
@@ -1154,16 +1154,16 @@ const DamagePart = () => {
                 </View>
               )}
             </View>
-            <Text style={[styles.textSelect, {color: colors.blackGray}]}>
+            <Text style={[styles.textSelect, { color: colors.blackGray }]}>
               {data[1]?.REGIONM}
             </Text>
           </TouchableOpacity>
         </View>
-        <View style={[styles.viewDamagedPart, {top: 220, left: 193}]}>
+        <View style={[styles.viewDamagedPart, { top: 220, left: 193 }]}>
           <Image
             resizeMode="contain"
             source={images.lineTopRight2}
-            style={{width: 164, height: 17}}
+            style={{ width: 164, height: 17 }}
           />
 
           <TouchableOpacity
@@ -1190,7 +1190,7 @@ const DamagePart = () => {
                 </View>
               )}
             </View>
-            <Text style={[styles.textSelect, {color: colors.blackGray}]}>
+            <Text style={[styles.textSelect, { color: colors.blackGray }]}>
               {data[3]?.REGIONM}
             </Text>
           </TouchableOpacity>
@@ -1229,11 +1229,11 @@ const DamagePart = () => {
             <Text style={[styles.textSelect, { color: colors.blackGray }]}>{data[5]?.REGIONM}</Text>
           </TouchableOpacity>
         </View> */}
-        <View style={[styles.viewDamagedPart, {top: 320, left: 185}]}>
+        <View style={[styles.viewDamagedPart, { top: 320, left: 185 }]}>
           <Image
             resizeMode="contain"
             source={images.lineTopRight3}
-            style={{width: 181, height: 28}}
+            style={{ width: 181, height: 28 }}
           />
 
           <TouchableOpacity
@@ -1260,21 +1260,21 @@ const DamagePart = () => {
                 </View>
               )}
             </View>
-            <Text style={[styles.textSelect, {color: colors.blackGray}]}>
+            <Text style={[styles.textSelect, { color: colors.blackGray }]}>
               {data[7]?.REGIONM}
             </Text>
           </TouchableOpacity>
         </View>
-        <View style={[styles.viewDamagedPart, {top: 370, left: 140}]}>
+        <View style={[styles.viewDamagedPart, { top: 370, left: 140 }]}>
           <Image
             resizeMode="contain"
             source={images.lineTopRight4}
-            style={{width: 216, height: 17}}
+            style={{ width: 216, height: 17 }}
           />
           <TouchableOpacity
             disabled={false}
             onPress={() => toggle6()}
-            style={[styles.viewCheckBoxItem, {top: 4}]}>
+            style={[styles.viewCheckBoxItem, { top: 4 }]}>
             <View
               style={[
                 styles.viewCheckBoxFormItem,
@@ -1295,7 +1295,7 @@ const DamagePart = () => {
                 </View>
               )}
             </View>
-            <Text style={[styles.textSelect, {color: colors.blackGray}]}>
+            <Text style={[styles.textSelect, { color: colors.blackGray }]}>
               {data[9]?.REGIONM}
             </Text>
           </TouchableOpacity>
@@ -1312,11 +1312,11 @@ const DamagePart = () => {
           source={images.car_image_4doors}
           style={styles.imageCar}
         />
-        <View style={[styles.viewDamagedPart, {top: 22, right: 0, left: -280}]}>
+        <View style={[styles.viewDamagedPart, { top: 22, right: 0, left: -280 }]}>
           <TouchableOpacity
             disabled={false}
             onPress={() => toggle7()}
-            style={[styles.viewCheckBoxItem, {marginRight: 5}]}>
+            style={[styles.viewCheckBoxItem, { marginRight: 5 }]}>
             <View
               style={[
                 styles.viewCheckBoxFormItem,
@@ -1340,7 +1340,7 @@ const DamagePart = () => {
             <Text
               style={[
                 styles.textSelect,
-                {textAlign: 'center', color: colors.blackGray},
+                { textAlign: 'center', color: colors.blackGray },
               ]}>
               {data[12]?.REGIONM}
             </Text>
@@ -1349,14 +1349,14 @@ const DamagePart = () => {
           <Image
             resizeMode="contain"
             source={images.lineTopLeft1}
-            style={{width: 164, height: 17}}
+            style={{ width: 164, height: 17 }}
           />
         </View>
-        <View style={[styles.viewDamagedPart, {top: 90, right: 0, left: -312}]}>
+        <View style={[styles.viewDamagedPart, { top: 90, right: 0, left: -312 }]}>
           <TouchableOpacity
             disabled={false}
             onPress={() => toggle8()}
-            style={[styles.viewCheckBoxItem, {marginRight: 5}]}>
+            style={[styles.viewCheckBoxItem, { marginRight: 5 }]}>
             <View
               style={[
                 styles.viewCheckBoxFormItem,
@@ -1380,7 +1380,7 @@ const DamagePart = () => {
             <Text
               style={[
                 styles.textSelect,
-                {textAlign: 'center', color: colors.blackGray},
+                { textAlign: 'center', color: colors.blackGray },
               ]}>
               {data[2]?.REGIONM}
             </Text>
@@ -1389,15 +1389,15 @@ const DamagePart = () => {
           <Image
             resizeMode="contain"
             source={images.lineTopLeft1}
-            style={{width: 164, height: 17}}
+            style={{ width: 164, height: 17 }}
           />
         </View>
         <View
-          style={[styles.viewDamagedPart, {top: 200, right: 0, left: -312}]}>
+          style={[styles.viewDamagedPart, { top: 200, right: 0, left: -312 }]}>
           <TouchableOpacity
             disabled={false}
             onPress={() => toggle9()}
-            style={[styles.viewCheckBoxItem, {marginRight: 5}]}>
+            style={[styles.viewCheckBoxItem, { marginRight: 5 }]}>
             <View
               style={[
                 styles.viewCheckBoxFormItem,
@@ -1421,7 +1421,7 @@ const DamagePart = () => {
             <Text
               style={[
                 styles.textSelect,
-                {textAlign: 'center', color: colors.blackGray},
+                { textAlign: 'center', color: colors.blackGray },
               ]}>
               {data[4]?.REGIONM}
             </Text>
@@ -1430,15 +1430,15 @@ const DamagePart = () => {
           <Image
             resizeMode="contain"
             source={images.lineTopLeft1}
-            style={{width: 164, height: 17}}
+            style={{ width: 164, height: 17 }}
           />
         </View>
         <View
-          style={[styles.viewDamagedPart, {top: 280, right: 0, left: -312}]}>
+          style={[styles.viewDamagedPart, { top: 280, right: 0, left: -312 }]}>
           <TouchableOpacity
             disabled={false}
             onPress={() => toggle10()}
-            style={[styles.viewCheckBoxItem, {marginRight: 5}]}>
+            style={[styles.viewCheckBoxItem, { marginRight: 5 }]}>
             <View
               style={[
                 styles.viewCheckBoxFormItem,
@@ -1462,7 +1462,7 @@ const DamagePart = () => {
             <Text
               style={[
                 styles.textSelect,
-                {textAlign: 'center', color: colors.blackGray},
+                { textAlign: 'center', color: colors.blackGray },
               ]}>
               {data[6]?.REGIONM}
             </Text>
@@ -1471,15 +1471,15 @@ const DamagePart = () => {
           <Image
             resizeMode="contain"
             source={images.lineTopLeft1}
-            style={{width: 164, height: 17}}
+            style={{ width: 164, height: 17 }}
           />
         </View>
         <View
-          style={[styles.viewDamagedPart, {top: 350, right: 0, left: -310}]}>
+          style={[styles.viewDamagedPart, { top: 350, right: 0, left: -310 }]}>
           <TouchableOpacity
             disabled={false}
             onPress={() => toggle11()}
-            style={[styles.viewCheckBoxItem, {marginRight: 5}]}>
+            style={[styles.viewCheckBoxItem, { marginRight: 5 }]}>
             <View
               style={[
                 styles.viewCheckBoxFormItem,
@@ -1503,7 +1503,7 @@ const DamagePart = () => {
             <Text
               style={[
                 styles.textSelect,
-                {textAlign: 'center', color: colors.blackGray},
+                { textAlign: 'center', color: colors.blackGray },
               ]}>
               {data[8]?.REGIONM}
             </Text>
@@ -1512,15 +1512,15 @@ const DamagePart = () => {
           <Image
             resizeMode="contain"
             source={images.lineTopLeft1}
-            style={{width: 164, height: 17}}
+            style={{ width: 164, height: 17 }}
           />
         </View>
         <View
-          style={[styles.viewDamagedPart, {top: 408, right: 0, left: -285}]}>
+          style={[styles.viewDamagedPart, { top: 408, right: 0, left: -285 }]}>
           <TouchableOpacity
             disabled={false}
             onPress={() => toggle12()}
-            style={[styles.viewCheckBoxItem, {marginRight: 5, top: 4}]}>
+            style={[styles.viewCheckBoxItem, { marginRight: 5, top: 4 }]}>
             <View
               style={[
                 styles.viewCheckBoxFormItem,
@@ -1544,7 +1544,7 @@ const DamagePart = () => {
             <Text
               style={[
                 styles.textSelect,
-                {textAlign: 'center', color: colors.blackGray},
+                { textAlign: 'center', color: colors.blackGray },
               ]}>
               {data[11]?.REGIONM}
             </Text>
@@ -1553,21 +1553,21 @@ const DamagePart = () => {
           <Image
             resizeMode="contain"
             source={images.lineTopLeft3}
-            style={{width: 164, height: 17}}
+            style={{ width: 164, height: 17 }}
           />
         </View>
 
-        <View style={[styles.viewDamagedPart, {top: 30, right: 0, left: 136}]}>
+        <View style={[styles.viewDamagedPart, { top: 30, right: 0, left: 136 }]}>
           <Image
             resizeMode="contain"
             source={images.lineTopRight1}
-            style={{width: 240, height: 38}}
+            style={{ width: 240, height: 38 }}
           />
 
           <TouchableOpacity
             disabled={false}
             onPress={() => toggle1()}
-            style={[styles.viewCheckBoxItem, {marginLeft: 16, height: 24}]}>
+            style={[styles.viewCheckBoxItem, { marginLeft: 16, height: 24 }]}>
             <View
               style={[
                 styles.viewCheckBoxFormItem,
@@ -1588,16 +1588,16 @@ const DamagePart = () => {
                 </View>
               )}
             </View>
-            <Text style={[styles.textSelect, {color: colors.blackGray}]}>
+            <Text style={[styles.textSelect, { color: colors.blackGray }]}>
               {data[0]?.REGIONM}
             </Text>
           </TouchableOpacity>
         </View>
-        <View style={[styles.viewDamagedPart, {top: 90, left: 193}]}>
+        <View style={[styles.viewDamagedPart, { top: 90, left: 193 }]}>
           <Image
             resizeMode="contain"
             source={images.lineTopRight2}
-            style={{width: 164, height: 17}}
+            style={{ width: 164, height: 17 }}
           />
 
           <TouchableOpacity
@@ -1624,16 +1624,16 @@ const DamagePart = () => {
                 </View>
               )}
             </View>
-            <Text style={[styles.textSelect, {color: colors.blackGray}]}>
+            <Text style={[styles.textSelect, { color: colors.blackGray }]}>
               {data[1]?.REGIONM}
             </Text>
           </TouchableOpacity>
         </View>
-        <View style={[styles.viewDamagedPart, {top: 200, left: 193}]}>
+        <View style={[styles.viewDamagedPart, { top: 200, left: 193 }]}>
           <Image
             resizeMode="contain"
             source={images.lineTopRight2}
-            style={{width: 164, height: 17}}
+            style={{ width: 164, height: 17 }}
           />
 
           <TouchableOpacity
@@ -1660,16 +1660,16 @@ const DamagePart = () => {
                 </View>
               )}
             </View>
-            <Text style={[styles.textSelect, {color: colors.blackGray}]}>
+            <Text style={[styles.textSelect, { color: colors.blackGray }]}>
               {data[3]?.REGIONM}
             </Text>
           </TouchableOpacity>
         </View>
-        <View style={[styles.viewDamagedPart, {top: 280, left: 190}]}>
+        <View style={[styles.viewDamagedPart, { top: 280, left: 190 }]}>
           <Image
             resizeMode="contain"
             source={images.lineTopRight2}
-            style={{width: 164, height: 17}}
+            style={{ width: 164, height: 17 }}
           />
 
           <TouchableOpacity
@@ -1696,16 +1696,16 @@ const DamagePart = () => {
                 </View>
               )}
             </View>
-            <Text style={[styles.textSelect, {color: colors.blackGray}]}>
+            <Text style={[styles.textSelect, { color: colors.blackGray }]}>
               {data[5]?.REGIONM}
             </Text>
           </TouchableOpacity>
         </View>
-        <View style={[styles.viewDamagedPart, {top: 345, left: 185}]}>
+        <View style={[styles.viewDamagedPart, { top: 345, left: 185 }]}>
           <Image
             resizeMode="contain"
             source={images.lineTopRight3}
-            style={{width: 181, height: 28}}
+            style={{ width: 181, height: 28 }}
           />
 
           <TouchableOpacity
@@ -1732,21 +1732,21 @@ const DamagePart = () => {
                 </View>
               )}
             </View>
-            <Text style={[styles.textSelect, {color: colors.blackGray}]}>
+            <Text style={[styles.textSelect, { color: colors.blackGray }]}>
               {data[7]?.REGIONM}
             </Text>
           </TouchableOpacity>
         </View>
-        <View style={[styles.viewDamagedPart, {top: 394, left: 160}]}>
+        <View style={[styles.viewDamagedPart, { top: 394, left: 160 }]}>
           <Image
             resizeMode="contain"
             source={images.lineTopRight4}
-            style={{width: 216, height: 17}}
+            style={{ width: 216, height: 17 }}
           />
           <TouchableOpacity
             disabled={false}
             onPress={() => toggle6()}
-            style={[styles.viewCheckBoxItem, {top: 4}]}>
+            style={[styles.viewCheckBoxItem, { top: 4 }]}>
             <View
               style={[
                 styles.viewCheckBoxFormItem,
@@ -1767,7 +1767,7 @@ const DamagePart = () => {
                 </View>
               )}
             </View>
-            <Text style={[styles.textSelect, {color: colors.blackGray}]}>
+            <Text style={[styles.textSelect, { color: colors.blackGray }]}>
               {data[9]?.REGIONM}
             </Text>
           </TouchableOpacity>
@@ -1889,18 +1889,18 @@ const DamagePart = () => {
               titleDisable={_damaged_part_including_roof}
               status={roofStatus}
               onPressToggle={onPressToggle}
-              style={{marginLeft: 60, marginTop: 20}}
+              style={{ marginLeft: 60, marginTop: 20 }}
               viewSwitchStyle={styles.viewSwitch}
               viewInSwitchStyle={styles.viewInSwitch}
               titleStyle={styles.titleViewSwitch}
-              // disabled={!selectedBodyPaint}
+            // disabled={!selectedBodyPaint}
             />
           </View>
 
           <Button
             onPress={async () => onPressNext()}
             title={_damaged_part_next}
-            style={{backgroundColor: colors.primary}}
+            style={{ backgroundColor: colors.primary }}
           />
         </View>
       </View>

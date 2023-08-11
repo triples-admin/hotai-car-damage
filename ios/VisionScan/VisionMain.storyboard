@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad7_9" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,25 +62,32 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rUN-aJ-Fd3">
                                         <rect key="frame" x="0.0" y="0.0" width="1133" height="60"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-header" translatesAutoresizingMaskIntoConstraints="NO" id="092-ub-sBj">
-                                                <rect key="frame" x="0.0" y="0.0" width="1133" height="60"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="rEA-UK-Nzk"/>
-                                                </constraints>
-                                            </imageView>
+                                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fca-1o-8uw" userLabel="Cutout View">
+                                                <rect key="frame" x="0.0" y="-31" width="1133" height="100"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EwW-wF-YOr" userLabel="borderScan">
+                                                        <rect key="frame" x="441.5" y="-50" width="250" height="100"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.11764705882352941" green="0.15686274509803921" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <gestureRecognizers/>
+                                            </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JuK-fQ-KjN">
                                                 <rect key="frame" x="15" y="0.0" width="60" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="8PH-vr-r0h"/>
                                                     <constraint firstAttribute="width" constant="60" id="ZkP-wl-xHz"/>
                                                 </constraints>
-                                                <inset key="imageEdgeInsets" minX="5" minY="10" maxX="5" maxY="10"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                                                 <state key="normal" image="ic-back">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content=" ">
                                                             <attributes>
+                                                                <color key="NSColor" red="0.68235294117647061" green="0.82352941176470584" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <font key="NSFont" metaFont="system" size="18"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -98,17 +105,17 @@
                                                 <fontDescription key="fontDescription" name="Poppins-ExtraBold" family="Poppins" pointSize="20"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title=" 登出">
-                                                    <color key="titleColor" red="0.99607843137254903" green="0.2627450980392157" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.11764705882352941" green="0.15686274509803921" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <state key="disabled" image="ic-back"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="智能估價" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQ2-kw-auD">
-                                                <rect key="frame" x="502.5" y="0.0" width="128" height="60"/>
+                                                <rect key="frame" x="494" y="0.0" width="145.5" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="J3S-Ap-NQk"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="32"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                                <color key="textColor" red="0.68235294117647061" green="0.82352941176470584" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -119,10 +126,7 @@
                                             <constraint firstItem="pQ2-kw-auD" firstAttribute="centerY" secondItem="rUN-aJ-Fd3" secondAttribute="centerY" id="Tba-Hg-yQw"/>
                                             <constraint firstItem="ncV-Un-7NN" firstAttribute="centerY" secondItem="rUN-aJ-Fd3" secondAttribute="centerY" id="UxU-CQ-8BU"/>
                                             <constraint firstItem="JuK-fQ-KjN" firstAttribute="centerY" secondItem="rUN-aJ-Fd3" secondAttribute="centerY" id="a5C-7r-kNj"/>
-                                            <constraint firstAttribute="trailing" secondItem="092-ub-sBj" secondAttribute="trailing" id="eAC-lz-ub2"/>
-                                            <constraint firstItem="092-ub-sBj" firstAttribute="leading" secondItem="rUN-aJ-Fd3" secondAttribute="leading" id="f93-8R-g0J"/>
                                             <constraint firstItem="JuK-fQ-KjN" firstAttribute="leading" secondItem="rUN-aJ-Fd3" secondAttribute="leading" constant="15" id="fpM-zA-Q9C"/>
-                                            <constraint firstItem="092-ub-sBj" firstAttribute="top" secondItem="rUN-aJ-Fd3" secondAttribute="top" id="g6u-dX-IPz"/>
                                             <constraint firstItem="ncV-Un-7NN" firstAttribute="top" secondItem="rUN-aJ-Fd3" secondAttribute="top" constant="10" id="jyR-ub-Aa1"/>
                                         </constraints>
                                     </view>
@@ -135,19 +139,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhv-tm-yab" userLabel="Bottom View">
-                                <rect key="frame" x="0.0" y="624" width="1133" height="120"/>
+                                <rect key="frame" x="0.0" y="614" width="1133" height="130"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XOW-tU-z3A">
-                                        <rect key="frame" x="446" y="10" width="240" height="100"/>
+                                        <rect key="frame" x="446" y="10" width="240" height="110"/>
                                         <subviews>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kX8-XE-qbP">
                                                 <rect key="frame" x="57" y="0.0" width="20" height="20"/>
                                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </activityIndicatorView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="車號辨識中，請稍候..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XkD-3J-if3">
-                                                <rect key="frame" x="99" y="0.0" width="170" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <rect key="frame" x="99" y="0.0" width="170" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <color key="textColor" red="0.68235294117647061" green="0.82352941176470584" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -159,11 +163,11 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8ih-xk-6OG">
-                                        <rect key="frame" x="416.5" y="50" width="300" height="50"/>
+                                        <rect key="frame" x="416.5" y="60" width="300" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0By-kx-b00" customClass="ButtonView" customModule="CarDamageDetect" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="-10" width="200" height="50"/>
-                                                <color key="backgroundColor" red="0.99215686274509807" green="0.59215686274509804" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.11764705882352941" green="0.15686274509803921" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="2ep-ze-XXD"/>
                                                     <constraint firstAttribute="height" constant="50" id="HlO-Ba-FFR"/>
@@ -171,7 +175,7 @@
                                                 <fontDescription key="fontDescription" name="Poppins-ExtraBold" family="Poppins" pointSize="28"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="手動輸入">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" red="0.68235294117647061" green="0.82352941176470584" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="646-0e-wP5" customClass="ButtonView" customModule="CarDamageDetect" customModuleProvider="target">
@@ -202,14 +206,14 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="8ih-xk-6OG" secondAttribute="bottom" constant="20" id="2bU-Gq-IMR"/>
                                     <constraint firstItem="XOW-tU-z3A" firstAttribute="top" secondItem="qhv-tm-yab" secondAttribute="top" constant="10" id="QfO-xe-HAK"/>
-                                    <constraint firstAttribute="height" constant="120" id="Twg-UV-6i3"/>
+                                    <constraint firstAttribute="height" constant="130" id="Twg-UV-6i3"/>
                                     <constraint firstItem="XOW-tU-z3A" firstAttribute="centerY" secondItem="qhv-tm-yab" secondAttribute="centerY" id="d7H-Nx-qkH"/>
                                     <constraint firstItem="8ih-xk-6OG" firstAttribute="centerX" secondItem="qhv-tm-yab" secondAttribute="centerX" id="qhU-9e-U8f"/>
                                     <constraint firstItem="XOW-tU-z3A" firstAttribute="centerX" secondItem="qhv-tm-yab" secondAttribute="centerX" id="vlC-q8-W61"/>
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKu-9v-cmo" userLabel="PlateNumber View">
-                                <rect key="frame" x="316.5" y="558" width="500" height="101"/>
+                                <rect key="frame" x="316.5" y="548" width="500" height="101"/>
                                 <subviews>
                                     <textField opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O3I-TN-IfJ" userLabel="firstPlateNumber" customClass="TextFieldView" customModule="CarDamageDetect" customModuleProvider="target">
                                         <rect key="frame" x="10" y="21" width="200" height="70"/>
@@ -303,7 +307,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg-header" width="2048" height="145"/>
         <image name="ic-back" width="200" height="200"/>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

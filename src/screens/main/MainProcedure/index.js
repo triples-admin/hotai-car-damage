@@ -11,15 +11,15 @@ import {
   Dimensions,
   Alert,
 } from 'react-native';
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Picker from '@wowmaking/react-native-ios-scroll-picker';
 import styles from './styles';
 import Header from '../../../components/Header';
-import {ThemeProvider, useNavigation, useRoute} from '@react-navigation/native';
+import { ThemeProvider, useNavigation, useRoute } from '@react-navigation/native';
 import Button from '../../../components/Button';
-import {colors} from '../../../theme';
+import { colors } from '../../../theme';
 import 'react-native-gesture-handler';
-import {routes} from '../../../navigation/routes';
+import { routes } from '../../../navigation/routes';
 import i18n from '../../../utils/i18n';
 import caseListPageStorage from '../../../api/storage/caseListPage';
 import procedureAPI from '../../../api/axios/procedure';
@@ -147,7 +147,7 @@ const MainProcedure = () => {
   const [modalPicker, setModalPicker] = useState(false); // show/hide modal
   const [dataModal, setDataModal] = useState([]); // list data add to modal
   const [modalValue, setModalValue] = useState('');
-  const [modalTitle, setModalTitle] = useState({key: '', value: ''}); // title modal
+  const [modalTitle, setModalTitle] = useState({ key: '', value: '' }); // title modal
   const [isLoading, setIsLoading] = useState(false);
   const [isFullBodyPaint, setFullBodyPaint] = useState(false);
 
@@ -225,13 +225,13 @@ const MainProcedure = () => {
         }
         if (!element?.area?.value) {
           if (element?.level?.value === 'UPS') {
-            element.area = {label: '', value: ''};
+            element.area = { label: '', value: '' };
           } else {
             element.area = dataMappedArea[0];
           }
         } else {
           if (element?.level?.value === 'UPS') {
-            element.area = {label: '', value: ''};
+            element.area = { label: '', value: '' };
           } else {
             element.area = updateAreaValue(element.area);
           }
@@ -240,25 +240,25 @@ const MainProcedure = () => {
           element.level = dataMappedLevel[0];
         } else {
           if (element?.level?.value === 'UPS') {
-            element.level = {label: '', value: ''};
+            element.level = { label: '', value: '' };
           }
         }
         if (!element?.painting?.value) {
           if (bkCase.current.selectedBodyPaint) {
-            element.painting = {label: '', value: ''};
+            element.painting = { label: '', value: '' };
           } else {
             if (checkBumper(element?.REGION) === true) {
               // (bumper) 後保險桿/前保險桿
               if (element?.method?.value === '1') {
                 // fix
                 if (element.ups) {
-                  for(let i = 0; i < dataMappedPaintingAllFix.length; i++){
+                  for (let i = 0; i < dataMappedPaintingAllFix.length; i++) {
                     let tempValue = dataMappedPaintingAllFix[i];
-                    if(typeof filterPainting.find(element => element == tempValue?.value.trim().toUpperCase()) != 'undefined'){
+                    if (typeof filterPainting.find(element => element == tempValue?.value.trim().toUpperCase()) != 'undefined') {
                       arrPainting.push(tempValue);
                     }
                   }
-                  if(parseInt(element.upsValue) >= 2){
+                  if (parseInt(element.upsValue) >= 2) {
                     element.painting = arrPainting[1];
                   } else {
                     element.painting = arrPainting[0];
@@ -276,13 +276,13 @@ const MainProcedure = () => {
               if (element?.method?.value === '1') {
                 // fix
                 if (element.ups) {
-                  for(let i = 0; i < dataMappedPaintingAllFix.length; i++){
+                  for (let i = 0; i < dataMappedPaintingAllFix.length; i++) {
                     let tempValue = dataMappedPaintingAllFix[i];
-                    if(typeof filterPainting.find(element => element == tempValue?.value.trim().toUpperCase()) != 'undefined'){
+                    if (typeof filterPainting.find(element => element == tempValue?.value.trim().toUpperCase()) != 'undefined') {
                       arrPainting.push(tempValue);
                     }
                   }
-                  if(parseInt(element.upsValue) >= 2){
+                  if (parseInt(element.upsValue) >= 2) {
                     element.painting = arrPainting[1];
                   } else {
                     element.painting = arrPainting[0];
@@ -298,20 +298,20 @@ const MainProcedure = () => {
             }
           }
         }
-        if(checkBumper(element?.REGION) === true && bkCase.current.selectedBodyPaint) {
+        if (checkBumper(element?.REGION) === true && bkCase.current.selectedBodyPaint) {
           element.method = dataMappedMethod[1];
-          element.area = {label: '', value: ''};
-          element.level = {label: '', value: ''};
-          element.painting = {label: '', value: ''};
+          element.area = { label: '', value: '' };
+          element.level = { label: '', value: '' };
+          element.painting = { label: '', value: '' };
         }
       } else {
         setFullBodyPaint(true);
         if (!element?.method?.value) {
           element.method = dataMappedMethod[0];
         }
-        element.area = {label: '', value: ''};
-        element.level = {label: '', value: ''};
-        element.painting = {label: '', value: ''};
+        element.area = { label: '', value: '' };
+        element.level = { label: '', value: '' };
+        element.painting = { label: '', value: '' };
       }
     });
 
@@ -324,14 +324,14 @@ const MainProcedure = () => {
   const onPressSpecialCoating = name => {
     setDataModal(dataMappedSpecial);
     setModalValue(dataMappedSpecial[0]?.value);
-    setModalTitle({key: 'SpecialCoating', value: name});
+    setModalTitle({ key: 'SpecialCoating', value: name });
     setModalPicker(true);
   };
 
   const onPressPaintFilm = name => {
     setDataModal(dataMappedPaintFilm);
     setModalValue(dataMappedPaintFilm[0]?.value);
-    setModalTitle({key: 'PaintFilm', value: name});
+    setModalTitle({ key: 'PaintFilm', value: name });
     setModalPicker(true);
   };
 
@@ -343,7 +343,7 @@ const MainProcedure = () => {
     }
     setDataModal(dataMappedMethodT);
     setModalValue(dataMappedMethodT[0]?.value);
-    setModalTitle({key: 'Method', value: '方式'});
+    setModalTitle({ key: 'Method', value: '方式' });
     setModalPicker(true);
     setItemSelected(item);
   };
@@ -351,7 +351,7 @@ const MainProcedure = () => {
   const onPressArea = item => {
     setDataModal(dataMappedArea);
     setModalValue(dataMappedArea[0]?.value);
-    setModalTitle({key: 'Area', value: '面積'});
+    setModalTitle({ key: 'Area', value: '面積' });
     setModalPicker(true);
     setItemSelected(item);
   };
@@ -359,7 +359,7 @@ const MainProcedure = () => {
   const onPressLevel = item => {
     setDataModal(dataMappedLevel);
     setModalValue(dataMappedLevel[0]?.value);
-    setModalTitle({key: 'Level', value: '級數'});
+    setModalTitle({ key: 'Level', value: '級數' });
     setModalPicker(true);
     setItemSelected(item);
   };
@@ -373,15 +373,15 @@ const MainProcedure = () => {
       if (item?.method?.value === '1') {
         // fix
         if (item.ups) {
-          for(let i = 0; i < dataMappedPaintingAllFix.length; i++){
+          for (let i = 0; i < dataMappedPaintingAllFix.length; i++) {
             let tempValue = dataMappedPaintingAllFix[i];
-            if(typeof filterPainting.find(element => element == tempValue?.value.trim().toUpperCase()) != 'undefined'){
+            if (typeof filterPainting.find(element => element == tempValue?.value.trim().toUpperCase()) != 'undefined') {
               arrPainting.push(tempValue);
             }
           }
           // arrPainting = dataMappedPaintingAllFix.splice(2, 4);
         } else {
-        arrPainting = dataMappedPaintingBumperFix;
+          arrPainting = dataMappedPaintingBumperFix;
         }
       } else {
         // replace
@@ -392,18 +392,18 @@ const MainProcedure = () => {
       if (item?.method?.value === '1') {
         // fix
         if (item.ups) {
-          for(let i = 0; i < dataMappedPaintingAllFix.length; i++){
+          for (let i = 0; i < dataMappedPaintingAllFix.length; i++) {
             let tempValue = dataMappedPaintingAllFix[i];
-            if(typeof filterPainting.find(element => element == tempValue?.value.trim().toUpperCase()) != 'undefined'){
+            if (typeof filterPainting.find(element => element == tempValue?.value.trim().toUpperCase()) != 'undefined') {
               arrPainting.push(tempValue);
             }
           }
           // arrPainting = dataMappedPaintingAllFix.splice(2, 4);
         } else {
-          if(typeof levelCheck.find(element => element == item?.level?.value.trim().toUpperCase()) != 'undefined'){
-            for(let i = 0; i < dataMappedPaintingAllFix.length; i++){
+          if (typeof levelCheck.find(element => element == item?.level?.value.trim().toUpperCase()) != 'undefined') {
+            for (let i = 0; i < dataMappedPaintingAllFix.length; i++) {
               let tempValue = dataMappedPaintingAllFix[i];
-              if(typeof filterPainting.find(element => element == tempValue?.value.trim().toUpperCase()) == 'undefined'){
+              if (typeof filterPainting.find(element => element == tempValue?.value.trim().toUpperCase()) == 'undefined') {
                 arrPainting.push(tempValue);
               }
             }
@@ -418,7 +418,7 @@ const MainProcedure = () => {
     }
     setDataModal(arrPainting);
     setModalValue(arrPainting[0]?.value);
-    setModalTitle({key: 'Painting', value: '噴漆'});
+    setModalTitle({ key: 'Painting', value: '噴漆' });
     setModalPicker(true);
     setItemSelected(item);
   };
@@ -486,8 +486,8 @@ const MainProcedure = () => {
                   delete element.level;
                 }
                 // --- bumper/all -----------------
-                if(isFullBodyPaint){
-                  element.painting = {label: '', value: ''};
+                if (isFullBodyPaint) {
+                  element.painting = { label: '', value: '' };
                 } else {
                   if (checkBumper(element?.REGION) === true) {
                     element.painting = dataMappedPaintingBumperReplace[0];
@@ -500,8 +500,8 @@ const MainProcedure = () => {
                 //---------------------------------------
                 if (checkBumper(element?.REGION) === true) {
                   // console.log('--------- element 1 : ');
-                  if(isFullBodyPaint){
-                    element.painting = {label: '', value: ''};
+                  if (isFullBodyPaint) {
+                    element.painting = { label: '', value: '' };
                   } else {
                     element.painting = dataMappedPaintingBumperFix[0];
                   }
@@ -512,13 +512,13 @@ const MainProcedure = () => {
                     delete element.level;
                   }
                 } else {
-                  if(isFullBodyPaint){
-                    element.painting = {label: '', value: ''};
+                  if (isFullBodyPaint) {
+                    element.painting = { label: '', value: '' };
                   } else {
-                    if(typeof levelCheck.find(element => element == dataMappedLevel[0].value.trim().toUpperCase()) != 'undefined'){
-                      for(let i = 0; i < dataMappedPaintingAllFix.length; i++){
+                    if (typeof levelCheck.find(element => element == dataMappedLevel[0].value.trim().toUpperCase()) != 'undefined') {
+                      for (let i = 0; i < dataMappedPaintingAllFix.length; i++) {
                         let tempValue = dataMappedPaintingAllFix[i];
-                        if(typeof filterPainting.find(element => element == tempValue?.value.trim().toUpperCase()) == 'undefined'){
+                        if (typeof filterPainting.find(element => element == tempValue?.value.trim().toUpperCase()) == 'undefined') {
                           element.painting = tempValue;
                           i = dataMappedPaintingAllFix.length;
                         }
@@ -532,8 +532,8 @@ const MainProcedure = () => {
                 }
               }
             } else {
-              element.area = {label: '', value: ''};
-              element.level = {label: '', value: ''};
+              element.area = { label: '', value: '' };
+              element.level = { label: '', value: '' };
               if (modalValue === '2') {
                 if (element?.area) {
                   delete element.area;
@@ -541,8 +541,8 @@ const MainProcedure = () => {
                 if (element?.level) {
                   delete element.level;
                 }
-                if(isFullBodyPaint){
-                  element.painting = {label: '', value: ''};
+                if (isFullBodyPaint) {
+                  element.painting = { label: '', value: '' };
                 } else {
                   // --- bumper/all -----------------
                   if (checkBumper(element?.REGION) === true) {
@@ -553,13 +553,13 @@ const MainProcedure = () => {
                 }
               } else {
                 if (checkBumper(element?.REGION) === true) {
-                  if(isFullBodyPaint){
-                    element.painting = {label: '', value: ''};
+                  if (isFullBodyPaint) {
+                    element.painting = { label: '', value: '' };
                   } else {
-                    if(typeof levelCheck.find(element => element == dataMappedLevel[0].value.trim().toUpperCase()) != 'undefined'){
-                      for(let i = 0; i < dataMappedPaintingAllFix.length; i++){
+                    if (typeof levelCheck.find(element => element == dataMappedLevel[0].value.trim().toUpperCase()) != 'undefined') {
+                      for (let i = 0; i < dataMappedPaintingAllFix.length; i++) {
                         let tempValue = dataMappedPaintingAllFix[i];
-                        if(typeof filterPainting.find(element => element == tempValue?.value.trim().toUpperCase()) != 'undefined'){
+                        if (typeof filterPainting.find(element => element == tempValue?.value.trim().toUpperCase()) != 'undefined') {
                           element.painting = tempValue;
                           i = dataMappedPaintingAllFix.length;
                         }
@@ -575,13 +575,13 @@ const MainProcedure = () => {
                     delete element.level;
                   }
                 } else {
-                  if(isFullBodyPaint){
-                    element.painting = {label: '', value: ''};
+                  if (isFullBodyPaint) {
+                    element.painting = { label: '', value: '' };
                   } else {
-                    if(typeof levelCheck.find(element => element == dataMappedLevel[0].value.trim().toUpperCase()) != 'undefined'){
-                      for(let i = 0; i < dataMappedPaintingAllFix.length; i++){
+                    if (typeof levelCheck.find(element => element == dataMappedLevel[0].value.trim().toUpperCase()) != 'undefined') {
+                      for (let i = 0; i < dataMappedPaintingAllFix.length; i++) {
                         let tempValue = dataMappedPaintingAllFix[i];
-                        if(typeof filterPainting.find(element => element == tempValue?.value.trim().toUpperCase()) != 'undefined'){
+                        if (typeof filterPainting.find(element => element == tempValue?.value.trim().toUpperCase()) != 'undefined') {
                           element.painting = tempValue;
                           i = dataMappedPaintingAllFix.length;
                         }
@@ -594,9 +594,9 @@ const MainProcedure = () => {
               }
             }
           } else {
-            element.painting = {label: '', value: ''};
-            element.area = {label: '', value: ''};
-            element.level = {label: '', value: ''};
+            element.painting = { label: '', value: '' };
+            element.area = { label: '', value: '' };
+            element.level = { label: '', value: '' };
           }
         }
       });
@@ -770,8 +770,8 @@ const MainProcedure = () => {
     newList.forEach(element => {
       element.damagedPart.forEach(part => {
         if (part.ups) {
-          part.level = {label: '', value: 'UPS'};
-          part.area = {label: '', value: ''};
+          part.level = { label: '', value: 'UPS' };
+          part.area = { label: '', value: '' };
         }
       });
       if (element.id === currentCase?.id) {
@@ -869,14 +869,14 @@ const MainProcedure = () => {
     }
     setIsLoading(false);
     if (!result || result.status !== 200) {
-      
+
     }
   };
 
   const gotoNextPage = async () => {
     const updateCase = await saveToStorage();
     // console.log('--- updateCase : ' + JSON.stringify(updateCase)); 
-    if(onlyFullBodyPaint){
+    if (onlyFullBodyPaint) {
       await callI02(updateCase);
       navigation.navigate(routes.ASSESSMENTPROCEDURESCREEN, {
         caseData: updateCase,
@@ -903,9 +903,9 @@ const MainProcedure = () => {
     const paintFilm = ar_paint_film;
     return (
       <View style={styles.viewBody}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <View style={{flexDirection: 'column'}}>
-            <Text style={{fontSize: 18, color: colors.black}}>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <View style={{ flexDirection: 'column' }}>
+            <Text style={{ fontSize: 18, color: colors.black }}>
               {specialCoating}
             </Text>
             <TouchableOpacity
@@ -922,22 +922,22 @@ const MainProcedure = () => {
               }}
               onPress={() => onPressSpecialCoating(specialCoating)}>
               <Text
-                style={{flex: 1, fontSize: 18, color: colors.blackGray}}
+                style={{ flex: 1, fontSize: 18, color: colors.blackGray }}
                 numberOfLines={1}>
                 {currentCase?.specialCoating?.label ?? '---'}
               </Text>
               <Image
-                style={{width: 16, height: 16}}
+                style={{ width: 16, height: 16 }}
                 source={require('../../../assets/icons/ic_dropdown.png')}
               />
             </TouchableOpacity>
           </View>
-          <View style={{flexDirection: 'column', marginLeft: 50}}>
-            <View style={{flexDirection: 'row'}}>
-              <Text style={{fontSize: 18, color: colors.black}}>
+          <View style={{ flexDirection: 'column', marginLeft: 50 }}>
+            <View style={{ flexDirection: 'row' }}>
+              <Text style={{ fontSize: 18, color: colors.black }}>
                 {paintFilm}
               </Text>
-              <Text style={{fontSize: 18, color: colors.red}}>*</Text>
+              <Text style={{ fontSize: 18, color: colors.red }}>*</Text>
             </View>
             <TouchableOpacity
               style={{
@@ -953,12 +953,12 @@ const MainProcedure = () => {
               }}
               onPress={() => onPressPaintFilm(paintFilm)}>
               <Text
-                style={{flex: 1, fontSize: 18, color: colors.blackGray}}
+                style={{ flex: 1, fontSize: 18, color: colors.blackGray }}
                 numberOfLines={1}>
                 {currentCase?.paintFilm?.label ?? ''}
               </Text>
               <Image
-                style={{width: 16, height: 16}}
+                style={{ width: 16, height: 16 }}
                 source={require('../../../assets/icons/ic_dropdown.png')}
               />
             </TouchableOpacity>
@@ -970,8 +970,8 @@ const MainProcedure = () => {
 
   const renderMain = () => {
     return (
-      <View style={{flexDirection: 'column', paddingHorizontal: 32}}>
-        <Text style={{fontSize: 24, fontWeight: 'bold', color: colors.black}}>
+      <View style={{ flexDirection: 'column', paddingHorizontal: 32 }}>
+        <Text style={{ fontSize: 24, fontWeight: 'bold', color: colors.black }}>
           {main_procedure_title}
         </Text>
         <View
@@ -991,13 +991,13 @@ const MainProcedure = () => {
             shadowRadius: 5.84,
             elevation: 5,
           }}>
-          <View style={{flex: 2}}>
+          <View style={{ flex: 2 }}>
             <Text
-              style={{fontSize: 18, fontWeight: 'bold', color: colors.white}}>
+              style={{ fontSize: 18, fontWeight: 'bold', color: colors.white }}>
               {main_procedure_part}
             </Text>
           </View>
-          <View style={{flex: 1}}>
+          <View style={{ flex: 1 }}>
             <Text
               style={{
                 fontSize: 18,
@@ -1008,7 +1008,7 @@ const MainProcedure = () => {
               {main_procedure_method}
             </Text>
           </View>
-          <View style={{flex: 1}}>
+          <View style={{ flex: 1 }}>
             <Text
               style={{
                 fontSize: 18,
@@ -1019,7 +1019,7 @@ const MainProcedure = () => {
               {main_procedure_area}
             </Text>
           </View>
-          <View style={{flex: 1}}>
+          <View style={{ flex: 1 }}>
             <Text
               style={{
                 fontSize: 18,
@@ -1030,7 +1030,7 @@ const MainProcedure = () => {
               {main_procedure_level}
             </Text>
           </View>
-          <View style={{flex: 2}}>
+          <View style={{ flex: 2 }}>
             <Text
               style={{
                 fontSize: 18,
@@ -1076,10 +1076,10 @@ const MainProcedure = () => {
             paddingVertical: 10,
             backgroundColor: bgColor,
           }}>
-          <View style={{flex: 2}}>
-            <Text style={{fontSize: 18, color: colors.blackGray}}>{title}</Text>
+          <View style={{ flex: 2 }}>
+            <Text style={{ fontSize: 18, color: colors.blackGray }}>{title}</Text>
           </View>
-          <View style={{flex: 1}}>
+          <View style={{ flex: 1 }}>
             <TouchableOpacity
               disabled={item.id == 13}
               style={{
@@ -1094,19 +1094,19 @@ const MainProcedure = () => {
                 backgroundColor: (item.id == 13) ? colors.whiteGray : colors.white,
               }}
               onPress={() => onPressMethod(item)}>
-              <Text style={{flex: 1, fontSize: 18, color: colors.blackGray}}>
+              <Text style={{ flex: 1, fontSize: 18, color: colors.blackGray }}>
                 {method?.label}
               </Text>
               <Image
-                style={{width: 16, height: 16}}
+                style={{ width: 16, height: 16 }}
                 source={require('../../../assets/icons/ic_dropdown.png')}
               />
             </TouchableOpacity>
           </View>
           <View
-            style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+            style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             {hideAreaLevel || item.id == 13 || item.ups ? (
-              <Text style={{fontSize: 18, color: colors.colorText}}>{'-'}</Text>
+              <Text style={{ fontSize: 18, color: colors.colorText }}>{'-'}</Text>
             ) : (
               <TouchableOpacity
                 disabled={item.id == 13 || item.ups}
@@ -1117,25 +1117,25 @@ const MainProcedure = () => {
                   minHeight: 50,
                   padding: 10,
                   borderRadius: 8,
-                  borderWidth: 1, 
+                  borderWidth: 1,
                   borderColor: colors.darkGray,
                   backgroundColor: (item.id == 13 || item.ups) ? colors.whiteGray : colors.white,
                 }}
                 onPress={() => onPressArea(item)}>
-                <Text style={{flex: 1, fontSize: 18, color: colors.blackGray}}>
+                <Text style={{ flex: 1, fontSize: 18, color: colors.blackGray }}>
                   {area?.label}
                 </Text>
                 <Image
-                  style={{width: 16, height: 16}}
+                  style={{ width: 16, height: 16 }}
                   source={require('../../../assets/icons/ic_dropdown.png')}
                 />
               </TouchableOpacity>
             )}
           </View>
           <View
-            style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            {hideAreaLevel || item.id == 13 || item.ups ?  (
-              <Text style={{fontSize: 18, color: colors.colorText}}>{'-'}</Text>
+            style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            {hideAreaLevel || item.id == 13 || item.ups ? (
+              <Text style={{ fontSize: 18, color: colors.colorText }}>{'-'}</Text>
             ) : (
               <TouchableOpacity
                 disabled={item.id == 13 || item.ups}
@@ -1151,19 +1151,19 @@ const MainProcedure = () => {
                   backgroundColor: (item.id == 13 || item.ups) ? colors.whiteGray : colors.white,
                 }}
                 onPress={() => onPressLevel(item)}>
-                <Text style={{flex: 1, fontSize: 18, color: colors.blackGray}}>
+                <Text style={{ flex: 1, fontSize: 18, color: colors.blackGray }}>
                   {level?.label}
                 </Text>
                 <Image
-                  style={{width: 16, height: 16}}
+                  style={{ width: 16, height: 16 }}
                   source={require('../../../assets/icons/ic_dropdown.png')}
                 />
               </TouchableOpacity>
             )}
           </View>
-          <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}>
+          <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center' }}>
             {!painting?.label && !bkCase.current.selectedBodyPaint ? (
-              <Text style={{fontSize: 18, color: colors.colorText}}>{'-'}</Text>
+              <Text style={{ fontSize: 18, color: colors.colorText }}>{'-'}</Text>
             ) : (
               <TouchableOpacity
                 disabled={item.id == 13 || isFullBodyPaint}
@@ -1179,11 +1179,11 @@ const MainProcedure = () => {
                   backgroundColor: (item.id == 13 || isFullBodyPaint) ? colors.whiteGray : colors.white,
                 }}
                 onPress={() => onPressPainting(item)}>
-                <Text style={{flex: 2, fontSize: 18, color: colors.blackGray}}>
+                <Text style={{ flex: 2, fontSize: 18, color: colors.blackGray }}>
                   {painting?.label}
                 </Text>
                 <Image
-                  style={{width: 16, height: 16}}
+                  style={{ width: 16, height: 16 }}
                   source={require('../../../assets/icons/ic_dropdown.png')}
                 />
               </TouchableOpacity>
@@ -1198,8 +1198,8 @@ const MainProcedure = () => {
     return (
       <FlatList
         showsVerticalScrollIndicator={false}
-        style={{flex: 1}}
-        contentContainerStyle={{padding: 10}}
+        style={{ flex: 1 }}
+        contentContainerStyle={{ padding: 10 }}
         data={currentPart}
         renderItem={renderItem}
         keyExtractor={item => {
@@ -1241,7 +1241,7 @@ const MainProcedure = () => {
         /> */}
         <Button
           title={ar_next}
-          style={{backgroundColor: colors.primary}}
+          style={{ backgroundColor: colors.primary }}
           onPress={() => onPressNext()}
         />
       </View>
@@ -1254,10 +1254,10 @@ const MainProcedure = () => {
         animationType="slide"
         transparent={true}
         visible={modalPicker}
-        onRequestClose={() => {}}>
+        onRequestClose={() => { }}>
         <SafeAreaView style={styles.safeView}>
-          <View style={{flex: 1, flexDirection: 'column'}}>
-            <View style={{flex: 1}}></View>
+          <View style={{ flex: 1, flexDirection: 'column' }}>
+            <View style={{ flex: 1 }}></View>
             <View
               style={{
                 flexDirection: 'column',
@@ -1278,7 +1278,7 @@ const MainProcedure = () => {
                   padding: 10,
                 }}>
                 <TouchableOpacity onPress={() => setModalPicker(false)}>
-                  <Text style={{fontSize: 18, color: colors.royalBlue}}>
+                  <Text style={{ fontSize: 18, color: colors.royalBlue }}>
                     {ar_cancel}
                   </Text>
                 </TouchableOpacity>
@@ -1299,7 +1299,7 @@ const MainProcedure = () => {
                   </Text>
                 </View>
                 <TouchableOpacity onPress={() => onPressModalDone()}>
-                  <Text style={{fontSize: 18, color: colors.royalBlue}}>
+                  <Text style={{ fontSize: 18, color: colors.royalBlue }}>
                     {_main_procedure_done}
                   </Text>
                 </TouchableOpacity>
@@ -1324,7 +1324,7 @@ const MainProcedure = () => {
                     borderTopWidth: 1,
                     borderBottomWidth: 1,
                   }}
-                  labelStyle={{color: '#000000', fontSize: 24}}
+                  labelStyle={{ color: '#000000', fontSize: 24 }}
                   onChange={handelPickerChange}
                 />
               </View>
@@ -1349,14 +1349,14 @@ const MainProcedure = () => {
   const onPressGoHome = async () => {
     await saveToStorage();
     navigation.reset({
-      routes: [{name: routes.HOMESCREEN}],
+      routes: [{ name: routes.HOMESCREEN }],
     });
   };
 
   const onPressGoBack = async () => {
     const newCase = await saveToStorage();
     // navigation.goBack();
-    if(onlyFullBodyPaint){
+    if (onlyFullBodyPaint) {
       navigation.navigate(routes.DAMAGEPARTSCREEN, {
         caseData: newCase,
         dataConfig: dataConfig,

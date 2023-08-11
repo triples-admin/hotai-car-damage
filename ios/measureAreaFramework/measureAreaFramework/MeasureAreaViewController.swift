@@ -290,7 +290,7 @@ public class MeasureAreaViewController: UIViewController, ARSessionDelegate, UIC
            let measureUnitImage = UIGraphicsGetImageFromCurrentImageContext()
            UIGraphicsEndImageContext()
            UIGraphicsBeginImageContext(size)
-           var collectionViewOriginX = (size.width - self.collectionView.bounds.size.width)/2
+           let collectionViewOriginX = (size.width - self.collectionView.bounds.size.width)/2
            self.collectionView.layer.render(in: UIGraphicsGetCurrentContext()!)
            let optionsImage = UIGraphicsGetImageFromCurrentImageContext()
            UIGraphicsEndImageContext()
@@ -444,7 +444,7 @@ public class MeasureAreaViewController: UIViewController, ARSessionDelegate, UIC
        else { return }
 
        print(result)
-       let anchor = AnchorEntity(raycastResult: result)
+     let anchor = AnchorEntity();
        let box = ModelEntity(mesh: .generateBox(size: simd_make_float3(0.3, 0.1, 0.2), cornerRadius: 0.03))
        box.transform = Transform(pitch: 0, yaw: 1, roll: 0)
        anchor.addChild(box)
