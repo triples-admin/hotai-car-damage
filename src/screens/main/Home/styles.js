@@ -200,16 +200,16 @@ export default StyleSheet.create({
   viewPopup: {
     backgroundColor: colors.white,
     borderRadius: 8,
-    paddingHorizontal: 24,
-    paddingVertical: 24,
+    paddingHorizontal: 30,
+    paddingTop: 30,
+    paddingBottom: 60,
     width: '50%',
   },
-
   buttonClose: {
     alignItems: 'center',
     justifyContent: 'center',
   },
-  imageCloseButton: { height: 24, width: 24 },
+  imageCloseButton: { height: 24, width: 24, tintColor: colors.primary },
   buttonSearchPopup: {
     backgroundColor: colors.primary,
     borderRadius: 50,
@@ -222,31 +222,31 @@ export default StyleSheet.create({
     paddingVertical: 4,
     borderRadius: 50,
   },
-  imageSearchPopup: { height: 28, width: 28 },
+  imageSearchPopup: { height: 28, width: 28, tintColor: colors.lightBlue },
   viewTextSearchPopup: {
     paddingLeft: 16,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  textSearchPopup: { fontSize: 28, color: colors.white, fontWeight: 'bold' },
+  textSearchPopup: {
+    fontSize: 28, color: colors.white, fontWeight: 'bold', color: colors.lightBlue
+  },
   textTitlePopup: {
     fontSize: 35,
     color: colors.black,
     textAlign: 'center',
-    fontWeight: 'bold',
   },
   textLicensePlatePopup: {
     fontSize: 18,
     color: colors.black,
     textAlign: 'left',
-    fontWeight: 'bold',
     marginBottom: 4,
   },
   viewTextInputPopup: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 50,
   },
   textInputPopup: {
     width: '46%',

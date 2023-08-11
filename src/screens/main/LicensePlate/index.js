@@ -69,7 +69,7 @@ const LicensePlate = () => {
   const _failed = i18n.t('smart_pricing_title_failed');
   const _licensePlateEmpty = i18n.t('smart_pricing_license_plate_empty');
   const _ok = i18n.t('smart_pricing_ok');
-  const _smart_pricing_title = i18n.t('smart_pricing_title');
+  const _title = i18n.t('smart_pricing_title');
   const _smart_pricing_license_plate = i18n.t('smart_pricing_license_plate');
   const _smart_pricing_submit = i18n.t('smart_pricing_submit');
   const _smart_pricing_duplicated = i18n.t('smart_pricing_duplicated');
@@ -559,52 +559,11 @@ const LicensePlate = () => {
               height: '100%',
               backgroundColor: 'white',
             }}>
-            <View
-              style={{
-                zIndex: 99,
-                flexDirection: 'row',
-                alignItems: 'center',
-                height: 55,
-                paddingHorizontal: 20,
-                backgroundColor: colors.primary,
-                borderBottomLeftRadius: 24,
-                borderBottomRightRadius: 24,
-              }}>
-              <TouchableOpacity
-                onPress={() => onPressBackVisionScan()}
-                style={{ width: 50, width: 100 }}>
-                <Image
-                  resizeMode="contain"
-                  source={icons.arrow_left_icon}
-                  style={{ width: 25, height: 25 }}
-                />
-              </TouchableOpacity>
-              <View
-                style={{
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <Text
-                  style={{ fontSize: 32, fontWeight: 'bold', color: 'white' }}>
-                  {_smart_pricing_title}
-                </Text>
-              </View>
-              <TouchableOpacity
-                onPress={() => onPressLogout()}
-                style={{
-                  backgroundColor: 'white',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: 100,
-                  paddingVertical: 5,
-                  borderRadius: 20,
-                }}>
-                <Text style={{ fontSize: 18, color: colors.secondary }}>
-                  {_logout}
-                </Text>
-              </TouchableOpacity>
-            </View>
+            <Header
+              iconBack
+              onPressBack={() => onPressBackVisionScan()}
+              title={_title} logout hideVersion
+            />
             {renderBody()}
           </View>
         </KeyboardAvoidingView>

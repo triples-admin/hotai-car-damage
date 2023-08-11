@@ -10,7 +10,7 @@ import i18n from '../../utils/i18n';
 import { NativeService, EventEmitter } from '../../bridge/NativeService';
 import deviceInfoModule from 'react-native-device-info';
 
-const Header = ({ iconBack, onPressBack, onPressReloadHome, iconHome, onPressHome, title, style, logout, leftButton, onPressLeft, buttonRight, onPressRight }) => {
+const Header = ({ iconBack, onPressBack, onPressReloadHome, iconHome, onPressHome, title, style, logout, leftButton, onPressLeft, buttonRight, onPressRight, hideVersion, titleStyle = {} }) => {
   const navigation = useNavigation();
   const _logout = i18n.t('logout');
   const _version = deviceInfoModule.getVersion();
@@ -67,7 +67,7 @@ const Header = ({ iconBack, onPressBack, onPressReloadHome, iconHome, onPressHom
             />
           </TouchableOpacity>
         )}
-        {logout && (
+        {logout && !hideVersion && (
           <Text style={styles.textVersion} numberOfLines={1}>V{_version}</Text>
         )}
         {leftButton && (
@@ -87,7 +87,7 @@ const Header = ({ iconBack, onPressBack, onPressReloadHome, iconHome, onPressHom
         )}
       </View>
       <View style={styles.viewTextHeader}>
-        <Text style={styles.textHeader} numberOfLines={1}>{title}</Text>
+        <Text style={[styles.textHeader, titleStyle]} numberOfLines={1}>{title}</Text>
       </View>
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', minWidth: 200 }}>
         {logout && (

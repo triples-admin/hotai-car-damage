@@ -1040,7 +1040,9 @@ const HomeScreen = () => {
     Alert.alert('', _home_failed_search, [
       {
         text: _home_ok,
-        onPress: () => { }, //setShowModal(false)
+        onPress: () => {
+          setShowModal(false)
+        },
       },
     ]);
   };
@@ -1205,7 +1207,7 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.container}>
       <Header
         // onPressReloadHome={onPressReloadHome} 
-        title={_title} logout />
+        title={_title} logout titleStyle={{ color: colors.lightBlue }} />
       {renderBody()}
       {renderFooter()}
       {renderModalFilter()}

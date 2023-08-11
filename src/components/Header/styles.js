@@ -26,7 +26,7 @@ export default StyleSheet.create({
   },
   textHeader: {
     fontSize: 36,
-    color: colors.lightBlue,
+    color: colors.white,
     fontWeight: 'bold',
   },
   buttonLogout: {
@@ -48,10 +48,10 @@ export default StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 10,
   },
-  imageBack: { height: 28, width: 28 },
+  imageBack: { height: 28, width: 28, tintColor: colors.lightBlue },
   viewImageHome: {
     paddingLeft: 15,
     paddingRight: 15
   },
-  imageHome: { height: 36, width: 36, tintColor: 'white' },
+  imageHome: { height: 36, width: 36, tintColor: colors.lightBlue },
 });
