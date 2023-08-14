@@ -1,9 +1,9 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import react, {useState, useEffect} from 'react';
-import {colors} from '../../theme';
+import { StyleSheet, Dimensions } from 'react-native';
+import react, { useState, useEffect } from 'react';
+import { colors } from '../../theme';
 import { getSize } from '../../../utils/responsive';
-const {width} = Dimensions.get('screen');
-const {height} = Dimensions.get('screen');
+const { width } = Dimensions.get('screen');
+const { height } = Dimensions.get('screen');
 
 export default StyleSheet.create({
   container: {
@@ -24,5 +24,5 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  text: {fontSize: 24, color: colors.white},
+  text: { fontSize: 24, color: colors.white },
 });

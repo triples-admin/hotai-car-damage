@@ -1,4 +1,4 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import { colors } from '../../theme';
 import { getSize } from '../../utils/responsive';
 
@@ -13,7 +13,7 @@ export default StyleSheet.create({
     height: 30,
     backgroundColor: colors.white,
     borderRadius: 50,
-    borderColor: colors.colorSwitchOff,
+    borderColor: colors.white,
     borderWidth: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -35,7 +35,7 @@ export default StyleSheet.create({
   },
   textTitleEnable: {
     fontSize: 20,
-    color: colors.white,
+    color: colors.primary,
     alignSelf: 'center',
     marginLeft: 5
   },

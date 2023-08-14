@@ -12,19 +12,20 @@ import {
   ActivityIndicator,
   Image,
 } from 'react-native';
-import React, {useState, useRef, useEffect} from 'react';
-import {icons} from '../../../assets';
+import React, { useState, useRef, useEffect } from 'react';
+import { icons } from '../../../assets';
 import Header from '../../../components/Header';
-import {colors} from '../../../theme';
-import {routes} from '../../../navigation/routes';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import { colors } from '../../../theme';
+import { routes } from '../../../navigation/routes';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import caseListPageStorage from '../../../api/storage/caseListPage';
 import procedureAPI from '../../../api/axios/procedure';
 import i18n from '../../../utils/i18n';
 import LoadingView from '../../../components/Loading';
 import TopScreen from '../../../components/TopScreen';
+import Toggle from '../../../components/Toggle';
 import ARButton from '../../../components/Button';
-import {ScrollView} from 'react-native-gesture-handler';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const screen = Dimensions.get('window');
 
@@ -46,6 +47,12 @@ const ar_delete = i18n.t('ar_delete');
 const ar_cancel = i18n.t('ar_cancel');
 const _main_procedure_title_delete = i18n.t('main_procedure_title_delete');
 const _main_procedure_content_delete = i18n.t('main_procedure_content_delete');
+const main_procedure_toggle_camera = i18n.t('main_procedure_toggle_camera');
+const main_procedure_toggle_gallery = i18n.t('main_procedure_toggle_gallery');
+
+const { width } = Dimensions.get('screen');
+const itemWidth = (width - 140 - (30 * 3)) / 4;
+const itemHeight = itemWidth * 0.7;
 
 const DrivingLicense = () => {
   const navigation = useNavigation();
@@ -366,7 +373,7 @@ const DrivingLicense = () => {
   const onPressGoHome = async () => {
     await saveToStorage();
     navigation.reset({
-      routes: [{name: routes.HOMESCREEN}],
+      routes: [{ name: routes.HOMESCREEN }],
     });
   };
 
@@ -383,7 +390,7 @@ const DrivingLicense = () => {
   const onPressNextStep = async () => {
     await saveToStorage();
     if (caseData.current.progress >= 4) {
-      if(!onlyFullBodyPaint){
+      if (!onlyFullBodyPaint) {
         navigation.navigate(routes.MEASURE_AREA, {
           caseData: caseData.current,
           dataConfig: dataConfig,
@@ -423,409 +430,55 @@ const DrivingLicense = () => {
   };
 
   const renderMain = () => {
+    const array = [
+      { text: driving_license_photo_1, item: photo1, type: 'photo1' },
+      { text: driving_license_photo_2, item: photo2, type: 'photo2' },
+      { text: driving_license_photo_3, item: photo3, type: 'photo3' },
+      { text: driving_license_photo_4, item: photo4, type: 'photo4' },
+      { text: driving_license_photo_5, item: photo5, type: 'photo5' },
+      { text: driving_license_photo_6, item: photo6, type: 'photo6' },
+      { text: driving_license_photo_7, item: photo7, type: 'photo7' },
+      { text: driving_license_photo_8, item: photo8, type: 'photo8' },
+      { text: driving_license_photo_9, item: photo9, type: 'photo9' },
+      { text: driving_license_photo_10, item: photo10, type: 'photo10' },
+    ];
+
     return (
-      <ScrollView style={{flex: 1, flexDirection: 'column'}}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            padding: 20,
-            flexWrap: 'wrap',
-          }}>
-          <View
-            style={{flexDirection: 'column', marginLeft: 37, marginTop: 30}}>
-            <TouchableOpacity
-              style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: 200,
-                height: 150,
-                backgroundColor: colors.gray,
-                borderRadius: 8,
-              }}
-              onPress={() => onPressPhoto(driving_license_photo_1, 'photo1')}>
-              {photo1?.length > 0 && photo1[0]?.path ? (
-                <Image
-                  style={{width: 200, height: 150, borderRadius: 8}}
-                  source={{uri: photo1[0]?.path}}
-                />
-              ) : (
-                <Image
-                  style={{width: 50, height: 50}}
-                  source={require('../../../assets/icons/ic_add.png')}
-                />
-              )}
-            </TouchableOpacity>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 15,
-              }}>
-              <Text style={{fontSize: 20, color: colors.blackGray}}>
-                {driving_license_photo_1}
-              </Text>
-              <Text
-                style={{marginLeft: 10, fontSize: 20, color: colors.darkGray}}>
-                {photo1?.length}
-              </Text>
-            </View>
-          </View>
-          <View
-            style={{flexDirection: 'column', marginLeft: 37, marginTop: 30}}>
-            <TouchableOpacity
-              style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: 200,
-                height: 150,
-                backgroundColor: colors.gray,
-                borderRadius: 8,
-              }}
-              onPress={() => onPressPhoto(driving_license_photo_2, 'photo2')}>
-              {photo2?.length > 0 && photo2[0]?.path ? (
-                <Image
-                  style={{width: 200, height: 150, borderRadius: 8}}
-                  source={{uri: photo2[0]?.path}}
-                />
-              ) : (
-                <Image
-                  style={{width: 50, height: 50}}
-                  source={require('../../../assets/icons/ic_add.png')}
-                />
-              )}
-            </TouchableOpacity>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 15,
-              }}>
-              <Text style={{fontSize: 20, color: colors.blackGray}}>
-                {driving_license_photo_2}
-              </Text>
-              <Text
-                style={{marginLeft: 10, fontSize: 20, color: colors.darkGray}}>
-                {photo2?.length}
-              </Text>
-            </View>
-          </View>
-          <View
-            style={{flexDirection: 'column', marginLeft: 37, marginTop: 30}}>
-            <TouchableOpacity
-              style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: 200,
-                height: 150,
-                backgroundColor: colors.gray,
-                borderRadius: 8,
-              }}
-              onPress={() => onPressPhoto(driving_license_photo_3, 'photo3')}>
-              {photo3?.length > 0 && photo3[0]?.path ? (
-                <Image
-                  style={{width: 200, height: 150, borderRadius: 8}}
-                  source={{uri: photo3[0]?.path}}
-                />
-              ) : (
-                <Image
-                  style={{width: 50, height: 50}}
-                  source={require('../../../assets/icons/ic_add.png')}
-                />
-              )}
-            </TouchableOpacity>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 15,
-              }}>
-              <Text style={{fontSize: 20, color: colors.blackGray}}>
-                {driving_license_photo_3}
-              </Text>
-              <Text
-                style={{marginLeft: 10, fontSize: 20, color: colors.darkGray}}>
-                {photo3?.length}
-              </Text>
-            </View>
-          </View>
-          <View
-            style={{flexDirection: 'column', marginLeft: 37, marginTop: 30}}>
-            <TouchableOpacity
-              style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: 200,
-                height: 150,
-                backgroundColor: colors.gray,
-                borderRadius: 8,
-              }}
-              onPress={() => onPressPhoto(driving_license_photo_4, 'photo4')}>
-              {photo4?.length > 0 && photo4[0]?.path ? (
-                <Image
-                  style={{width: 200, height: 150, borderRadius: 8}}
-                  source={{uri: photo4[0]?.path}}
-                />
-              ) : (
-                <Image
-                  style={{width: 50, height: 50}}
-                  source={require('../../../assets/icons/ic_add.png')}
-                />
-              )}
-            </TouchableOpacity>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 15,
-              }}>
-              <Text style={{fontSize: 20, color: colors.blackGray}}>
-                {driving_license_photo_4}
-              </Text>
-              <Text
-                style={{marginLeft: 10, fontSize: 20, color: colors.darkGray}}>
-                {photo4?.length}
-              </Text>
-            </View>
-          </View>
-          <View
-            style={{flexDirection: 'column', marginLeft: 37, marginTop: 30}}>
-            <TouchableOpacity
-              style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: 200,
-                height: 150,
-                backgroundColor: colors.gray,
-                borderRadius: 8,
-              }}
-              onPress={() => onPressPhoto(driving_license_photo_5, 'photo5')}>
-              {photo5?.length > 0 && photo5[0]?.path ? (
-                <Image
-                  style={{width: 200, height: 150, borderRadius: 8}}
-                  source={{uri: photo5[0]?.path}}
-                />
-              ) : (
-                <Image
-                  style={{width: 50, height: 50}}
-                  source={require('../../../assets/icons/ic_add.png')}
-                />
-              )}
-            </TouchableOpacity>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 15,
-              }}>
-              <Text style={{fontSize: 20, color: colors.blackGray}}>
-                {driving_license_photo_5}
-              </Text>
-              <Text
-                style={{marginLeft: 10, fontSize: 20, color: colors.darkGray}}>
-                {photo5?.length}
-              </Text>
-            </View>
-          </View>
-          <View
-            style={{flexDirection: 'column', marginLeft: 37, marginTop: 30}}>
-            <TouchableOpacity
-              style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: 200,
-                height: 150,
-                backgroundColor: colors.gray,
-                borderRadius: 8,
-              }}
-              onPress={() => onPressPhoto(driving_license_photo_6, 'photo6')}>
-              {photo6?.length > 0 && photo6[0]?.path ? (
-                <Image
-                  style={{width: 200, height: 150, borderRadius: 8}}
-                  source={{uri: photo6[0]?.path}}
-                />
-              ) : (
-                <Image
-                  style={{width: 50, height: 50}}
-                  source={require('../../../assets/icons/ic_add.png')}
-                />
-              )}
-            </TouchableOpacity>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 15,
-              }}>
-              <Text style={{fontSize: 20, color: colors.blackGray}}>
-                {driving_license_photo_6}
-              </Text>
-              <Text
-                style={{marginLeft: 10, fontSize: 20, color: colors.darkGray}}>
-                {photo6?.length}
-              </Text>
-            </View>
-          </View>
-          <View
-            style={{flexDirection: 'column', marginLeft: 37, marginTop: 30}}>
-            <TouchableOpacity
-              style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: 200,
-                height: 150,
-                backgroundColor: colors.gray,
-                borderRadius: 8,
-              }}
-              onPress={() => onPressPhoto(driving_license_photo_7, 'photo7')}>
-              {photo7?.length > 0 && photo7[0]?.path ? (
-                <Image
-                  style={{width: 200, height: 150, borderRadius: 8}}
-                  source={{uri: photo7[0]?.path}}
-                />
-              ) : (
-                <Image
-                  style={{width: 50, height: 50}}
-                  source={require('../../../assets/icons/ic_add.png')}
-                />
-              )}
-            </TouchableOpacity>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 15,
-              }}>
-              <Text style={{fontSize: 20, color: colors.blackGray}}>
-                {driving_license_photo_7}
-              </Text>
-              <Text
-                style={{marginLeft: 10, fontSize: 20, color: colors.darkGray}}>
-                {photo7?.length}
-              </Text>
-            </View>
-          </View>
-          <View
-            style={{flexDirection: 'column', marginLeft: 37, marginTop: 30}}>
-            <TouchableOpacity
-              style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: 200,
-                height: 150,
-                backgroundColor: colors.gray,
-                borderRadius: 8,
-              }}
-              onPress={() => onPressPhoto(driving_license_photo_8, 'photo8')}>
-              {photo8?.length > 0 && photo8[0]?.path ? (
-                <Image
-                  style={{width: 200, height: 150, borderRadius: 8}}
-                  source={{uri: photo8[0]?.path}}
-                />
-              ) : (
-                <Image
-                  style={{width: 50, height: 50}}
-                  source={require('../../../assets/icons/ic_add.png')}
-                />
-              )}
-            </TouchableOpacity>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 15,
-              }}>
-              <Text style={{fontSize: 20, color: colors.blackGray}}>
-                {driving_license_photo_8}
-              </Text>
-              <Text
-                style={{marginLeft: 10, fontSize: 20, color: colors.darkGray}}>
-                {photo8?.length}
-              </Text>
-            </View>
-          </View>
-          <View
-            style={{flexDirection: 'column', marginLeft: 37, marginTop: 30}}>
-            <TouchableOpacity
-              style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: 200,
-                height: 150,
-                backgroundColor: colors.gray,
-                borderRadius: 8,
-              }}
-              onPress={() => onPressPhoto(driving_license_photo_9, 'photo9')}>
-              {photo9?.length > 0 && photo9[0]?.path ? (
-                <Image
-                  style={{width: 200, height: 150, borderRadius: 8}}
-                  source={{uri: photo9[0]?.path}}
-                />
-              ) : (
-                <Image
-                  style={{width: 50, height: 50}}
-                  source={require('../../../assets/icons/ic_add.png')}
-                />
-              )}
-            </TouchableOpacity>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 15,
-              }}>
-              <Text style={{fontSize: 20, color: colors.blackGray}}>
-                {driving_license_photo_9}
-              </Text>
-              <Text
-                style={{marginLeft: 10, fontSize: 20, color: colors.darkGray}}>
-                {photo9?.length}
-              </Text>
-            </View>
-          </View>
-          <View
-            style={{flexDirection: 'column', marginLeft: 37, marginTop: 30}}>
-            <TouchableOpacity
-              style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: 200,
-                height: 150,
-                backgroundColor: colors.gray,
-                borderRadius: 8,
-              }}
-              onPress={() => onPressPhoto(driving_license_photo_10, 'photo10')}>
-              {photo10?.length > 0 && photo10[0]?.path ? (
-                <Image
-                  style={{width: 200, height: 150, borderRadius: 8}}
-                  source={{uri: photo10[0]?.path}}
-                />
-              ) : (
-                <Image
-                  style={{width: 50, height: 50}}
-                  source={require('../../../assets/icons/ic_add.png')}
-                />
-              )}
-            </TouchableOpacity>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 15,
-              }}>
-              <Text style={{fontSize: 20, color: colors.blackGray}}>
-                {driving_license_photo_10}
-              </Text>
-              <Text
-                style={{marginLeft: 10, fontSize: 20, color: colors.darkGray}}>
-                {photo10?.length}
-              </Text>
-            </View>
-          </View>
+      <ScrollView style={{ flex: 1, flexDirection: 'column' }}>
+        <View style={styles.bodyView}>
+          {array.map((element, index) => {
+            const marginTop = index > 3 ? 35 : 0;
+            const marginLeft = index % 4 == 0 ? 0 : 30;
+            return (
+              <View style={{ flexDirection: 'column', marginTop: marginTop, marginLeft: marginLeft }}>
+                <TouchableOpacity style={styles.buttonView}
+                  onPress={() => onPressPhoto(element.text, element.type)}
+                >
+                  {element.item?.length > 0 && element.item[0]?.path ? (
+                    <Image style={styles.image}
+                      source={{ uri: element.item[0]?.path }}
+                    />
+                  ) : (
+                    <Image style={styles.imageIcon}
+                      source={require('../../../assets/icons/ic_add.png')}
+                    />
+                  )}
+                </TouchableOpacity>
+                <View style={styles.textView}>
+                  <Text style={styles.text}>
+                    {element.text}
+                  </Text>
+                  <Text style={styles.textCount}>
+                    {element.item?.length}
+                  </Text>
+                </View>
+              </View>
+            )
+          })}
         </View>
       </ScrollView>
     );
-  };
+  }
 
   const onPressToggle = async status => {
     const newList = caseListPage.current;
@@ -848,16 +501,22 @@ const DrivingLicense = () => {
         title={caseData.current?.licensePlate}
       />
       <TopScreen
-        disablePhotos={true}
-        onPressPhotos={(caseData.current.progress >= 4 && onlyFullBodyPaint ) ? null : onPressNextStep}
-        disableAssessment={true}
-        toggleStatus={toggleStatus}
+        topID={1}
+        onPressPhotos={(caseData.current.progress >= 4 && onlyFullBodyPaint) ? null : onPressNextStep}
         onPressToggle={onPressToggle}
         onPressAssessment={
           caseData.current.progress >= 4 ? onPressAssessment : null
         }
       />
       {renderMain()}
+      <View style={{ position: 'absolute', right: 50, bottom: 30 }}>
+        <Toggle
+          titleEnable={main_procedure_toggle_camera}
+          titleDisable={main_procedure_toggle_gallery}
+          status={toggleStatus}
+          onPressToggle={onPressToggle}
+        />
+      </View>
       {isLoading && <LoadingView />}
     </SafeAreaView>
   );
@@ -870,4 +529,42 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'transparent',
   },
+  bodyView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 70,
+    paddingBottom: 55,
+    flexWrap: 'wrap',
+  },
+  buttonView: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: itemWidth,
+    height: itemHeight,
+    backgroundColor: colors.gray,
+    borderRadius: 8,
+  },
+  textView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 5,
+  },
+  text: {
+    fontSize: 20,
+    color: colors.blackGray
+  },
+  textCount: {
+    marginLeft: 10,
+    fontSize: 20,
+    color: colors.darkGray,
+  },
+  image: {
+    width: itemWidth,
+    height: itemHeight,
+    borderRadius: 8
+  },
+  imageIcon: {
+    width: 50,
+    height: 50
+  }
 });

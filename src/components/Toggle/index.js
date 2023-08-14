@@ -1,7 +1,7 @@
-import {StyleSheet, Text, View, TouchableOpacity, Animated} from 'react-native';
-import React, {useState, useRef, useEffect} from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Animated } from 'react-native';
+import React, { useState, useRef, useEffect } from 'react';
 import styles from './styles';
-import {colors} from '../../theme';
+import { colors } from '../../theme';
 
 const Toggle = ({
   titleEnable,
@@ -32,7 +32,7 @@ const Toggle = ({
 
   return (
     <View>
-      <View style={{...styles.container, ...style}}>
+      <View style={{ ...styles.container, ...style }}>
         <TouchableOpacity
           disabled={disabled}
           onPress={() => {
@@ -40,10 +40,7 @@ const Toggle = ({
           }}
           style={[
             styles.viewSwitch,
-            {
-              backgroundColor: isOn ? colors.primary : colors.red,
-              //m: isOn ? animatedValue : animatedValuee,
-            },
+            { backgroundColor: isOn ? colors.primary : colors.lightBlue },
             viewSwitchStyle,
           ]}>
           {!isOn && (
@@ -54,11 +51,8 @@ const Toggle = ({
           <View
             style={[
               styles.viewInSwitch,
-              {
-                backgroundColor: isOn
-                  ? colors.backgroundStatusBar
-                  : colors.white,
-              },
+              { backgroundColor: colors.white },
+              isOn ? { marginRight: 8 } : { marginLeft: 8 },
               viewInSwitchStyle,
             ]}
           />
