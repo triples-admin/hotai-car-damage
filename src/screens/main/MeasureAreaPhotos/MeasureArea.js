@@ -13,22 +13,26 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import React, {useState, useRef, useEffect} from 'react';
-import {icons} from '../../../assets';
+import React, { useState, useRef, useEffect } from 'react';
+import { icons } from '../../../assets';
 import Header from '../../../components/Header';
-import {colors} from '../../../theme';
-import {routes} from '../../../navigation/routes';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import { colors } from '../../../theme';
+import { routes } from '../../../navigation/routes';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import caseListPageStorage from '../../../api/storage/caseListPage';
 import procedureAPI from '../../../api/axios/procedure';
 import i18n from '../../../utils/i18n';
 import LoadingView from '../../../components/Loading';
 import TopScreen from '../../../components/TopScreen';
 import ARButton from '../../../components/Button';
+import Toggle from '../../../components/Toggle';
 
 const screen = Dimensions.get('window');
 const _width = screen.width;
 const _height = screen.height;
+
+const itemWidth = (_width - 110 - (30 * 3)) / 4;
+const itemHeight = itemWidth * 0.7;
 
 const ar_save = i18n.t('ar_save');
 const ar_api_message_error = i18n.t('ar_api_message_error');
@@ -58,6 +62,8 @@ const _main_procedure_content_delete = i18n.t('main_procedure_content_delete');
 
 const measure_area_damage_angle = i18n.t('measure_area_damage_angle');
 const measure_area_damage_area = i18n.t('measure_area_damage_area');
+const main_procedure_toggle_camera = i18n.t('main_procedure_toggle_camera');
+const main_procedure_toggle_gallery = i18n.t('main_procedure_toggle_gallery');
 const measure_area_confirm_title = i18n.t('measure_area_confirm_title');
 const measure_area_confirm_content = i18n.t('measure_area_confirm_content');
 
@@ -160,7 +166,7 @@ const MeasureArea = () => {
   const onPressGoHome = async () => {
     await saveToStorage();
     navigation.reset({
-      routes: [{name: routes.HOMESCREEN}],
+      routes: [{ name: routes.HOMESCREEN }],
     });
   };
 
@@ -248,108 +254,70 @@ const MeasureArea = () => {
   };
 
   const renderAngle = () => {
-    const widthBox = _width / 4 - 30;
-    const heightBox = (widthBox * 2) / 3;
-
-    // console.log('-- caseData : ' + JSON.stringify(caseData));
-    // console.log('-- damagedAngle : ' + JSON.stringify(damagedAngle));
-
-    let view = [];
-    damagedAngle?.forEach((element, index) => {
-      view.push(
-        <View key={index} style={{flexDirection: 'column', marginRight: 20}}>
-          <TouchableOpacity
-            style={{
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: widthBox,
-              height: heightBox,
-              backgroundColor: colors.gray,
-              borderRadius: 8,
-            }}
-            onPress={() => onPressPhoto(element)}>
-            <Image
-              style={{width: widthBox, height: heightBox, borderRadius: 8}}
-              source={{uri: element?.photo?.path}}
-            />
-          </TouchableOpacity>
-          <Text
-            style={{
-              marginTop: 15,
-              fontSize: 20,
-              color: colors.blackGray,
-              width: widthBox,
-            }}
-            numberOfLines={1}>
-            {element?.name}
-          </Text>
-        </View>,
-      );
-    });
     return (
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>{view}</View>
+      <View style={{ flexDirection: 'row' }}>
+        {damagedAngle?.map((element, index) => {
+          const marginLeft = index % 4 == 0 ? 0 : 30;
+          return (
+            <View key={index} style={[styles.itemView, { marginLeft: marginLeft }]}>
+              <TouchableOpacity style={styles.itemBtn} onPress={() => onPressPhoto(element)}>
+                <Image style={styles.itemImg}
+                  source={{ uri: element?.photo?.path }}
+                />
+              </TouchableOpacity>
+              <Text style={styles.itemText} numberOfLines={1}>
+                {element?.name}
+              </Text>
+            </View>
+          );
+        })}
+      </View>
     );
   };
 
   const renderPart = () => {
-    const widthBox = _width / 4 - 30;
-    const heightBox = (widthBox * 2) / 3;
+
     let view = [];
     damagedPart.forEach((element, index) => {
-      const arrPhotos = element?.PHOTOS;
-      let photo0 = element?.PHOTOS?.length > 0 ? element.PHOTOS[0] : '';
-      arrPhotos.forEach(itemPhoto => {
-        if (itemPhoto?.isMeasure) {
-          photo0 = itemPhoto;
+      const marginLeft = index % 4 == 0 ? 0 : 30;
+
+      // 取得封面圖
+      const photos = element?.PHOTOS;
+      let coverImg = photos?.length > 0 ? element.PHOTOS[0] : '';
+      photos.forEach(element => {
+        if (element?.isMeasure) {
+          coverImg = itemPhoto;
         }
       });
-      if(element?.id !== 13) { 
+
+      if (element?.id !== 13) {
         view.push(
-          <View key={index} style={{flexDirection: 'column', marginRight: 20}}>
-            <TouchableOpacity
-              style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: widthBox,
-                height: heightBox,
-                backgroundColor: colors.gray,
-                borderRadius: 8,
-              }}
+          <View key={index} style={[styles.itemView, { marginLeft: marginLeft }]}>
+            <TouchableOpacity style={styles.itemBtn}
               onPress={() => onPressAreaItem(element)}>
-              {photo0?.path ? (
-                <Image
-                  style={{width: widthBox, height: heightBox, borderRadius: 8}}
-                  source={{uri: photo0?.path}}
-                />
+              {coverImg?.path ? (
+                <Image style={styles.itemImg} source={{ uri: coverImg?.path }} />
               ) : (
-                <Image
-                  style={{width: 50, height: 50}}
+                <Image style={{ width: 50, height: 50 }}
                   source={require('../../../assets/icons/ic_add.png')}
                 />
               )}
             </TouchableOpacity>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 10,
-                marginBottom: 20,
-              }}>
-              <Text style={{fontSize: 20, color: colors.blackGray}}>
+            <View style={styles.partTextView}>
+              <Text style={styles.partText}>
                 {element?.REGIONM}
               </Text>
-              <Text
-                style={{marginLeft: 10, fontSize: 20, color: colors.darkGray}}>
-                {arrPhotos?.length ?? '0'}
+              <Text style={styles.partTextNum}>
+                {photos?.length ?? '0'}
               </Text>
             </View>
           </View>,
         );
       }
     });
+
     return (
-      <View
-        style={{flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center'}}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
         {view}
       </View>
     );
@@ -357,36 +325,18 @@ const MeasureArea = () => {
 
   const renderMain = () => {
     return (
-      <View style={{flex: 1, flexDirection: 'column'}}>
-        <Text style={{marginLeft: 20, fontSize: 25, color: colors.black}}>
+      <View style={styles.mainView}>
+        <Text style={styles.titleText}>
           {measure_area_damage_angle}
         </Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            paddingHorizontal: 20,
-            paddingTop: 10,
-          }}>
+        <View style={{ flexDirection: 'row', paddingTop: 5 }}>
           {renderAngle()}
         </View>
-        <View
-          style={{
-            marginHorizontal: 20,
-            marginVertical: 20,
-            height: 1,
-            backgroundColor: colors.darkGray,
-          }}
-        />
-        <Text style={{marginLeft: 20, fontSize: 25, color: colors.black}}>
+        <View style={styles.dividingLine} />
+        <Text style={styles.titleText}>
           {measure_area_damage_area}
         </Text>
-        <View
-          style={{
-            flexDirection: 'column',
-            paddingHorizontal: 20,
-            paddingTop: 10,
-          }}>
+        <View style={{ flexDirection: 'column', paddingTop: 5 }}>
           {renderPart()}
         </View>
       </View>
@@ -400,24 +350,9 @@ const MeasureArea = () => {
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'center',
-          marginTop: 10,
+          marginTop: 25,
           marginBottom: 16,
         }}>
-        {/* <TouchableOpacity
-          style={{ alignItems: 'center', justifyContent: 'center', width: 48, height: 48, borderRadius: 24, backgroundColor: colors.blackGray, }}
-          onPress={() => onPressDelete()}>
-          <Image style={{ width: 30, height: 30 }} source={require('../../../assets/icons/trash_icon.webp')} />
-        </TouchableOpacity> */}
-        {/* <ARButton
-          title={ar_save}
-          style={{ backgroundColor: colors.primary, minWidth: 200 }}
-          onPress={() => onPressSave()}
-        /> */}
-        {/* <ARButton
-          title={ar_valuation}
-          style={{ backgroundColor: colors.primary, minWidth: 200, marginHorizontal: 20 }}
-          onPress={() => onPressValuation()}
-        /> */}
       </View>
     );
   };
@@ -440,14 +375,14 @@ const MeasureArea = () => {
               justifyContent: 'center',
               backgroundColor: 'white',
             }}>
-            <View style={{position: 'absolute', top: 30, left: 0}}>
+            <View style={{ position: 'absolute', top: 30, left: 0 }}>
               <Image
-                style={{width: _width, height: _height}}
-                source={{uri: damageSelected?.photo?.path}}
+                style={{ width: _width, height: _height }}
+                source={{ uri: damageSelected?.photo?.path }}
               />
             </View>
             <View
-              style={{position: 'absolute', top: 0, left: 0, width: _width}}>
+              style={{ position: 'absolute', top: 0, left: 0, width: _width }}>
               <Header
                 leftButton={true}
                 onPressLeft={() => onPressModalLeft()}
@@ -483,14 +418,20 @@ const MeasureArea = () => {
         title={caseData?.licensePlate}
       />
       <TopScreen
-        disableDocument={true}
-        disableAssessment={true}
+        topID={2}
         onPressAssessment={onPressValuation}
         toggleStatus={toggleStatus}
-        onPressToggle={onPressToggle}
         onPressDocument={onPressDocument}
       />
-      <ScrollView style={{flex: 1}}>{renderMain()}</ScrollView>
+      <ScrollView style={{ flex: 1 }}>{renderMain()}</ScrollView>
+      <View style={{ position: 'absolute', right: 50, bottom: 30 }}>
+        <Toggle
+          titleEnable={main_procedure_toggle_camera}
+          titleDisable={main_procedure_toggle_gallery}
+          status={toggleStatus}
+          onPressToggle={onPressToggle}
+        />
+      </View>
       {renderBottom()}
       {renderModalImage()}
       {isLoading && <LoadingView />}
@@ -505,4 +446,56 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'transparent',
   },
+  mainView: {
+    flex: 1,
+    flexDirection: 'column',
+    paddingHorizontal: 55,
+  },
+  titleText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: colors.primary,
+  },
+  dividingLine: {
+    marginVertical: 20,
+    height: 2,
+    backgroundColor: colors.darkGray,
+  },
+  itemView: {
+    flexDirection: 'column',
+  },
+  itemImg: {
+    width: itemWidth,
+    height: itemHeight,
+    borderRadius: 8,
+  },
+  itemText: {
+    marginTop: 5,
+    fontSize: 20,
+    color: colors.primary,
+    width: itemWidth,
+  },
+  partTextView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 5,
+    marginBottom: 20,
+  },
+  partText: {
+    fontSize: 20,
+    color: colors.primary
+  },
+  partTextNum: {
+    marginLeft: 10,
+    fontSize: 20,
+    color: colors.darkGray
+  },
+  itemBtn: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: itemWidth,
+    height: itemHeight,
+    backgroundColor: colors.gray,
+    borderRadius: 8,
+  }
 });

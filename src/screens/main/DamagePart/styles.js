@@ -1,9 +1,9 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import react, {useState, useEffect} from 'react';
-import {colors} from '../../../theme';
-import {getSize} from '../../../utils/responsive';
-const {width} = Dimensions.get('screen');
-const {height} = Dimensions.get('screen');
+import { StyleSheet, Dimensions } from 'react-native';
+import react, { useState, useEffect } from 'react';
+import { colors } from '../../../theme';
+import { getSize } from '../../../utils/responsive';
+const { width } = Dimensions.get('screen');
+const { height } = Dimensions.get('screen');
 
 export default StyleSheet.create({
   container: {
@@ -37,19 +37,19 @@ export default StyleSheet.create({
     borderColor: colors.borderBackground,
     borderRadius: 50,
     borderWidth: 2,
-    height: 40,
-    width: 40,
+    height: 30,
+    width: 30,
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 8,
   },
   viewImageSelectItem: {
-    height: 20,
-    width: 20,
+    height: 15,
+    width: 15,
   },
   imageSelectItem: {
-    height: 20,
-    width: 20,
+    height: 15,
+    width: 15,
   },
   viewTextSelect: {
     backgroundColor: colors.backgroundStatusBar,
@@ -81,12 +81,12 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  text: {fontSize: 24, color: colors.white},
+  text: { fontSize: 24, color: colors.white },
   textSelectDamagedPart: {
     color: colors.colorSwitchOff,
     marginBottom: 4,
     fontSize: 24,
-    paddingVertical: 24,
+    marginTop: 24,
   },
   viewButton: {
     marginHorizontal: 16,

@@ -192,6 +192,7 @@ const DamagePart = () => {
   };
 
   const toggle1 = () => {
+    console.log('toggle');
     if (!selected1) {
       //console.log('selected', data[0].REGION);
       const newArray = {
@@ -478,36 +479,6 @@ const DamagePart = () => {
       setSelected12(!selected12);
       autoSave(newList);
     }
-  };
-
-  const toggleBodyPaint = async () => {
-    setSelectedBodyPaint(!selectedBodyPaint);
-    let index = array.findIndex(e => e.id == 13);
-    if (!selectedBodyPaint) {
-      let newArray = array;
-      const newElement = {
-        PNC: !roofStatus ? data[13].PNC : data[14].PNC,
-        REGION: !roofStatus ? data[13].REGION : data[14].REGION,
-        REGIONM: !roofStatus ? data[13].REGIONM : data[14].REGIONM,
-        ENGNAME: 'excludeRoof',
-        PHOTOS: [],
-        id: 13,
-        position: 13,
-        group: [],
-      };
-
-      if (index !== -1) {
-        newArray[index] = newElement;
-        setArray(newArray);
-      } else {
-        array.push(newElement);
-      }
-    } else {
-      if (index !== -1) {
-        array.splice(index, 1);
-      }
-    }
-    autoSave(array);
   };
 
   const goToAssessment = async () => {
@@ -1304,7 +1275,94 @@ const DamagePart = () => {
     );
   };
 
+  const renderCar4doorsItem = (item, style) => {
+    return (
+      <View style={[styles.viewDamagedPart, style['position']]}>
+        {style['isLeft'] == false &&
+          <Image
+            resizeMode="contain"
+            source={item['lineSrc']}
+            style={[{ width: 164, height: 17 }, style?.['imgRightStyle'] ?? {}]}
+          />
+        }
+
+        <TouchableOpacity
+          disabled={false}
+          onPress={() => item['onPress']()}
+          style={[styles.viewCheckBoxItem, style['btnStyle']]}>
+          <View
+            style={[
+              styles.viewCheckBoxFormItem,
+              {
+                backgroundColor: !item['selected'] ? colors.white : colors.primary,
+                borderColor: !item['selected']
+                  ? colors.borderBackground
+                  : colors.primary,
+              },
+            ]}>
+            {item['selected'] && (
+              <View style={styles.viewImageSelectItem}>
+                <Image
+                  resizeMode="contain"
+                  source={icons.tick_icon}
+                  style={styles.imageSelectItem}
+                />
+              </View>
+            )}
+          </View>
+          <Text
+            style={
+              [styles.textSelect,
+              style['isLeft'] ?
+                { color: colors.blackGray } :
+                { color: colors.blackGray }
+              ]
+            }>
+            {item['text']}
+          </Text>
+        </TouchableOpacity>
+
+        {style['isLeft'] == true &&
+          <Image
+            resizeMode="contain"
+            source={item['lineSrc']}
+            style={{ width: 164, height: 17 }}
+          />
+        }
+      </View>
+    );
+  }
+
   const renderCar4doors = () => {
+    const itemStyle = [
+      { isLeft: true, 'position': { top: 27, right: 0, left: -275 }, 'btnStyle': { marginRight: 5 } },
+      { isLeft: true, 'position': { top: 90, right: 0, left: -302 }, 'btnStyle': { marginRight: 5 } },
+      { isLeft: true, 'position': { top: 200, right: 0, left: -302 }, 'btnStyle': { marginRight: 5 } },
+      { isLeft: true, 'position': { top: 280, right: 0, left: -302 }, 'btnStyle': { marginRight: 5 } },
+      { isLeft: true, 'position': { top: 340, right: 0, left: -305 }, 'btnStyle': { marginRight: 5 } },
+      { isLeft: true, 'position': { top: 408, right: 0, left: -285 }, 'btnStyle': { marginRight: 5, top: 4 } },
+      { isLeft: false, 'position': { top: 30, right: 0, left: 136 }, 'btnStyle': { marginLeft: 16, top: -15 }, 'imgRightStyle': { width: 240, height: 38 } },
+      { isLeft: false, 'position': { top: 90, left: 193 }, 'btnStyle': {} },
+      { isLeft: false, 'position': { top: 200, left: 193 }, 'btnStyle': {} },
+      { isLeft: false, 'position': { top: 280, left: 190 }, 'btnStyle': {} },
+      { isLeft: false, 'position': { top: 345, left: 185 }, 'btnStyle': {}, 'imgRightStyle': { width: 181, height: 28 } },
+      { isLeft: false, 'position': { top: 390, left: 130 }, 'btnStyle': { top: 4 }, 'imgRightStyle': { width: 216, height: 17 } },
+    ];
+    const itemList = [
+      { 'selected': selected7, 'text': data[12]?.REGIONM, 'lineSrc': images.lineTopLeft1, 'onPress': toggle7 },
+      { 'selected': selected8, 'text': data[2]?.REGIONM, 'lineSrc': images.lineTopLeft1, 'onPress': toggle8 },
+      { 'selected': selected9, 'text': data[4]?.REGIONM, 'lineSrc': images.lineTopLeft1, 'onPress': toggle9 },
+      { 'selected': selected10, 'text': data[6]?.REGIONM, 'lineSrc': images.lineTopLeft1, 'onPress': toggle10 },
+      { 'selected': selected11, 'text': data[8]?.REGIONM, 'lineSrc': images.lineTopLeft1, 'onPress': toggle11 },
+      { 'selected': selected12, 'text': data[11]?.REGIONM, 'lineSrc': images.lineTopLeft3, 'onPress': toggle12 },
+      { 'selected': selected1, 'text': data[0]?.REGIONM, 'lineSrc': images.lineTopRight1, 'onPress': toggle1 },
+      { 'selected': selected2, 'text': data[1]?.REGIONM, 'lineSrc': images.lineTopRight2, 'onPress': toggle2 },
+      { 'selected': selected3, 'text': data[3]?.REGIONM, 'lineSrc': images.lineTopRight2, 'onPress': toggle3 },
+      { 'selected': selected4, 'text': data[5]?.REGIONM, 'lineSrc': images.lineTopRight2, 'onPress': toggle4 },
+      { 'selected': selected5, 'text': data[7]?.REGIONM, 'lineSrc': images.lineTopRight3, 'onPress': toggle5 },
+      { 'selected': selected6, 'text': data[9]?.REGIONM, 'lineSrc': images.lineTopRight4, 'onPress': toggle6 },
+    ];
+
     return (
       <View style={styles.viewCar}>
         <Image
@@ -1312,466 +1370,7 @@ const DamagePart = () => {
           source={images.car_image_4doors}
           style={styles.imageCar}
         />
-        <View style={[styles.viewDamagedPart, { top: 22, right: 0, left: -280 }]}>
-          <TouchableOpacity
-            disabled={false}
-            onPress={() => toggle7()}
-            style={[styles.viewCheckBoxItem, { marginRight: 5 }]}>
-            <View
-              style={[
-                styles.viewCheckBoxFormItem,
-                {
-                  backgroundColor: !selected7 ? colors.white : colors.primary,
-                  borderColor: !selected7
-                    ? colors.borderBackground
-                    : colors.primary,
-                },
-              ]}>
-              {selected7 && (
-                <View style={styles.viewImageSelectItem}>
-                  <Image
-                    resizeMode="contain"
-                    source={icons.tick_icon}
-                    style={styles.imageSelectItem}
-                  />
-                </View>
-              )}
-            </View>
-            <Text
-              style={[
-                styles.textSelect,
-                { textAlign: 'center', color: colors.blackGray },
-              ]}>
-              {data[12]?.REGIONM}
-            </Text>
-          </TouchableOpacity>
-
-          <Image
-            resizeMode="contain"
-            source={images.lineTopLeft1}
-            style={{ width: 164, height: 17 }}
-          />
-        </View>
-        <View style={[styles.viewDamagedPart, { top: 90, right: 0, left: -312 }]}>
-          <TouchableOpacity
-            disabled={false}
-            onPress={() => toggle8()}
-            style={[styles.viewCheckBoxItem, { marginRight: 5 }]}>
-            <View
-              style={[
-                styles.viewCheckBoxFormItem,
-                {
-                  backgroundColor: !selected8 ? colors.white : colors.primary,
-                  borderColor: !selected8
-                    ? colors.borderBackground
-                    : colors.primary,
-                },
-              ]}>
-              {selected8 && (
-                <View style={styles.viewImageSelectItem}>
-                  <Image
-                    resizeMode="contain"
-                    source={icons.tick_icon}
-                    style={styles.imageSelectItem}
-                  />
-                </View>
-              )}
-            </View>
-            <Text
-              style={[
-                styles.textSelect,
-                { textAlign: 'center', color: colors.blackGray },
-              ]}>
-              {data[2]?.REGIONM}
-            </Text>
-          </TouchableOpacity>
-
-          <Image
-            resizeMode="contain"
-            source={images.lineTopLeft1}
-            style={{ width: 164, height: 17 }}
-          />
-        </View>
-        <View
-          style={[styles.viewDamagedPart, { top: 200, right: 0, left: -312 }]}>
-          <TouchableOpacity
-            disabled={false}
-            onPress={() => toggle9()}
-            style={[styles.viewCheckBoxItem, { marginRight: 5 }]}>
-            <View
-              style={[
-                styles.viewCheckBoxFormItem,
-                {
-                  backgroundColor: !selected9 ? colors.white : colors.primary,
-                  borderColor: !selected9
-                    ? colors.borderBackground
-                    : colors.primary,
-                },
-              ]}>
-              {selected9 && (
-                <View style={styles.viewImageSelectItem}>
-                  <Image
-                    resizeMode="contain"
-                    source={icons.tick_icon}
-                    style={styles.imageSelectItem}
-                  />
-                </View>
-              )}
-            </View>
-            <Text
-              style={[
-                styles.textSelect,
-                { textAlign: 'center', color: colors.blackGray },
-              ]}>
-              {data[4]?.REGIONM}
-            </Text>
-          </TouchableOpacity>
-
-          <Image
-            resizeMode="contain"
-            source={images.lineTopLeft1}
-            style={{ width: 164, height: 17 }}
-          />
-        </View>
-        <View
-          style={[styles.viewDamagedPart, { top: 280, right: 0, left: -312 }]}>
-          <TouchableOpacity
-            disabled={false}
-            onPress={() => toggle10()}
-            style={[styles.viewCheckBoxItem, { marginRight: 5 }]}>
-            <View
-              style={[
-                styles.viewCheckBoxFormItem,
-                {
-                  backgroundColor: !selected10 ? colors.white : colors.primary,
-                  borderColor: !selected10
-                    ? colors.borderBackground
-                    : colors.primary,
-                },
-              ]}>
-              {selected10 && (
-                <View style={styles.viewImageSelectItem}>
-                  <Image
-                    resizeMode="contain"
-                    source={icons.tick_icon}
-                    style={styles.imageSelectItem}
-                  />
-                </View>
-              )}
-            </View>
-            <Text
-              style={[
-                styles.textSelect,
-                { textAlign: 'center', color: colors.blackGray },
-              ]}>
-              {data[6]?.REGIONM}
-            </Text>
-          </TouchableOpacity>
-
-          <Image
-            resizeMode="contain"
-            source={images.lineTopLeft1}
-            style={{ width: 164, height: 17 }}
-          />
-        </View>
-        <View
-          style={[styles.viewDamagedPart, { top: 350, right: 0, left: -310 }]}>
-          <TouchableOpacity
-            disabled={false}
-            onPress={() => toggle11()}
-            style={[styles.viewCheckBoxItem, { marginRight: 5 }]}>
-            <View
-              style={[
-                styles.viewCheckBoxFormItem,
-                {
-                  backgroundColor: !selected11 ? colors.white : colors.primary,
-                  borderColor: !selected11
-                    ? colors.borderBackground
-                    : colors.primary,
-                },
-              ]}>
-              {selected11 && (
-                <View style={styles.viewImageSelectItem}>
-                  <Image
-                    resizeMode="contain"
-                    source={icons.tick_icon}
-                    style={styles.imageSelectItem}
-                  />
-                </View>
-              )}
-            </View>
-            <Text
-              style={[
-                styles.textSelect,
-                { textAlign: 'center', color: colors.blackGray },
-              ]}>
-              {data[8]?.REGIONM}
-            </Text>
-          </TouchableOpacity>
-
-          <Image
-            resizeMode="contain"
-            source={images.lineTopLeft1}
-            style={{ width: 164, height: 17 }}
-          />
-        </View>
-        <View
-          style={[styles.viewDamagedPart, { top: 408, right: 0, left: -285 }]}>
-          <TouchableOpacity
-            disabled={false}
-            onPress={() => toggle12()}
-            style={[styles.viewCheckBoxItem, { marginRight: 5, top: 4 }]}>
-            <View
-              style={[
-                styles.viewCheckBoxFormItem,
-                {
-                  backgroundColor: !selected12 ? colors.white : colors.primary,
-                  borderColor: !selected12
-                    ? colors.borderBackground
-                    : colors.primary,
-                },
-              ]}>
-              {selected12 && (
-                <View style={styles.viewImageSelectItem}>
-                  <Image
-                    resizeMode="contain"
-                    source={icons.tick_icon}
-                    style={styles.imageSelectItem}
-                  />
-                </View>
-              )}
-            </View>
-            <Text
-              style={[
-                styles.textSelect,
-                { textAlign: 'center', color: colors.blackGray },
-              ]}>
-              {data[11]?.REGIONM}
-            </Text>
-          </TouchableOpacity>
-
-          <Image
-            resizeMode="contain"
-            source={images.lineTopLeft3}
-            style={{ width: 164, height: 17 }}
-          />
-        </View>
-
-        <View style={[styles.viewDamagedPart, { top: 30, right: 0, left: 136 }]}>
-          <Image
-            resizeMode="contain"
-            source={images.lineTopRight1}
-            style={{ width: 240, height: 38 }}
-          />
-
-          <TouchableOpacity
-            disabled={false}
-            onPress={() => toggle1()}
-            style={[styles.viewCheckBoxItem, { marginLeft: 16, height: 24 }]}>
-            <View
-              style={[
-                styles.viewCheckBoxFormItem,
-                {
-                  backgroundColor: !selected1 ? colors.white : colors.primary,
-                  borderColor: !selected1
-                    ? colors.borderBackground
-                    : colors.primary,
-                },
-              ]}>
-              {selected1 && (
-                <View style={styles.viewImageSelectItem}>
-                  <Image
-                    resizeMode="contain"
-                    source={icons.tick_icon}
-                    style={styles.imageSelectItem}
-                  />
-                </View>
-              )}
-            </View>
-            <Text style={[styles.textSelect, { color: colors.blackGray }]}>
-              {data[0]?.REGIONM}
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={[styles.viewDamagedPart, { top: 90, left: 193 }]}>
-          <Image
-            resizeMode="contain"
-            source={images.lineTopRight2}
-            style={{ width: 164, height: 17 }}
-          />
-
-          <TouchableOpacity
-            disabled={false}
-            onPress={() => toggle2()}
-            style={styles.viewCheckBoxItem}>
-            <View
-              style={[
-                styles.viewCheckBoxFormItem,
-                {
-                  backgroundColor: !selected2 ? colors.white : colors.primary,
-                  borderColor: !selected2
-                    ? colors.borderBackground
-                    : colors.primary,
-                },
-              ]}>
-              {selected2 && (
-                <View style={styles.viewImageSelectItem}>
-                  <Image
-                    resizeMode="contain"
-                    source={icons.tick_icon}
-                    style={styles.imageSelectItem}
-                  />
-                </View>
-              )}
-            </View>
-            <Text style={[styles.textSelect, { color: colors.blackGray }]}>
-              {data[1]?.REGIONM}
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={[styles.viewDamagedPart, { top: 200, left: 193 }]}>
-          <Image
-            resizeMode="contain"
-            source={images.lineTopRight2}
-            style={{ width: 164, height: 17 }}
-          />
-
-          <TouchableOpacity
-            disabled={false}
-            onPress={() => toggle3()}
-            style={styles.viewCheckBoxItem}>
-            <View
-              style={[
-                styles.viewCheckBoxFormItem,
-                {
-                  backgroundColor: !selected3 ? colors.white : colors.primary,
-                  borderColor: !selected3
-                    ? colors.borderBackground
-                    : colors.primary,
-                },
-              ]}>
-              {selected3 && (
-                <View style={styles.viewImageSelectItem}>
-                  <Image
-                    resizeMode="contain"
-                    source={icons.tick_icon}
-                    style={styles.imageSelectItem}
-                  />
-                </View>
-              )}
-            </View>
-            <Text style={[styles.textSelect, { color: colors.blackGray }]}>
-              {data[3]?.REGIONM}
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={[styles.viewDamagedPart, { top: 280, left: 190 }]}>
-          <Image
-            resizeMode="contain"
-            source={images.lineTopRight2}
-            style={{ width: 164, height: 17 }}
-          />
-
-          <TouchableOpacity
-            disabled={false}
-            onPress={() => toggle4()}
-            style={styles.viewCheckBoxItem}>
-            <View
-              style={[
-                styles.viewCheckBoxFormItem,
-                {
-                  backgroundColor: !selected4 ? colors.white : colors.primary,
-                  borderColor: !selected4
-                    ? colors.borderBackground
-                    : colors.primary,
-                },
-              ]}>
-              {selected4 && (
-                <View style={styles.viewImageSelectItem}>
-                  <Image
-                    resizeMode="contain"
-                    source={icons.tick_icon}
-                    style={styles.imageSelectItem}
-                  />
-                </View>
-              )}
-            </View>
-            <Text style={[styles.textSelect, { color: colors.blackGray }]}>
-              {data[5]?.REGIONM}
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={[styles.viewDamagedPart, { top: 345, left: 185 }]}>
-          <Image
-            resizeMode="contain"
-            source={images.lineTopRight3}
-            style={{ width: 181, height: 28 }}
-          />
-
-          <TouchableOpacity
-            disabled={false}
-            onPress={() => toggle5()}
-            style={styles.viewCheckBoxItem}>
-            <View
-              style={[
-                styles.viewCheckBoxFormItem,
-                {
-                  backgroundColor: !selected5 ? colors.white : colors.primary,
-                  borderColor: !selected5
-                    ? colors.borderBackground
-                    : colors.primary,
-                },
-              ]}>
-              {selected5 && (
-                <View style={styles.viewImageSelectItem}>
-                  <Image
-                    resizeMode="contain"
-                    source={icons.tick_icon}
-                    style={styles.imageSelectItem}
-                  />
-                </View>
-              )}
-            </View>
-            <Text style={[styles.textSelect, { color: colors.blackGray }]}>
-              {data[7]?.REGIONM}
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={[styles.viewDamagedPart, { top: 394, left: 160 }]}>
-          <Image
-            resizeMode="contain"
-            source={images.lineTopRight4}
-            style={{ width: 216, height: 17 }}
-          />
-          <TouchableOpacity
-            disabled={false}
-            onPress={() => toggle6()}
-            style={[styles.viewCheckBoxItem, { top: 4 }]}>
-            <View
-              style={[
-                styles.viewCheckBoxFormItem,
-                {
-                  backgroundColor: !selected6 ? colors.white : colors.primary,
-                  borderColor: !selected6
-                    ? colors.borderBackground
-                    : colors.primary,
-                },
-              ]}>
-              {selected6 && (
-                <View style={styles.viewImageSelectItem}>
-                  <Image
-                    resizeMode="contain"
-                    source={icons.tick_icon}
-                    style={styles.imageSelectItem}
-                  />
-                </View>
-              )}
-            </View>
-            <Text style={[styles.textSelect, { color: colors.blackGray }]}>
-              {data[9]?.REGIONM}
-            </Text>
-          </TouchableOpacity>
-        </View>
+        {itemList.map((element, index) => renderCar4doorsItem(element, itemStyle[index]))}
       </View>
     );
   };
@@ -1853,50 +1452,6 @@ const DamagePart = () => {
         </Text>
         {renderMain()}
         <View style={styles.viewButton}>
-          <View style={styles.bodyPaintBoxBtn}>
-            <TouchableOpacity
-              disabled={false}
-              onPress={() => toggleBodyPaint()}
-              style={[styles.viewCheckBoxFullBodyPaint]}>
-              <View
-                style={[
-                  styles.viewCheckBoxFormItem,
-                  {
-                    backgroundColor: !selectedBodyPaint
-                      ? colors.white
-                      : colors.primary,
-                    borderColor: !selectedBodyPaint
-                      ? colors.borderBackground
-                      : colors.primary,
-                  },
-                ]}>
-                {selectedBodyPaint && (
-                  <View style={styles.viewImageSelectItem}>
-                    <Image
-                      resizeMode="contain"
-                      source={icons.tick_icon}
-                      style={styles.imageSelectItem}
-                    />
-                  </View>
-                )}
-              </View>
-              <Text style={[styles.textSelectFullBodyPaint]}>
-                {_damaged_part_full_body_paint}
-              </Text>
-            </TouchableOpacity>
-            <Toggle
-              titleEnable={_damaged_part_exclude_roof}
-              titleDisable={_damaged_part_including_roof}
-              status={roofStatus}
-              onPressToggle={onPressToggle}
-              style={{ marginLeft: 60, marginTop: 20 }}
-              viewSwitchStyle={styles.viewSwitch}
-              viewInSwitchStyle={styles.viewInSwitch}
-              titleStyle={styles.titleViewSwitch}
-            // disabled={!selectedBodyPaint}
-            />
-          </View>
-
           <Button
             onPress={async () => onPressNext()}
             title={_damaged_part_next}

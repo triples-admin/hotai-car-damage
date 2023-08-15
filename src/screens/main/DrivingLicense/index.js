@@ -51,7 +51,7 @@ const main_procedure_toggle_camera = i18n.t('main_procedure_toggle_camera');
 const main_procedure_toggle_gallery = i18n.t('main_procedure_toggle_gallery');
 
 const { width } = Dimensions.get('screen');
-const itemWidth = (width - 140 - (30 * 3)) / 4;
+const itemWidth = (width - 110 - (30 * 3)) / 4;
 const itemHeight = itemWidth * 0.7;
 
 const DrivingLicense = () => {
@@ -532,7 +532,7 @@ const styles = StyleSheet.create({
   bodyView: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 70,
+    paddingHorizontal: 55,
     paddingBottom: 55,
     flexWrap: 'wrap',
   },

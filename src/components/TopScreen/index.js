@@ -19,7 +19,6 @@ const TopScreen = ({
     <View style={styles.container}>
       <View style={styles.backgroundView}>
         <ARButton
-          // disable={onPressDocument ? false : disableDocument}
           onPress={onPressDocument}
           title={main_procedure_document}
           style={
@@ -37,7 +36,6 @@ const TopScreen = ({
             : styles.separator
         } />
         <ARButton
-          // disable={onPressPhotos ? false : disablePhotos}
           onPress={onPressPhotos}
           title={main_procedure_damage_photos}
           style={
@@ -55,7 +53,6 @@ const TopScreen = ({
             : styles.separator
         } />
         <ARButton
-          // disable={onPressAssessment ? false : disableAssessment}
           onPress={onPressAssessment}
           title={main_procedure_assessment}
           style={
