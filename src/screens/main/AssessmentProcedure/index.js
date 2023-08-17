@@ -12,25 +12,25 @@ import {
   Dimensions,
   FlatList,
 } from 'react-native';
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Header from '../../../components/Header';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import Button from '../../../components/Button';
-import {colors} from '../../../theme';
+import { colors } from '../../../theme';
 import styles from './styles';
-import {icons, images} from '../../../assets';
-import {routes} from '../../../navigation/routes';
+import { icons, images } from '../../../assets';
+import { routes } from '../../../navigation/routes';
 import Picker from '@wowmaking/react-native-ios-scroll-picker';
 const screenSize = Dimensions.get('window');
 import caseListPageStorage from '../../../api/storage/caseListPage';
 import procedureAPI from '../../../api/axios/procedure';
 import i18n from '../../../utils/i18n';
 import LoadingView from '../../../components/Loading';
-import {formatCurrency} from '../../../utils/utils';
+import { formatCurrency } from '../../../utils/utils';
 import TopScreen from '../../../components/TopScreen';
 
 import RNFetchBlob from 'rn-fetch-blob';
-import {configGlobal} from '../../../api/endpoint';
+import { configGlobal } from '../../../api/endpoint';
 import _ from 'lodash';
 const screen = Dimensions.get('window');
 const _width = screen.width;
@@ -289,7 +289,7 @@ const AssessmentProcedure = () => {
         total: _total,
       });
     } else {
-      if(firstLoad){
+      if (firstLoad) {
         await reloadContentStorage();
         getEstimateData(false);
       } else {
@@ -369,7 +369,7 @@ const AssessmentProcedure = () => {
       },
     };
     let backupPhotos = [];
-    let currentCase = caseData; 
+    let currentCase = caseData;
     let dataMain = currentCase?.damagedPart
       ? JSON.parse(JSON.stringify(currentCase.damagedPart))
       : [];
@@ -393,9 +393,9 @@ const AssessmentProcedure = () => {
 
     const subData = createDataForSub();
     const requestSub = [];
-    if(requestMain.length > 1 || (parseInt(requestMain[0].REGION) != 99 && parseInt(requestMain[0].REGION) != 98)  ){
+    if (requestMain.length > 1 || (parseInt(requestMain[0].REGION) != 99 && parseInt(requestMain[0].REGION) != 98)) {
       subData.forEach(element => {
-        if(element.X_OPNO == "" && element.O_OPNO == "" && element.P_OPNO == ""){
+        if (element.X_OPNO == "" && element.O_OPNO == "" && element.P_OPNO == "") {
           //Don't run any
         } else {
           let requestData = {
@@ -550,49 +550,47 @@ const AssessmentProcedure = () => {
     await caseListPageStorage.set(newList);
   };
 
-  const ItemHeaderComponents = ({title}) => {
+  const ItemHeaderComponents = ({ title }) => {
     return (
-      <View>
-        <View style={styles.viewItemHeaderComponents}>
-          <View style={{flex: 6}}>
-            <Text style={styles.textItemHeaderComponents}>{title}</Text>
-          </View>
-          <View style={{flex: 1.5}}>
-            <Text style={styles.textItemHeaderComponents}>
-              {assessment_note}
-            </Text>
-          </View>
-          <View style={{flex: 1, alignItems: 'flex-end'}}>
-            <Text style={[styles.textItemHeaderComponents]}>
-              {assessment_qty}
-            </Text>
-          </View>
-          <View
-            style={{
-              flex: 2.5,
-              justifyContent: 'center',
-              alignItems: 'flex-end',
-            }}>
-            <Text style={styles.textItemHeaderComponents}>
-              {assessment_price}
-            </Text>
-          </View>
+      <View style={styles.viewItemHeaderComponents}>
+        <View style={{ flex: 6 }}>
+          <Text style={styles.textItemHeaderComponents}>{title}</Text>
+        </View>
+        <View style={{ flex: 1.5 }}>
+          <Text style={styles.textItemHeaderComponents}>
+            {assessment_note}
+          </Text>
+        </View>
+        <View style={{ flex: 1, alignItems: 'flex-end' }}>
+          <Text style={[styles.textItemHeaderComponents]}>
+            {assessment_qty}
+          </Text>
+        </View>
+        <View
+          style={{
+            flex: 2.5,
+            justifyContent: 'center',
+            alignItems: 'flex-end',
+          }}>
+          <Text style={styles.textItemHeaderComponents}>
+            {assessment_price}
+          </Text>
         </View>
       </View>
     );
   };
 
-  const ItemBodyComponents = ({item, index, style}) => {
+  const ItemBodyComponents = ({ item, index, style }) => {
     return (
       <View>
-        <View style={{...styles.viewItemBodyComponents, ...style}}>
-          <View style={{flex: 6}}>
+        <View style={{ ...styles.viewItemBodyComponents, ...style }}>
+          <View style={{ flex: 6 }}>
             <Text style={styles.textItemBodyComponents}>{item?.NM}</Text>
           </View>
-          <View style={{flex: 1.5}}>
+          <View style={{ flex: 1.5 }}>
             <Text style={styles.textItemBodyComponents}>{item?.SYMBOL}</Text>
           </View>
-          <View style={{flex: 1, alignItems: 'flex-end'}}>
+          <View style={{ flex: 1, alignItems: 'flex-end' }}>
             <Text
               style={[
                 styles.textItemBodyComponents,
@@ -612,7 +610,7 @@ const AssessmentProcedure = () => {
             <Text
               style={[
                 styles.textItemBodyComponents,
-                {color: colors.primary, textAlign: 'right'},
+                { color: colors.primary, textAlign: 'right' },
               ]}>
               {formatCurrency(item.ATXORI)}
             </Text>
@@ -637,7 +635,7 @@ const AssessmentProcedure = () => {
     // only insurrence
     const _insurance = currentAssessment?.insuranceCompany?.label ?? '';
     Alert.alert(
-      i18n.t('assessment_procedure_title_insurance', {insurance: _insurance}),
+      i18n.t('assessment_procedure_title_insurance', { insurance: _insurance }),
       _assessment_procedure_content_insurance,
       [
         {
@@ -645,7 +643,7 @@ const AssessmentProcedure = () => {
           onPress: () => console.log('Cancel Pressed'),
           style: 'cancel',
         },
-        {text: ar_confirm, onPress: () => getEvanoData('exploration')},
+        { text: ar_confirm, onPress: () => getEvanoData('exploration') },
       ],
     );
   };
@@ -662,7 +660,7 @@ const AssessmentProcedure = () => {
   const showAlertSelfPayEcho = () => {
     const _insurance = currentAssessment?.insuranceCompany?.label ?? '';
     Alert.alert(
-      i18n.t('assessment_procedure_title_selfpay', {insurance: _insurance}),
+      i18n.t('assessment_procedure_title_selfpay', { insurance: _insurance }),
       _assessment_procedure_content_selfpay,
       [
         {
@@ -681,7 +679,7 @@ const AssessmentProcedure = () => {
   const showAlertInsuranceEcho = () => {
     const _insurance = currentAssessment?.insuranceCompany?.label ?? '';
     Alert.alert(
-      i18n.t('assessment_procedure_title_insurance_echo', {insurance: _insurance}),
+      i18n.t('assessment_procedure_title_insurance_echo', { insurance: _insurance }),
       _assessment_procedure_content_insurance_echo,
       [
         {
@@ -701,10 +699,10 @@ const AssessmentProcedure = () => {
     Alert.alert(
       _assessment_procedure_sucessfully,
       bkCase.current?.licensePlate +
-        '\n' +
-        _assessment_procedure_assessment_form_no +
-        ':' +
-        evano,
+      '\n' +
+      _assessment_procedure_assessment_form_no +
+      ':' +
+      evano,
       [
         {
           text: ar_confirm,
@@ -723,7 +721,7 @@ const AssessmentProcedure = () => {
     await caseListPageStorage.set(newList);
 
     navigation.reset({
-      routes: [{name: routes.HOMESCREEN}],
+      routes: [{ name: routes.HOMESCREEN }],
     });
   };
 
@@ -956,7 +954,7 @@ const AssessmentProcedure = () => {
         .then(res => {
           console.log('----- File Size : ', res);
           console.log('----- Path : ', path);
-          resolve({path: path, fileSize: res});
+          resolve({ path: path, fileSize: res });
         })
         .catch(error => {
           reject(error);
@@ -997,10 +995,10 @@ const AssessmentProcedure = () => {
         animationType="slide"
         transparent={true}
         visible={modalPicker}
-        onRequestClose={() => {}}>
-        <SafeAreaView style={{flex: 1}}>
-          <View style={{flex: 1, flexDirection: 'column'}}>
-            <View style={{flex: 1}}></View>
+        onRequestClose={() => { }}>
+        <SafeAreaView style={{ flex: 1 }}>
+          <View style={{ flex: 1, flexDirection: 'column' }}>
+            <View style={{ flex: 1 }}></View>
             <View
               style={{
                 flexDirection: 'column',
@@ -1080,7 +1078,7 @@ const AssessmentProcedure = () => {
                     borderTopWidth: 1,
                     borderBottomWidth: 1,
                   }}
-                  labelStyle={{color: '#000000', fontSize: 24}}
+                  labelStyle={{ color: '#000000', fontSize: 24 }}
                   onChange={handelPickerChange}
                 />
               </View>
@@ -1110,7 +1108,7 @@ const AssessmentProcedure = () => {
     const result = await procedureAPI.deleteCase(_body, _config);
     setIsLoading(false);
     if (result && result.status === 200) {
-      if(onlyFullBodyPaint){
+      if (onlyFullBodyPaint) {
         navigation.navigate(routes.MAINPROCEDURESCREEN, {
           caseData: newCase,
           dataConfig: dataConfig,
@@ -1134,7 +1132,7 @@ const AssessmentProcedure = () => {
   const onPressGoHome = async () => {
     await saveToStorage();
     navigation.reset({
-      routes: [{name: routes.HOMESCREEN}],
+      routes: [{ name: routes.HOMESCREEN }],
     });
   };
 
@@ -1155,7 +1153,7 @@ const AssessmentProcedure = () => {
   };
   const onPressPhotos = async () => {
     await saveToStorage();
-    if(onlyFullBodyPaint){
+    if (onlyFullBodyPaint) {
       navigation.navigate(routes.DAMAGEPARTSCREEN, {
         caseData: caseData,
         dataConfig: dataConfig,
@@ -1183,13 +1181,12 @@ const AssessmentProcedure = () => {
       />
       <View style={styles.viewBody}>
         <TopScreen
-          disableDocument={true}
-          disablePhotos={true}
+          topID={3}
           onPressDocument={onPressDocument}
           onPressPhotos={onPressPhotos}
         />
         <View style={styles.viewButtonDropDown}>
-          <View style={{width: '22%'}}>
+          <View style={{ width: '22%' }}>
             <Text style={styles.textTitle}>{assessment_procedure_contact}</Text>
             <TextInput
               placeholder={assessment_procedure_contact}
@@ -1208,7 +1205,7 @@ const AssessmentProcedure = () => {
               ]}
             />
           </View>
-          <View style={{width: '22%'}}>
+          <View style={{ width: '22%' }}>
             <Text style={styles.textTitle}>
               {assessment_procedure_contact_number}
             </Text>
@@ -1230,10 +1227,10 @@ const AssessmentProcedure = () => {
             />
           </View>
 
-          <View style={{width: '22%'}}>
+          <View style={{ width: '22%' }}>
             <Text style={styles.textTitle}>
               {assessment_insurance_comapny}
-              <Text style={{color: colors.backgroundLogin}}>*</Text>
+              <Text style={{ color: colors.backgroundLogin }}>*</Text>
             </Text>
             <TouchableOpacity
               disabled={selfPay}
@@ -1242,7 +1239,7 @@ const AssessmentProcedure = () => {
               }
               style={[
                 styles.buttonDropDown,
-                {backgroundColor: selfPay ? colors.backgroundDisable : 'white'},
+                { backgroundColor: selfPay ? colors.backgroundDisable : 'white' },
               ]}>
               <Text style={styles.textDropDown}>
                 {currentAssessment?.insuranceCompany?.label ?? ''}
@@ -1250,11 +1247,11 @@ const AssessmentProcedure = () => {
               <Image
                 resizeMode="contain"
                 source={icons.drop_down_icon}
-                style={{height: 12, width: 12}}
+                style={{ height: 12, width: 12 }}
               />
             </TouchableOpacity>
           </View>
-          <View style={{width: '22%'}}>
+          <View style={{ width: '22%' }}>
             <Text style={styles.textTitle}>{assessment_case_number}</Text>
             <TextInput
               editable={!selfPay}
@@ -1275,73 +1272,7 @@ const AssessmentProcedure = () => {
             />
           </View>
         </View>
-        <View style={{paddingVertical: 12, flex: 1}}>
-          {/* <View style={styles.viewCheckBoxItem}>
-            <TouchableOpacity
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-              onPress={() => onPressInsurance()}>
-              <View
-                style={[
-                  styles.viewCheckBoxFormItem,
-                  {
-                    backgroundColor: !insurance ? colors.white : colors.primary,
-                    borderColor: !insurance
-                      ? colors.borderBackground
-                      : colors.primary,
-                  },
-                ]}>
-                {insurance && (
-                  <View style={styles.viewImageSelectItem}>
-                    <Image
-                      resizeMode="contain"
-                      source={icons.tick_icon}
-                      style={styles.imageSelectItem}
-                    />
-                  </View>
-                )}
-              </View>
-              <Text style={styles.textItemBodyComponents}>
-                {assessment_insurance}
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={[styles.viewCheckBoxItem, {marginLeft: 16}]}>
-            <TouchableOpacity
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-              onPress={() => onPressSelfPay()}>
-              <View
-                style={[
-                  styles.viewCheckBoxFormItem,
-                  {
-                    backgroundColor: !selfPay ? colors.white : colors.primary,
-                    borderColor: !selfPay
-                      ? colors.borderBackground
-                      : colors.primary,
-                  },
-                ]}>
-                {selfPay && (
-                  <View style={styles.viewImageSelectItem}>
-                    <Image
-                      resizeMode="contain"
-                      source={icons.tick_icon}
-                      style={styles.imageSelectItem}
-                    />
-                  </View>
-                )}
-              </View>
-              <Text style={styles.textItemBodyComponents}>
-                {assessment_self_pay}
-              </Text>
-            </TouchableOpacity>
-          </View> */}
+        <View style={{ paddingVertical: 12, flex: 1 }}>
           <View style={styles.viewTextComponents}>
             <View
               style={{
@@ -1354,30 +1285,30 @@ const AssessmentProcedure = () => {
                 paddingHorizontal: 16,
                 paddingVertical: 8,
               }}>
-              <View style={{flex: 1.2, flexDirection: 'row'}}>
+              <View style={{ flex: 1.2, flexDirection: 'row' }}>
                 <Text style={styles.headerTableText}>{assessment_wages}</Text>
-                <Text style={[styles.headerTableText, {marginLeft: 5}]}>
+                <Text style={[styles.headerTableText, { marginLeft: 5 }]}>
                   {formatCurrency(price.wages)}
                 </Text>
               </View>
 
-              <View style={{flex: 1, flexDirection: 'row'}}>
+              <View style={{ flex: 1, flexDirection: 'row' }}>
                 <Text style={[styles.headerTableText]}>
                   {assessment_labour}
                 </Text>
-                <Text style={[styles.headerTableText, {marginLeft: 5}]}>
+                <Text style={[styles.headerTableText, { marginLeft: 5 }]}>
                   {formatCurrency(price.labour)}
                 </Text>
               </View>
-              <View style={{flex: 1, flexDirection: 'row'}}>
+              <View style={{ flex: 1, flexDirection: 'row' }}>
                 <Text style={[styles.headerTableText]}>{assessment_parts}</Text>
-                <Text style={[styles.headerTableText, {marginLeft: 5}]}>
+                <Text style={[styles.headerTableText, { marginLeft: 5 }]}>
                   {formatCurrency(price.parts)}
                 </Text>
               </View>
-              <View style={{flex: 1, flexDirection: 'row'}}>
+              <View style={{ flex: 1, flexDirection: 'row' }}>
                 <Text style={[styles.headerTableText]}>{assessment_waste}</Text>
-                <Text style={[styles.headerTableText, {marginLeft: 5}]}>
+                <Text style={[styles.headerTableText, { marginLeft: 5 }]}>
                   {formatCurrency(price.waste)}
                 </Text>
               </View>
@@ -1403,14 +1334,12 @@ const AssessmentProcedure = () => {
           <ItemHeaderComponents title={assessment_content} />
           <View
             style={{
-              shadowOffset: {
-                width: 0,
-                height: 2,
-              },
+              marginTop: 5,
+              shadowOffset: { width: 0, height: 2 },
               shadowOpacity: 0.25,
               shadowRadius: 0.5,
-
               elevation: 5,
+              paddingBottom: 65,
             }}>
             <FlatList
               data={listData}
@@ -1418,7 +1347,7 @@ const AssessmentProcedure = () => {
               style={{
                 borderBottomRightRadius: 8,
                 borderBottomLeftRadius: 8,
-                maxHeight: (_height - 65) / 2.1,
+                // maxHeight: (_height - 65) / 2.1,
               }}
               keyExtractor={item => item.id}
               bounces={false}
@@ -1430,27 +1359,18 @@ const AssessmentProcedure = () => {
             backgroundColor: colors.white,
           }}></View>
         <View style={styles.viewButtonFooter}>
-          {/* <TouchableOpacity
-            onPress={() => onPressDeleteCase()}
-            style={styles.buttonDelete}>
-            <Image
-              resizeMode="contain"
-              source={icons.trash_icon}
-              style={styles.imageDeleteButton}
-            />
-          </TouchableOpacity> */}
-          {/* <Button
-            onPress={() => onPressSave()}
-            title={ar_save}
-            style={{ backgroundColor: colors.primary }}
-          /> */}
           <Button
             disable={disableUpload}
             onPress={() => onPressUploadImages()}
             title={ar_upload}
+            textStyle={{
+              color: disableUpload
+                ? colors.white
+                : colors.lightBlue
+            }}
             style={{
               backgroundColor: disableUpload
-                ? colors.blackGray
+                ? colors.backgroundStatusBar
                 : colors.primary,
             }}
           />
@@ -1458,9 +1378,14 @@ const AssessmentProcedure = () => {
             disable={disableUploadEcho}
             onPress={() => onPressUploadEcho()}
             title={ar_upload_echo}
+            textStyle={{
+              color: disableUploadEcho
+                ? colors.white
+                : colors.lightBlue
+            }}
             style={{
               backgroundColor: disableUploadEcho
-                ? colors.blackGray
+                ? colors.backgroundStatusBar
                 : colors.primary,
             }}
           />

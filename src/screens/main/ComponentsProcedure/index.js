@@ -12,17 +12,17 @@ import {
   Dimensions,
 } from 'react-native';
 import _ from 'lodash';
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Header from '../../../components/Header';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import Picker from '@wowmaking/react-native-ios-scroll-picker';
 import Button from '../../../components/Button';
 import LoadingView from '../../../components/Loading';
 import TopScreen from '../../../components/TopScreen';
-import {colors} from '../../../theme';
+import { colors } from '../../../theme';
 import styles from './styles';
-import {icons, images} from '../../../assets';
-import {routes} from '../../../navigation/routes';
+import { icons, images } from '../../../assets';
+import { routes } from '../../../navigation/routes';
 import i18n from '../../../utils/i18n';
 import procedureAPI from '../../../api/axios/procedure';
 import caseListPageStorage from '../../../api/storage/caseListPage';
@@ -94,7 +94,7 @@ const ComponentsProcedure = () => {
   const [modalPicker, setModalPicker] = useState(false); // show/hide modal
   const [dataModal, setDataModal] = useState([]); // list data add to modal
   const [modalValue, setModalValue] = useState('');
-  const [modalTitle, setModalTitle] = useState({key: '', value: ''}); // title modal
+  const [modalTitle, setModalTitle] = useState({ key: '', value: '' }); // title modal
 
   let caseData = route?.params?.caseData ?? null;
   const caseListPage = useRef([]);
@@ -224,11 +224,11 @@ const ComponentsProcedure = () => {
     setListData(listContent);
   };
 
-  const RenderComponents = ({item}) => {
+  const RenderComponents = ({ item }) => {
     const itemm = item.item;
     const [isExpand, setExpand] = useState(true);
 
-    const ItemBodyComponents = ({item}) => {
+    const ItemBodyComponents = ({ item }) => {
       const itemChild = item.item;
 
       const disDefault = itemChild?.disassemble;
@@ -287,10 +287,10 @@ const ComponentsProcedure = () => {
       return (
         <View key={itemChild?._id}>
           <View style={styles.viewItemBodyComponents}>
-            <View style={{flex: 5}}>
+            <View style={{ flex: 5 }}>
               <Text style={styles.textItemBodyComponents}>{itemChild?.NM}</Text>
             </View>
-            <View style={{flex: 3}}>
+            <View style={{ flex: 3 }}>
               <View style={styles.viewCheckBoxItem}>
                 {itemChild?.O_OPNO ? (
                   <TouchableOpacity
@@ -328,7 +328,7 @@ const ComponentsProcedure = () => {
                 )}
               </View>
             </View>
-            <View style={{flex: 2}}>
+            <View style={{ flex: 2 }}>
               <TouchableOpacity
                 onPress={() => onPressReplace()}
                 style={[
@@ -358,35 +358,33 @@ const ComponentsProcedure = () => {
 
     return (
       <View>
-        <View style={{marginTop: 8}}>
-          <View style={styles.viewItemHeaderComponents}>
-            <View style={{flex: 5}}>
-              <Text style={styles.textItemHeaderComponents}>{itemm.title}</Text>
-            </View>
-            <View style={{flex: 3}}>
-              <Text style={styles.textItemHeaderComponents}>
-                {component_procedure_disaassemble}
-              </Text>
-            </View>
-            <View style={{flex: 1.5}}>
-              <Text style={styles.textItemHeaderComponents}>
-                {component_procedure_replace}
-              </Text>
-            </View>
-            <TouchableOpacity
-              onPress={() => setExpand(!isExpand)}
-              style={{flex: 0.5, alignItems: 'flex-end'}}>
-              <Image
-                source={isExpand ? icons.minus_icon : icons.expand_icon}
-                style={{height: 24, width: 24}}
-              />
-            </TouchableOpacity>
+        <View style={styles.viewItemHeaderComponents}>
+          <View style={{ flex: 5 }}>
+            <Text style={styles.textItemHeaderComponents}>{itemm.title}</Text>
           </View>
+          <View style={{ flex: 3 }}>
+            <Text style={styles.textItemHeaderComponents}>
+              {component_procedure_disaassemble}
+            </Text>
+          </View>
+          <View style={{ flex: 1.5 }}>
+            <Text style={styles.textItemHeaderComponents}>
+              {component_procedure_replace}
+            </Text>
+          </View>
+          <TouchableOpacity
+            onPress={() => setExpand(!isExpand)}
+            style={{ flex: 0.5, alignItems: 'flex-end' }}>
+            <Image
+              source={isExpand ? icons.minus_icon : icons.expand_icon}
+              style={{ height: 24, width: 24 }}
+            />
+          </TouchableOpacity>
         </View>
         {isExpand && (
           <FlatList
             showsVerticalScrollIndicator={false}
-            style={{flex: 1}}
+            style={{ flex: 1 }}
             data={itemm._item}
             renderItem={item => <ItemBodyComponents item={item} />}
             keyExtractor={item => item.id}
@@ -525,7 +523,7 @@ const ComponentsProcedure = () => {
     const subData = createDataForSub();
     const requestSub = [];
     subData.forEach(element => {
-      if(element.X_OPNO == "" && element.O_OPNO == "" && element.P_OPNO == ""){
+      if (element.X_OPNO == "" && element.O_OPNO == "" && element.P_OPNO == "") {
         //Don't run any
       } else {
         let requestData = {
@@ -608,14 +606,14 @@ const ComponentsProcedure = () => {
   const onPressSpecialCoating = name => {
     setDataModal(dataMappedSpecial);
     setModalValue(dataMappedSpecial[0]?.value);
-    setModalTitle({key: 'SpecialCoating', value: name});
+    setModalTitle({ key: 'SpecialCoating', value: name });
     setModalPicker(true);
   };
 
   const onPressPaintFilm = name => {
     setDataModal(dataMappedPaintFilm);
     setModalValue(dataMappedPaintFilm[0]?.value);
-    setModalTitle({key: 'PaintFilm', value: name});
+    setModalTitle({ key: 'PaintFilm', value: name });
     setModalPicker(true);
   };
 
@@ -655,10 +653,10 @@ const ComponentsProcedure = () => {
         animationType="slide"
         transparent={true}
         visible={modalPicker}
-        onRequestClose={() => {}}>
+        onRequestClose={() => { }}>
         <SafeAreaView style={styles.safeView}>
-          <View style={{flex: 1, flexDirection: 'column'}}>
-            <View style={{flex: 1}}></View>
+          <View style={{ flex: 1, flexDirection: 'column' }}>
+            <View style={{ flex: 1 }}></View>
             <View
               style={{
                 flexDirection: 'column',
@@ -679,7 +677,7 @@ const ComponentsProcedure = () => {
                   padding: 10,
                 }}>
                 <TouchableOpacity onPress={() => setModalPicker(false)}>
-                  <Text style={{fontSize: 18, color: colors.royalBlue}}>
+                  <Text style={{ fontSize: 18, color: colors.royalBlue }}>
                     {ar_cancel}
                   </Text>
                 </TouchableOpacity>
@@ -700,7 +698,7 @@ const ComponentsProcedure = () => {
                   </Text>
                 </View>
                 <TouchableOpacity onPress={() => onPressModalDone()}>
-                  <Text style={{fontSize: 18, color: colors.royalBlue}}>
+                  <Text style={{ fontSize: 18, color: colors.royalBlue }}>
                     {_component_procedure_done}
                   </Text>
                 </TouchableOpacity>
@@ -725,7 +723,7 @@ const ComponentsProcedure = () => {
                     borderTopWidth: 1,
                     borderBottomWidth: 1,
                   }}
-                  labelStyle={{color: '#000000', fontSize: 24}}
+                  labelStyle={{ color: '#000000', fontSize: 24 }}
                   onChange={handelPickerChange}
                 />
               </View>
@@ -770,13 +768,33 @@ const ComponentsProcedure = () => {
   const onPressGoHome = async () => {
     await saveToStorage();
     navigation.reset({
-      routes: [{name: routes.HOMESCREEN}],
+      routes: [{ name: routes.HOMESCREEN }],
     });
   };
 
   const onPressGoBack = async () => {
     const newCase = await saveToStorage();
     await sendDeleteServer(newCase);
+  };
+
+  const onPressDocument = async () => {
+    await saveToStorage();
+    navigation.navigate(routes.DRIVING_LICENSE, {
+      caseData: caseData,
+      dataConfig: dataConfig,
+      fromHome: false,
+      authen: authen,
+      onlyFullBodyPaint: false,
+    });
+  };
+
+  const onPressPhotos = async () => {
+    await saveToStorage();
+    navigation.navigate(routes.MEASURE_AREA, {
+      caseData: caseData,
+      dataConfig: dataConfig,
+      authen: authen,
+    });
   };
 
   return (
@@ -788,47 +806,16 @@ const ComponentsProcedure = () => {
         onPressHome={() => onPressGoHome()}
         title={currentCase?.licensePlate?.toLocaleUpperCase()}
       />
+      <TopScreen
+        topID={3}
+        onPressPhotos={onPressPhotos}
+        onPressDocument={onPressDocument}
+      />
       <View style={styles.viewBody}>
-        {/* <TopScreen disableDocument={true} disablePhotos={true} /> */}
-        {/* <View style={styles.viewButtonDropDown}>
-          <View style={{ width: '45%' }}>
-            <Text style={styles.textTitle}>{ar_special_coating}</Text>
-            <TouchableOpacity
-              style={styles.buttonDropDown}
-              onPress={() => onPressSpecialCoating(ar_special_coating)}>
-              <Text style={styles.textDropDown} numberOfLines={1}>
-                {currentCase?.specialCoating?.label ?? '---'}
-              </Text>
-              <Image
-                resizeMode="contain"
-                source={icons.drop_down_icon}
-                style={{ height: 12, width: 12 }}
-              />
-            </TouchableOpacity>
-          </View>
-          <View style={{ width: '45%' }}>
-            <Text style={styles.textTitle}>
-              {ar_paint_film}
-              <Text style={{ color: colors.backgroundLogin }}>*</Text>
-            </Text>
-            <TouchableOpacity
-              style={styles.buttonDropDown}
-              onPress={() => onPressPaintFilm(ar_paint_film)}>
-              <Text style={styles.textDropDown} numberOfLines={1}>
-                {currentCase?.paintFilm?.label}
-              </Text>
-              <Image
-                resizeMode="contain"
-                source={icons.drop_down_icon}
-                style={{ height: 12, width: 12 }}
-              />
-            </TouchableOpacity>
-          </View>
-        </View> */}
-        <View style={{flex: 1, marginTop: 12}}>
+        <View style={{ flex: 1 }}>
           <Text style={styles.textComponents}>{component_procedure_title}</Text>
           <FlatList
-            style={{flex: 1}}
+            style={{ flex: 1 }}
             showsVerticalScrollIndicator={false}
             data={listData}
             renderItem={item => <RenderComponents item={item} />}
@@ -836,24 +823,10 @@ const ComponentsProcedure = () => {
           />
         </View>
         <View style={styles.viewButtonFooter}>
-          {/* <TouchableOpacity
-            onPress={DeleteButtonAlert}
-            style={styles.buttonDelete}>
-            <Image
-              resizeMode="contain"
-              source={icons.trash_icon}
-              style={styles.imageDeleteButton}
-            />
-          </TouchableOpacity> */}
-          {/* <Button
-            title={ar_save}
-            style={{ backgroundColor: colors.primary, minWidth: 180 }}
-            onPress={() => onPressSave()}
-          /> */}
           <Button
             onPress={() => onPressNext()}
             title={ar_estimate}
-            style={{backgroundColor: colors.primary, minWidth: 180}}
+            style={{ backgroundColor: colors.primary, minWidth: 180 }}
           />
         </View>
         {renderModalPicker()}

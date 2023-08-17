@@ -1,5 +1,5 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import {colors} from '../../../theme';
+import { StyleSheet, Dimensions } from 'react-native';
+import { colors } from '../../../theme';
 
 export default StyleSheet.create({
   container: {
@@ -23,12 +23,11 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  imageIconNext: {height: 24, width: 16, tintColor: colors.white},
+  imageIconNext: { height: 24, width: 16, tintColor: colors.white },
   textTitle: {
     fontSize: 18,
     color: colors.black,
     marginBottom: 8,
-    fontWeight: 'bold',
   },
   viewButtonDropDown: {
     width: '100%',
@@ -46,7 +45,7 @@ export default StyleSheet.create({
     minHeight: 45,
     borderRadius: 4,
   },
-  textDropDown: {fontSize: 16, color: colors.black},
+  textDropDown: { fontSize: 16, color: colors.black },
   viewCheckBoxItem: {
     flexDirection: 'row',
   },
@@ -77,21 +76,28 @@ export default StyleSheet.create({
     color: colors.black,
     paddingHorizontal: 8,
   },
-  textComponents: {fontSize: 24, color: colors.black, fontWeight: 'bold'},
+  textComponents: { fontSize: 24, color: colors.black, fontWeight: 'bold' },
   viewItemHeaderComponents: {
-    backgroundColor: colors.borderBackground,
+    backgroundColor: colors.lightBlue,
     paddingHorizontal: 16,
     paddingVertical: 8,
     flexDirection: 'row',
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.2,
+    shadowRadius: 0.2,
+    shadowColor: colors.lightBlue,
   },
-  textItemHeaderComponents: {fontSize: 18, color: colors.white},
+  textItemHeaderComponents: {
+    fontSize: 18,
+    color: colors.primary
+  },
   viewItemBodyComponents: {
     backgroundColor: colors.white,
     paddingHorizontal: 16,
     paddingVertical: 12,
     flexDirection: 'row',
   },
-  textItemBodyComponents: {fontSize: 17, color: colors.black,},
+  textItemBodyComponents: { fontSize: 17, color: colors.black, },
   viewButtonFooter: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -107,7 +113,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     marginRight: 8,
   },
-  imageDeleteButton: {height: 32, width: 32},
+  imageDeleteButton: { height: 32, width: 32 },
   viewTextComponents: {
     flexDirection: 'row',
     justifyContent: 'space-between',

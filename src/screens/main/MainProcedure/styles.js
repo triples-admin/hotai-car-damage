@@ -1,5 +1,5 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import {colors} from '../../../theme';
+import { StyleSheet, Dimensions } from 'react-native';
+import { colors } from '../../../theme';
 
 export default StyleSheet.create({
   container: {
@@ -11,7 +11,7 @@ export default StyleSheet.create({
   },
   viewBody: {
     paddingHorizontal: 32,
-    marginVertical: 20,
+    marginBottom: 20,
     flexDirection: 'column'
   }
 });

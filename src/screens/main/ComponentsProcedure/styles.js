@@ -1,5 +1,5 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import {colors} from '../../../theme';
+import { StyleSheet, Dimensions } from 'react-native';
+import { colors } from '../../../theme';
 
 export default StyleSheet.create({
   container: {
@@ -8,7 +8,7 @@ export default StyleSheet.create({
   },
   viewBody: {
     flex: 1,
-    paddingHorizontal: 32,
+    paddingHorizontal: 55,
     flexDirection: 'column'
   },
   viewButtonBody: {
@@ -24,8 +24,8 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  imageIconNext: {height: 24, width: 16, tintColor: colors.white},
-  textTitle: {fontSize: 18, color: colors.black, marginBottom: 8, fontWeight: 'bold'},
+  imageIconNext: { height: 24, width: 16, tintColor: colors.white },
+  textTitle: { fontSize: 18, color: colors.black, marginBottom: 8, fontWeight: 'bold' },
   viewButtonDropDown: {
     width: '50%',
     flexDirection: 'row',
@@ -42,7 +42,7 @@ export default StyleSheet.create({
     minHeight: 45,
     borderRadius: 4,
   },
-  textDropDown: {fontSize: 16, color: colors.black},
+  textDropDown: { fontSize: 16, color: colors.black },
   viewCheckBoxItem: {
   },
   viewCheckBoxFormItem: {
@@ -72,7 +72,11 @@ export default StyleSheet.create({
     color: colors.black,
     paddingHorizontal: 8,
   },
-  textComponents: {fontSize: 24, color: colors.black, fontWeight: 'bold'},
+  textComponents: {
+    fontSize: 24,
+    color: colors.black,
+    marginBottom: 10,
+  },
   viewItemHeaderComponents: {
     backgroundColor: colors.primary,
     paddingHorizontal: 16,
@@ -81,14 +85,14 @@ export default StyleSheet.create({
     borderTopRightRadius: 4,
     flexDirection: 'row',
   },
-  textItemHeaderComponents: {fontSize: 18, color: colors.white},
+  textItemHeaderComponents: { fontSize: 18, color: colors.white },
   viewItemBodyComponents: {
     backgroundColor: colors.white,
     paddingHorizontal: 16,
     paddingVertical: 12,
     flexDirection: 'row',
   },
-  textItemBodyComponents: {fontSize: 17, color: colors.black, fontWeight: 'bold'},
+  textItemBodyComponents: { fontSize: 17, color: colors.black, fontWeight: 'bold' },
   viewButtonFooter: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -104,7 +108,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     marginRight: 8,
   },
-  imageDeleteButton: {height: 32, width: 32},
+  imageDeleteButton: { height: 32, width: 32 },
 
   safeView: {
     flex: 1

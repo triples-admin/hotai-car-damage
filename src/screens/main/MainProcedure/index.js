@@ -971,7 +971,7 @@ const MainProcedure = () => {
   const renderMain = () => {
     return (
       <View style={{ flexDirection: 'column', paddingHorizontal: 32 }}>
-        <Text style={{ fontSize: 24, fontWeight: 'bold', color: colors.black }}>
+        <Text style={{ fontSize: 24, color: colors.black }}>
           {main_procedure_title}
         </Text>
         <View
@@ -1054,7 +1054,7 @@ const MainProcedure = () => {
     const level = item?.level;
     const painting = item?.painting;
     // console.log('--- renderItem : ' + JSON.stringify(item));
-    const bgColor = data?.index % 2 == 0 ? colors.white : colors.bgOrange;
+    const bgColor = data?.index % 2 == 0 ? colors.white : colors.bgBlue;
 
     let hideAreaLevel = false;
     const isBumper = checkBumper(item?.REGION);
@@ -1219,26 +1219,6 @@ const MainProcedure = () => {
           marginTop: 10,
           marginBottom: 16,
         }}>
-        {/* <TouchableOpacity
-          style={{
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: 48,
-            height: 48,
-            borderRadius: 24,
-            backgroundColor: colors.blackGray,
-          }}
-          onPress={() => onPressDelete()}>
-          <Image
-            style={{width: 30, height: 30}}
-            source={require('../../../assets/icons/trash_icon.webp')}
-          />
-        </TouchableOpacity> */}
-        {/* <Button
-          title={ar_save}
-          style={{backgroundColor: colors.primary, marginLeft: 20}}
-          onPress={() => onPressSave()}
-        /> */}
         <Button
           title={ar_next}
           style={{ backgroundColor: colors.primary }}
@@ -1390,8 +1370,7 @@ const MainProcedure = () => {
           title={currentCase?.licensePlate?.toLocaleUpperCase()}
         />
         <TopScreen
-          disableDocument={true}
-          disablePhotos={true}
+          topID={3}
           onPressPhotos={onPressGoBack}
           onPressDocument={onPressDocument}
         />

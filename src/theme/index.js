@@ -6,6 +6,7 @@ export const colors = {
     third: '#FFC700',
     background: '#F6F6F6',
     bgOrange: '#FFF8E7',
+    bgBlue: '#E2F6FF',
     white: '#ffffff',
     black: '#000000',
     colorSwitchOff: '#A9A9A9',
