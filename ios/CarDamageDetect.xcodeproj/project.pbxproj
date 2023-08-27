@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* CarDamageDetectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CarDamageDetectTests.m */; };
+		031641862A8153A60082A3BE /* measureAreaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C347ABC5286DECB100D4C41B /* measureAreaFramework.framework */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -43,7 +44,6 @@
 		C347ABDC286DECB100D4C41B /* measureAreaFramework.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = C347ABC0286DECB100D4C41B /* measureAreaFramework.xcworkspace */; };
 		C347ABDD286DECB100D4C41B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C347ABC1286DECB100D4C41B /* Podfile */; };
 		C347ABDE286DECB100D4C41B /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = C347ABC2286DECB100D4C41B /* Podfile.lock */; };
-		C347ABDF286DEDA400D4C41B /* measureAreaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C347ABC5286DECB100D4C41B /* measureAreaFramework.framework */; };
 		C347ABE0286DEDA400D4C41B /* measureAreaFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C347ABC5286DECB100D4C41B /* measureAreaFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C365B60D28579604007897E0 /* PortalHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C365B60C28579604007897E0 /* PortalHUD.bundle */; };
 		C3E72AA4284BBCA800071008 /* NativeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E72AA3284BBCA800071008 /* NativeService.swift */; };
@@ -163,7 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C347ABDF286DEDA400D4C41B /* measureAreaFramework.framework in Frameworks */,
+				031641862A8153A60082A3BE /* measureAreaFramework.framework in Frameworks */,
 				C347ABDB286DECB100D4C41B /* opencv2.framework in Frameworks */,
 				2AD3F7CBF3BC7F897BE1817D /* libPods-CarDamageDetect.a in Frameworks */,
 				24CD3FC7292374B70049899E /* HotaiAppPortalUniversalSDK.framework in Frameworks */,
@@ -572,7 +572,7 @@
 		};
 		4F61D37FE4542E0565F73DCB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -684,7 +684,7 @@
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -840,11 +840,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CarDamageDetect/CarDamageDetect.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 28;
-				DEVELOPMENT_TEAM = BRAT5675T3;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = BRAT5675T3;
+				CURRENT_PROJECT_VERSION = 29;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MRKSQ8P9K4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -858,16 +859,16 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2.5;
+				MARKETING_VERSION = 1.0.3;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hotai.evaapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auto.insurance;
 				PRODUCT_NAME = CarDamageDetect;
-				PROVISIONING_PROFILE_SPECIFIER = "202201 Hotai EVAAPP Dev";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "202201 Hotai EVAAPP";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "AutoInsurance AdHoc";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -886,11 +887,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CarDamageDetect/CarDamageDetect.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 28;
-				DEVELOPMENT_TEAM = BRAT5675T3;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = BRAT5675T3;
+				CURRENT_PROJECT_VERSION = 29;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MRKSQ8P9K4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -904,16 +906,16 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2.5;
+				MARKETING_VERSION = 1.0.3;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hotai.evaapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auto.insurance;
 				PRODUCT_NAME = CarDamageDetect;
-				PROVISIONING_PROFILE_SPECIFIER = "202201 Hotai EVAAPP Dev";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "202201 Hotai EVAAPP";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "AutoInsurance AdHoc";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

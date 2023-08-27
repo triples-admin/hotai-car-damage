@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		12B6ABB4E1D3DCE2BBF2AFB4 /* Pods_measureAreaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264829DF1EC862BCD2F66042 /* Pods_measureAreaFramework.framework */; };
 		A573505D285FBDCB0098BE4C /* measureAreaFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = A573505C285FBDCB0098BE4C /* measureAreaFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5735070285FBE510098BE4C /* PlaneDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = A5735064285FBE510098BE4C /* PlaneDetector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5735072285FBE510098BE4C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5735066285FBE510098BE4C /* Extensions.swift */; };
@@ -40,7 +39,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12B6ABB4E1D3DCE2BBF2AFB4 /* Pods_measureAreaFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

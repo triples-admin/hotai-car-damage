@@ -14,20 +14,20 @@ import {
   PanResponder,
   Animated,
 } from 'react-native';
-import React, {useState, useRef, useEffect} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ReactNativeZoomableView from '@dudigital/react-native-zoomable-view/src/ReactNativeZoomableView';
 import Header from '../../../components/Header';
-import {colors} from '../../../theme';
-import {routes} from '../../../navigation/routes';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import { colors } from '../../../theme';
+import { routes } from '../../../navigation/routes';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import i18n from '../../../utils/i18n';
 import LoadingView from '../../../components/Loading';
 import caseListPageStorage from '../../../api/storage/caseListPage';
-import {NativeService, EventEmitter} from '../../../bridge/NativeService';
-import {Camera, useCameraDevices} from 'react-native-vision-camera';
+import { NativeService, EventEmitter } from '../../../bridge/NativeService';
+import { Camera, useCameraDevices } from 'react-native-vision-camera';
 import RNFS from 'react-native-fs';
 import ImageResizer from 'react-native-image-resizer';
-import {TapGestureHandler} from 'react-native-gesture-handler';
+import { TapGestureHandler } from 'react-native-gesture-handler';
 import _ from 'lodash';
 import VerticalSlider from '../../../components/Slider';
 
@@ -133,6 +133,30 @@ const YARIS = {
   leftRear: require('../../../assets/wireframe/YARIS/YARIS-04.png'),
 };
 
+// 9.
+const ES = {
+  rightFront: require('../../../assets/wireframe/ES/ES-01.png'),
+  leftFront: require('../../../assets/wireframe/ES/ES-02.png'),
+  rightRear: require('../../../assets/wireframe/ES/ES-03.png'),
+  leftRear: require('../../../assets/wireframe/ES/ES-04.png'),
+};
+
+// 10.
+const NX = {
+  rightFront: require('../../../assets/wireframe/NX/NX-01.png'),
+  leftFront: require('../../../assets/wireframe/NX/NX-02.png'),
+  rightRear: require('../../../assets/wireframe/NX/NX-03.png'),
+  leftRear: require('../../../assets/wireframe/NX/NX-04.png'),
+};
+
+// 11.
+const UX = {
+  rightFront: require('../../../assets/wireframe/UX/UX-01.png'),
+  leftFront: require('../../../assets/wireframe/UX/UX-02.png'),
+  rightRear: require('../../../assets/wireframe/UX/UX-03.png'),
+  leftRear: require('../../../assets/wireframe/UX/UX-04.png'),
+};
+
 // METHOD
 const DATAMethod = [
   {
@@ -197,7 +221,7 @@ const MeasureAreaCamera = () => {
   });
 
   useEffect(() => {
-    let newSlideValue = sliderValue * (100/190) + 90;
+    let newSlideValue = sliderValue * (100 / 190) + 90;
     setMaskCar({
       width: (_width * newSlideValue) / 190,
       height: ((_width / 1.333) * newSlideValue) / 190,
@@ -206,9 +230,9 @@ const MeasureAreaCamera = () => {
 
   useEffect(() => {
     // console.log('--- MeasureAreaCamera - caseData : ' + JSON.stringify(caseData.damagedPart));
-    if(!_.isEmpty(caseData?.damagedPart)){
+    if (!_.isEmpty(caseData?.damagedPart)) {
       caseData.damagedPart.forEach(element => {
-        if(element.id === 13){
+        if (element.id === 13) {
           setIsFullPaint(true);
         }
       })
@@ -254,9 +278,8 @@ const MeasureAreaCamera = () => {
         try {
           const dataCompress = await compressPhoto(newImage.path, 1920);
           const newImageComporess = {
-            path: `data:image/jpeg;base64,${
-              dataCompress?.path ? dataCompress?.path : imgBase64
-            }`,
+            path: `data:image/jpeg;base64,${dataCompress?.path ? dataCompress?.path : imgBase64
+              }`,
             isMeasure: true,
           };
 
@@ -272,8 +295,8 @@ const MeasureAreaCamera = () => {
                 } else {
                   // Fixing
                   damagedPart[i].method = dataMappedMethod[0];
-                  const objLevel = {label: level, value: level};
-                  const objArea = {label: area, value: area};
+                  const objLevel = { label: level, value: level };
+                  const objArea = { label: area, value: area };
                   damagedPart[i].level = objLevel;
                   damagedPart[i].area = objArea;
                 }
@@ -284,8 +307,8 @@ const MeasureAreaCamera = () => {
                   damagedPart[i].method = dataMappedMethod[1];
                 } else {
                   // A, B, C, UPS
-                  const objLevel = {label: level, value: level};
-                  const objArea = {label: area, value: area};
+                  const objLevel = { label: level, value: level };
+                  const objArea = { label: area, value: area };
                   damagedPart[i].level = objLevel;
                   damagedPart[i].area = objArea;
                 }
@@ -293,7 +316,7 @@ const MeasureAreaCamera = () => {
               }
             }
           }
-        } catch (error) {}
+        } catch (error) { }
         autoSave(level == 'UPS');
         alertConfirm();
       },
@@ -344,15 +367,15 @@ const MeasureAreaCamera = () => {
             response => {
               RNFS.readFile(response?.path, 'base64')
                 .then(data => {
-                  resolve({path: data});
+                  resolve({ path: data });
                 })
-                .catch(error => reject({error: error}));
+                .catch(error => reject({ error: error }));
             },
-            error => reject({error: error}),
+            error => reject({ error: error }),
           );
         },
         error => {
-          reject({error: error});
+          reject({ error: error });
         },
       );
     });
@@ -389,9 +412,9 @@ const MeasureAreaCamera = () => {
       // measure photos again
       if (NativeService) {
         let issetFullPaint = false;
-        if(!_.isEmpty(caseData?.damagedPart)){
+        if (!_.isEmpty(caseData?.damagedPart)) {
           caseData.damagedPart.forEach(element => {
-            if(element.id === 13){
+            if (element.id === 13) {
               issetFullPaint = true;
             }
           })
@@ -435,6 +458,12 @@ const MeasureAreaCamera = () => {
       result = VIOS[angle];
     } else if (_name.toUpperCase().includes('YARIS')) {
       result = YARIS[angle];
+    } else if (_name.toUpperCase().includes('ES')) {
+      result = ES[angle];
+    } else if (_name.toUpperCase().includes('NX')) {
+      result = NX[angle];
+    } else if (_name.toUpperCase().includes('UX')) {
+      result = UX[angle];
     }
     return result;
   };
@@ -454,7 +483,7 @@ const MeasureAreaCamera = () => {
           name: angle.name,
         };
         setNextDamagedPart();
-      } else if(angle.photo !== null) {
+      } else if (angle.photo !== null) {
         currentDamage.current = {
           type: 'part',
           key: angle.value,
@@ -574,16 +603,15 @@ const MeasureAreaCamera = () => {
       // --- not save & goto next page
       RNFS.readFile(result?.path, 'base64').then(async res => {
         // console.log("----------- image res : " + res);
-        const newImage = {path: `data:image/jpeg;base64,${res}`};
+        const newImage = { path: `data:image/jpeg;base64,${res}` };
         if (currentDamage.current?.type === 'angle') {
           // save photo angle
           let angle = damagedAngle[indexAngle.current];
           // console.log('----- angle: ' + JSON.stringify(angle));
           const dataCompress = await compressPhoto(newImage.path, 1920);
           const newImageComporess = {
-            path: `data:image/jpeg;base64,${
-              dataCompress?.path ? dataCompress?.path : res
-            }`,
+            path: `data:image/jpeg;base64,${dataCompress?.path ? dataCompress?.path : res
+              }`,
           };
           angle.photo = newImageComporess;
           damagedAngle[indexAngle.current] = angle;
@@ -595,9 +623,8 @@ const MeasureAreaCamera = () => {
           // save photo part
           const dataCompress = await compressPhoto(newImage.path, 1920);
           const newImageComporess = {
-            path: `data:image/jpeg;base64,${
-              dataCompress?.path ? dataCompress?.path : res
-            }`,
+            path: `data:image/jpeg;base64,${dataCompress?.path ? dataCompress?.path : res
+              }`,
           };
           for (let i = 0; i < damagedPart.length; i++) {
             const element = damagedPart[i];
@@ -647,7 +674,7 @@ const MeasureAreaCamera = () => {
       {device && showCamera ? (
         <>
           {currentDamage.current?.skeleton &&
-          currentDamage.current?.type === 'angle' ? (
+            currentDamage.current?.type === 'angle' ? (
             <Camera
               ref={cameraRef}
               photo={true}
@@ -679,13 +706,13 @@ const MeasureAreaCamera = () => {
             </Camera>
           ) : (
             <TapGestureHandler
-              onHandlerStateChange={({nativeEvent}) => {
+              onHandlerStateChange={({ nativeEvent }) => {
                 setFoucusCameraVisible({
                   x: nativeEvent.x,
                   y: nativeEvent.y,
                   visible: true,
                 });
-                cameraRef.current?.focus({x: nativeEvent.x, y: nativeEvent.y});
+                cameraRef.current?.focus({ x: nativeEvent.x, y: nativeEvent.y });
                 setTimeout(() => {
                   setFoucusCameraVisible({
                     x: null,
@@ -734,7 +761,7 @@ const MeasureAreaCamera = () => {
               right: 10,
             }}>
             <TouchableOpacity
-              style={{padding: 20}}
+              style={{ padding: 20 }}
               onPress={handleShowFlashOptions}>
               <Image
                 source={
@@ -752,7 +779,7 @@ const MeasureAreaCamera = () => {
             </TouchableOpacity>
             {showFlashOptions && (
               <TouchableOpacity
-                style={{padding: 20}}
+                style={{ padding: 20 }}
                 onPress={() => handleSetFlashStatus('auto')}>
                 <Text
                   style={{
@@ -766,7 +793,7 @@ const MeasureAreaCamera = () => {
             )}
             {showFlashOptions && (
               <TouchableOpacity
-                style={{padding: 20}}
+                style={{ padding: 20 }}
                 onPress={() => handleSetFlashStatus('on')}>
                 <Text
                   style={{
@@ -780,7 +807,7 @@ const MeasureAreaCamera = () => {
             )}
             {showFlashOptions && (
               <TouchableOpacity
-                style={{padding: 20}}
+                style={{ padding: 20 }}
                 onPress={() => handleSetFlashStatus('off')}>
                 <Text
                   style={{
@@ -813,7 +840,7 @@ const MeasureAreaCamera = () => {
                 justifyContent: 'center',
                 paddingHorizontal: 20,
               }}>
-              <Text style={{fontSize: 20, color: colors.blackGray}}>
+              <Text style={{ fontSize: 20, color: colors.blackGray }}>
                 {currentDamage.current?.name}
               </Text>
             </View>
@@ -827,7 +854,7 @@ const MeasureAreaCamera = () => {
             }}
             onPress={() => onPressCapture()}>
             <Image
-              style={{width: 70, height: 70}}
+              style={{ width: 70, height: 70 }}
               source={require('../../../assets/icons/ic_capture.png')}
             />
           </TouchableOpacity>
@@ -836,10 +863,10 @@ const MeasureAreaCamera = () => {
       <Header iconBack iconHome title={caseData?.licensePlate} />
       {isLoading && <LoadingView />}
       {currentDamage.current?.skeleton &&
-      currentDamage.current?.type === 'angle' ? (
+        currentDamage.current?.type === 'angle' ? (
         <VerticalSlider
           thumbSize={20}
-          style={{left: 30, top: _height / 2 - 175}}
+          style={{ left: 30, top: _height / 2 - 175 }}
           height={200}
           width={10}
           color={colors.white}

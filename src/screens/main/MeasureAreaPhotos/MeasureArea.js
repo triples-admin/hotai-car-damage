@@ -286,7 +286,7 @@ const MeasureArea = () => {
       let coverImg = photos?.length > 0 ? element.PHOTOS[0] : '';
       photos.forEach(element => {
         if (element?.isMeasure) {
-          coverImg = itemPhoto;
+          coverImg = element;
         }
       });
 
