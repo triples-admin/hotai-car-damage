@@ -25,15 +25,15 @@
                                 <rect key="frame" x="0.0" y="584" width="1133" height="140"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTj-Xh-oR5">
-                                        <rect key="frame" x="20" y="2.5" width="250" height="135"/>
+                                        <rect key="frame" x="20" y="5.5" width="250" height="129"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMQ-px-vGZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="250" height="135"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="250" height="129"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn-refresh" translatesAutoresizingMaskIntoConstraints="NO" id="fHz-30-oIu">
-                                                <rect key="frame" x="0.0" y="0.0" width="250" height="135"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="250" height="129"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -258,8 +258,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btn-refresh" width="330" height="135"/>
-        <image name="btn_next" width="630" height="218"/>
+        <image name="btn-refresh" width="428" height="129"/>
+        <image name="btn_next" width="428" height="129"/>
         <image name="ic-back" width="200" height="200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
