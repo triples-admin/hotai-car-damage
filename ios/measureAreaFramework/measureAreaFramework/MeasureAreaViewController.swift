@@ -57,10 +57,15 @@ public class MeasureAreaViewController: UIViewController, ARSessionDelegate, UIC
    @IBOutlet weak var sessionInfoLabel: UILabel!
    @IBOutlet weak var collectionView: UICollectionView!
    
-   private var options: [String] = ["UPS", "A", "B", "C", "E"]
-   private var colors: [CIColor] =  [.blue, .green, .yellow, .red, .gray]
-   private var optionImgs: [String] = ["btn-ups-330x102", "btn-A-330x102", "btn-B-330x102", "btn-C-330x102", "btn-change-247x102"]
-   private var optionImgsSelected: [String] = ["btn-ups-checked-330x102", "btn-A1-330x102", "btn-B1-330x102", "btn-C1-330x102", "btn-change1-247x102"]
+//   private var options: [String] = ["UPS", "A", "B", "C", "E"]
+//   private var colors: [CIColor] =  [.blue, .green, .yellow, .red, .gray]
+//   private var optionImgs: [String] = ["btn-ups-330x102", "btn-A-330x102", "btn-B-330x102", "btn-C-330x102", "btn-change-247x102"]
+//   private var optionImgsSelected: [String] = ["btn-ups-checked-330x102", "btn-A1-330x102", "btn-B1-330x102", "btn-C1-330x102", "btn-change1-247x102"]
+  
+  private var options: [String] = ["A", "B", "C", "E"]
+  private var colors: [CIColor] =  [.green, .yellow, .red, .gray]
+  private var optionImgs: [String] = ["btn-A-330x102", "btn-B-330x102", "btn-C-330x102", "btn-change-247x102"]
+  private var optionImgsSelected: [String] = ["btn-A1-330x102", "btn-B1-330x102", "btn-C1-330x102", "btn-change1-247x102"]
    
    private var selectedColor: CIColor?
    private var selectedOption: IndexPath? {
@@ -138,22 +143,29 @@ public class MeasureAreaViewController: UIViewController, ARSessionDelegate, UIC
            optionImgs = ["btn-3-330x102"]
            optionImgsSelected = ["btn-3-checked-330x102"]
          } else {
-           leftInset = (collectionWidth - (130 * 4))/2;
+//           leftInset = (collectionWidth - (130 * 4))/2;
+//           rightInset = leftInset;
+//           options = ["UPS", "外傷", "變形", "E"]
+//           colors = [.blue, .green, .yellow, .gray]
+//           optionImgs = ["btn-ups-330x102", "btn-1-330x102", "btn-2-330x102", "btn-3-330x102"]
+//           optionImgsSelected = ["btn-ups-checked-330x102", "btn-1-checked-330x102", "btn-2-checked-330x102", "btn-3-checked-330x102"]
+           
+           leftInset = (collectionWidth - (130 * 3))/2;
            rightInset = leftInset;
-           options = ["UPS", "外傷", "變形", "E"]
-           colors = [.blue, .green, .yellow, .gray]
-           optionImgs = ["btn-ups-330x102", "btn-1-330x102", "btn-2-330x102", "btn-3-330x102"]
-           optionImgsSelected = ["btn-ups-checked-330x102", "btn-1-checked-330x102", "btn-2-checked-330x102", "btn-3-checked-330x102"]
+           options = ["外傷", "變形", "E"]
+           colors = [.green, .yellow, .gray]
+           optionImgs = ["btn-1-330x102", "btn-2-330x102", "btn-3-330x102"]
+           optionImgsSelected = ["btn-1-checked-330x102", "btn-2-checked-330x102", "btn-3-checked-330x102"]
          }
        }
        if damagedName == "引擎蓋" || (isFullPaint && damagedName != "後保險桿" && damagedName != "前保險桿") {
            // remove UPS
            leftInset = leftInset + 65;
            rightInset = leftInset;
-           options.removeFirst()
-           colors.removeFirst()
-           optionImgs.removeFirst()
-           optionImgsSelected.removeFirst()
+//           options.removeFirst()
+//           colors.removeFirst()
+//           optionImgs.removeFirst()
+//           optionImgsSelected.removeFirst()
        }
        collectionView.contentInset = UIEdgeInsets(top: 0, left: CGFloat(leftInset), bottom: 0, right: CGFloat(rightInset))
        // check to show horizontal switch
