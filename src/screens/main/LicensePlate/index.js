@@ -15,6 +15,7 @@ import {
 import React, { useState, useRef, useEffect } from 'react';
 import { icons } from '../../../assets';
 import Header from '../../../components/Header';
+import AlertModal from '../../../components/AlertModal';
 import styles from './styles';
 import { colors } from '../../../theme';
 import { routes } from '../../../navigation/routes';
@@ -53,6 +54,8 @@ const LicensePlate = () => {
 
   const isShowCamera = useRef(false);
   const [isManual, setIsManual] = useState(false);
+
+  const [isShowAlert, setIsShowAlert] = useState(false);
 
   const [lengthPlateNumbber, setLengthPlateNumber] = useState(0);
 
@@ -287,14 +290,7 @@ const LicensePlate = () => {
   };
 
   const apiCallFailed = () => {
-    Alert.alert('', license_plate_message_error, [
-      {
-        text: _home_ok,
-        onPress: () => {
-          console.log('OK Pressed');
-        },
-      },
-    ]);
+    setIsShowAlert(true);
   };
 
   const onPressNextStep = async () => {
@@ -388,7 +384,14 @@ const LicensePlate = () => {
 
   const gotoNextPage = () => {
     // console.log('------- gotoNextPage : ' + JSON.stringify(caseData.current));
-    navigation.navigate(routes.DRIVING_LICENSE, {
+
+    // navigation.navigate(routes.DRIVING_LICENSE, {
+    //   caseData: caseData.current,
+    //   dataConfig: dataConfig.current,
+    //   authen: authen,
+    // });
+
+    navigation.navigate(routes.INSURANCE, {
       caseData: caseData.current,
       dataConfig: dataConfig.current,
       authen: authen,
@@ -543,6 +546,42 @@ const LicensePlate = () => {
     navigation.navigate(routes.HOMESCREEN, {});
   };
 
+  const alertOption1 = () => {
+    //TODO 連結  
+    console.log('alertOption1');
+  }
+
+  const alertOption2 = () => {
+    //TODO 連結
+    console.log('alertOption2');
+  }
+
+  const renderAlertModal = () => {
+    return (
+      <>
+        {/* 未支援此車型 */}
+        <AlertModal
+          visible={isShowAlert}
+          title={license_plate_message_error}
+          actionButton={[
+            {
+              'title': i18n.t('license_plate_message_option1'),
+              'onPress': () => alertOption1()
+            },
+            {
+              'title': i18n.t('license_plate_message_option2'),
+              'onPress': () => alertOption2()
+            },
+            {
+              'title': i18n.t('home_cancel'),
+              'onPress': () => setIsShowAlert(false)
+            }
+          ]}
+        />
+      </>
+    )
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       {isManual ? (
@@ -574,6 +613,7 @@ const LicensePlate = () => {
         </View>
       )}
       {isLoading && <LoadingView />}
+      {renderAlertModal()}
     </SafeAreaView>
   );
 };

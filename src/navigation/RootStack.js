@@ -84,6 +84,11 @@ const RootStack = () => {
           component={main.MEASURE_AREA_CAMERA}
           options={{ gestureEnabled: false }}
         />
+        <Stack.Screen
+          name={routes.INSURANCE}
+          component={main.INSURANCE}
+          options={{ gestureEnabled: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

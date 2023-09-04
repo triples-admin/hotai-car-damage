@@ -34,6 +34,8 @@
   "smart_pricing_next_confirm_title": "是否確定要送出？",
   "smart_pricing_next_confirm_content": "一但確定送出後，便無法再返回修改。",
   "license_plate_message_error": "未支援此車型",
+  "license_plate_message_option1": "請使用ECHO估價",
+  "license_plate_message_option2": "查看車型支援表",
   "license_plate_permission_camera": "我們將使用您的相機進行車牌識別，以便您更輕鬆地添加車輛",
   "damaged_part_pls_select_damaged_part": "請選擇受損部位",
   "damaged_part_back": "上一步",
@@ -141,8 +143,8 @@
   "measure_area_confirm_content": "一但確定送出後，便無法再返回修改。",
   "measure_area_detail_take_photos": "拍照",
   "measure_camera_confirm_title": "是否還需要拍攝其他照片？",
-  "measure_camera_confirm_option_1": "拍攝損害面積照片",
-  "measure_camera_confirm_option_2": "拍照",
+  "measure_camera_confirm_option_1": "再次開啟AR辨識功能\n(拍攝本板件其他傷痕)",
+  "measure_camera_confirm_option_2": "補充車損照片",
   "measure_camera_confirm_option_3": "否",
   "login_wellcome": "Welcome  o  o  o   back"
 }

@@ -131,7 +131,8 @@ public class MeasureAreaViewController: UIViewController, ARSessionDelegate, UIC
        detectHor = false
        arView.session.delegate = self
        let collectionWidth = collectionView.bounds.width
-       leftInset = (collectionWidth - (130 * 5))/2;
+//       leftInset = (collectionWidth - (130 * 5))/2;
+       leftInset = (collectionWidth - (130 * 4))/2;
        rightInset = leftInset;
        // check to show switch options
        if damagedName == "後保險桿" || damagedName == "前保險桿" {
@@ -160,7 +161,7 @@ public class MeasureAreaViewController: UIViewController, ARSessionDelegate, UIC
        }
        if damagedName == "引擎蓋" || (isFullPaint && damagedName != "後保險桿" && damagedName != "前保險桿") {
            // remove UPS
-           leftInset = leftInset + 65;
+           leftInset = (collectionWidth - (130 * 4))/2;
            rightInset = leftInset;
 //           options.removeFirst()
 //           colors.removeFirst()

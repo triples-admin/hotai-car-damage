@@ -32,8 +32,9 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn-refresh" translatesAutoresizingMaskIntoConstraints="NO" id="fHz-30-oIu">
-                                                <rect key="frame" x="0.0" y="0.0" width="250" height="76"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn-refresh" id="fHz-30-oIu">
+                                                <rect key="frame" x="15" y="0.0" width="220" height="76"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -258,7 +259,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btn-refresh" width="250" height="76"/>
+        <image name="btn-refresh" width="220" height="67"/>
         <image name="btn_next" width="428" height="129"/>
         <image name="ic-back" width="100" height="101"/>
         <systemColor name="systemBackgroundColor">

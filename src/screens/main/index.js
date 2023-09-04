@@ -10,6 +10,7 @@ import CameraScreen from "../../components/CameraScreen/CameraScreen";
 import MeasureArea from "./MeasureAreaPhotos/MeasureArea";
 import MeasureAreaDetail from "./MeasureAreaPhotos/MeasureAreaDetail";
 import MeasureAreaCamera from "./MeasureAreaPhotos/MeasureAreaCamera";
+import Insurance from "./Insurance";
 
 export const main = {
     HOMESCREEN: HomeScreen,
@@ -24,4 +25,5 @@ export const main = {
     MEASURE_AREA: MeasureArea,
     MEASURE_AREA_DETAIL: MeasureAreaDetail,
     MEASURE_AREA_CAMERA: MeasureAreaCamera,
+    INSURANCE: Insurance,
 }

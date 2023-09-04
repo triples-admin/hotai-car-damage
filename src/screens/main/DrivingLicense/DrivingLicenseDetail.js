@@ -8,14 +8,14 @@ import {
   Dimensions,
   Image,
 } from 'react-native';
-import React, {useState, useRef, useEffect} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Header from '../../../components/Header';
-import {colors} from '../../../theme';
-import {routes} from '../../../navigation/routes';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import { colors } from '../../../theme';
+import { routes } from '../../../navigation/routes';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import caseListPageStorage from '../../../api/storage/caseListPage';
 import LoadingView from '../../../components/Loading';
-import {launchImageLibrary} from 'react-native-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 import RNFS from 'react-native-fs';
 import ImageResizer from 'react-native-image-resizer';
 import _ from 'lodash';
@@ -109,15 +109,15 @@ const DrivingLicenseDetail = () => {
             response => {
               RNFS.readFile(response?.path, 'base64')
                 .then(data => {
-                  resolve({path: data});
+                  resolve({ path: data });
                 })
-                .catch(error => reject({error: error}));
+                .catch(error => reject({ error: error }));
             },
-            error => reject({error: error}),
+            error => reject({ error: error }),
           );
         },
         error => {
-          reject({error: error});
+          reject({ error: error });
         },
       );
     });
@@ -133,21 +133,20 @@ const DrivingLicenseDetail = () => {
       response => {
         const newImageComporess = [];
         !_.isEmpty(response.assets) &&
-        new Promise.all(response.assets.map(async(asset, key) => {
-          await RNFS.readFile(asset.uri, 'base64').then(async res => {
-            const newImage = {path: `data:image/jpeg;base64,${res}`};
-            const dataCompress = await compressPhoto(newImage.path, 1920);
-            newImageComporess.push({
-              path: `data:image/jpeg;base64,${
-                dataCompress?.path ? dataCompress?.path : res
-              }`,
+          new Promise.all(response.assets.map(async (asset, key) => {
+            await RNFS.readFile(asset.uri, 'base64').then(async res => {
+              const newImage = { path: `data:image/jpeg;base64,${res}` };
+              const dataCompress = await compressPhoto(newImage.path, 1920);
+              newImageComporess.push({
+                path: `data:image/jpeg;base64,${dataCompress?.path ? dataCompress?.path : res
+                  }`,
+              });
             });
+          })).finally(() => {
+            if (newImageComporess.length > 0) {
+              onChangeData('', newImageComporess);
+            }
           });
-        })).finally(() => {
-          if(newImageComporess.length > 0){
-            onChangeData('', newImageComporess);
-          }
-        });
       },
     );
   };
@@ -208,7 +207,7 @@ const DrivingLicenseDetail = () => {
       url = require('../../../assets/icons/ic_checked.png');
     }
     return (
-      <View style={{flexDirection: 'column', marginRight: 20}}>
+      <View style={{ flexDirection: 'column', marginRight: 20 }}>
         <TouchableOpacity
           style={{
             alignItems: 'center',
@@ -220,8 +219,8 @@ const DrivingLicenseDetail = () => {
           }}
           onPress={() => onPressPhoto(name, item)}>
           <Image
-            style={{width: widthBox, height: heightBox, borderRadius: 8}}
-            source={{uri: item?.path}}
+            style={{ width: widthBox, height: heightBox, borderRadius: 8 }}
+            source={{ uri: item?.path }}
           />
         </TouchableOpacity>
         <View
@@ -232,12 +231,12 @@ const DrivingLicenseDetail = () => {
             marginBottom: 20,
           }}>
           <Text
-            style={{flex: 1, fontSize: 20, color: colors.blackGray}}
+            style={{ flex: 1, fontSize: 20, color: colors.blackGray }}
             numberOfLines={1}>
             {name}
           </Text>
           <TouchableOpacity onPress={() => onPressCheckbox(index - 1, item)}>
-            <Image style={{width: 36, height: 36}} source={url} />
+            <Image style={{ width: 36, height: 36 }} source={url} />
           </TouchableOpacity>
         </View>
       </View>
@@ -254,7 +253,7 @@ const DrivingLicenseDetail = () => {
       view.push(renderItem(i + 1, item, widthBox, heightBox));
     }
     return (
-      <View style={{flex: 1, flexDirection: 'column'}}>
+      <View style={{ flex: 1, flexDirection: 'column' }}>
         <View
           style={{
             flexDirection: 'row',
@@ -279,7 +278,7 @@ const DrivingLicenseDetail = () => {
                 }}
                 onPress={() => onPressNewImage()}>
                 <Image
-                  style={{width: 50, height: 50}}
+                  style={{ width: 50, height: 50 }}
                   source={require('../../../assets/icons/ic_add.png')}
                 />
               </TouchableOpacity>
@@ -291,13 +290,13 @@ const DrivingLicenseDetail = () => {
                   marginBottom: 20,
                 }}>
                 <Text
-                  style={{flex: 1, fontSize: 20, color: colors.blackGray}}
+                  style={{ flex: 1, fontSize: 20, color: colors.blackGray }}
                   numberOfLines={1}>
                   {title}
                   {'-'}
                   {listData.length + 1}
                 </Text>
-                <View style={{width: 36, height: 36}} />
+                <View style={{ width: 36, height: 36 }} />
               </View>
             </View>
           )}
@@ -330,7 +329,7 @@ const DrivingLicenseDetail = () => {
           }}
           onPress={() => onPressDelete()}>
           <Image
-            style={{width: 32, height: 32}}
+            style={{ width: 32, height: 32 }}
             source={require('../../../assets/icons/trash_icon.webp')}
           />
         </TouchableOpacity>
@@ -356,15 +355,15 @@ const DrivingLicenseDetail = () => {
               justifyContent: 'center',
               backgroundColor: 'white',
             }}>
-            <View style={{position: 'absolute', top: 30, left: 0}}>
+            <View style={{ position: 'absolute', top: 30, left: 0 }}>
               <Image
-                style={{width: _width, height: _height - 50}}
-                source={{uri: imageSelected?.data?.path}}
+                style={{ width: _width, height: _height - 50 }}
+                source={{ uri: imageSelected?.data?.path }}
                 resizeMode='contain'
               />
             </View>
             <View
-              style={{position: 'absolute', top: 0, left: 0, width: _width}}>
+              style={{ position: 'absolute', top: 0, left: 0, width: _width }}>
               <Header
                 leftButton={true}
                 onPressLeft={() => onPressBack()}

@@ -34,6 +34,8 @@
   "smart_pricing_next_confirm_title": "Are you sure you want to send?",
   "smart_pricing_next_confirm_content": "Once it is confirmed to be sent, it cannot be returned to modify.",
   "license_plate_message_error": "No such car number",
+  "license_plate_message_option1": "Please use ECHO estimation.",
+  "license_plate_message_option2": "View the supported vehicle model table.",
   "license_plate_permission_camera": "Setting Camera",
   "damaged_part_pls_select_damaged_part": "Please select Damaged Part",
   "damaged_part_back": "Back",
