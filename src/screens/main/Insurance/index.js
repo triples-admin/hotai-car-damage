@@ -17,6 +17,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { routes } from '../../../navigation/routes';
 import { colors } from '../../../theme';
 import Header from '../../../components/Header';
+import caseListPageStorage from '../../../api/storage/caseListPage';
 
 import i18n from '../../../utils/i18n';
 const ar_cancel = i18n.t('ar_cancel');
@@ -32,10 +33,11 @@ const Insurance = () => {
     const route = useRoute();
     const navigation = useNavigation();
     const [modalPicker, setModalPicker] = useState(false);
-    const [modalValue, setModalValue] = useState(null);
+    const [modalValue, setModalValue] = useState('null');
     const [dataModal, setDataModal] = useState([]);
     const [caseNumber, setCaseNumber] = useState('');
 
+    const authen = route?.params?.authen;
     const caseData = route?.params?.caseData ?? null;
     const dataConfig = route?.params?.dataConfig ?? null;
     const insuranceList = dataConfig?.[12] ?? [];
@@ -48,11 +50,20 @@ const Insurance = () => {
     }
 
     const title = caseData?.licensePlate?.toLocaleUpperCase();
-    console.log('route: ', caseNumber);
 
     useEffect(() => {
-        const list = insuranceList.map(element => ({ label: element['INSURNM'], value: element['INSURCD'] }));
+        let list = insuranceList.map(element => ({ label: element['INSURNM'], value: element['INSURCD'] }));
+        list = [{ label: '請選擇保險公司', value: 'null' }, ...list];
         setDataModal(list);
+
+        if (caseData?.assessment?.caseNumber != '') {
+            setCaseNumber(caseData?.assessment?.caseNumber);
+        }
+
+        let value = caseData?.assessment?.insuranceCompany?.value;
+        if (value != '' && value != null) {
+            setModalValue(value);
+        }
     }, []);
 
     const onPressGoHome = () => {
@@ -69,8 +80,48 @@ const Insurance = () => {
         setModalValue(value);
     };
 
-    const onPressModalDone = () => {
-        setModalPicker(false);
+    const onPressNext = async () => {
+        if (caseNumber != '' && modalValue != 'null') {
+            // 記錄 AsyncStorage
+            const caseList = await caseListPageStorage.get();
+            caseList.forEach(element => {
+                if (element.id == caseData.id) {
+                    element.assessment.caseNumber = caseNumber;
+                    element.assessment.insuranceCompany = {
+                        label: selectValue,
+                        value: modalValue,
+                    };
+                }
+            });
+            caseListPageStorage.set(caseList);
+
+            // 跳轉至 車損照片
+            let onlyFullBodyPaint = false;
+            if (caseData?.damagedPart.length == 1 && caseData?.damagedPart[0]?.id == 13) {
+                onlyFullBodyPaint = true;
+            }
+
+            caseData.assessment.caseNumber = caseNumber;
+            caseData.assessment.insuranceCompany = {
+                label: selectValue,
+                value: modalValue,
+            };
+
+            navigation.navigate(routes.DAMAGEPARTSCREEN, {
+                caseData: caseData,
+                dataConfig: dataConfig,
+                fromHome: true,
+                authen: authen,
+                onlyFullBodyPaint: onlyFullBodyPaint,
+            });
+        } else {
+            // 跳轉至 應備文件
+            navigation.navigate(routes.DRIVING_LICENSE, {
+                caseData: caseData,
+                dataConfig: dataConfig,
+                authen: authen,
+            });
+        }
     }
 
     const renderModalPicker = () => {
@@ -85,11 +136,6 @@ const Insurance = () => {
                         <TouchableOpacity style={{ flex: 1 }} onPress={() => setModalPicker(false)}></TouchableOpacity>
                         <View style={styles.modalView}>
                             <View style={styles.modalViewContent}>
-                                {/* <TouchableOpacity onPress={() => setModalPicker(false)}>
-                                    <Text style={styles.modalButtonText}>
-                                        {ar_cancel}
-                                    </Text>
-                                </TouchableOpacity> */}
                                 <View
                                     style={{
                                         flex: 1,
@@ -101,11 +147,6 @@ const Insurance = () => {
                                         {_insurance_comapny}
                                     </Text>
                                 </View>
-                                {/* <TouchableOpacity onPress={() => onPressModalDone()}>
-                                    <Text style={styles.modalButtonText}>
-                                        {_main_procedure_done}
-                                    </Text>
-                                </TouchableOpacity> */}
                             </View>
                             <View
                                 style={{
@@ -199,7 +240,7 @@ const Insurance = () => {
                 </View>
                 <View style={{ justifyContent: 'center', flexDirection: 'row', alignItems: 'center' }}>
                     <TouchableOpacity
-                        // onPress={() => onPressNewCase()}
+                        onPress={() => onPressNext()}
                         style={styles.buttonNew}
                     >
                         <View style={styles.viewTextNew}>

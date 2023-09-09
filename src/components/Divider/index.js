@@ -3,8 +3,9 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-const Divider = () => {
-    return <View style={styles.divider} />;
+const Divider = (props) => {
+    const { customStyle } = props;
+    return <View style={[styles.divider, customStyle]} />;
 };
 
 const styles = StyleSheet.create({

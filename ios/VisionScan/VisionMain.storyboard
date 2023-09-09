@@ -62,8 +62,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rUN-aJ-Fd3">
                                         <rect key="frame" x="0.0" y="0.0" width="1133" height="60"/>
                                         <subviews>
-                                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fca-1o-8uw" userLabel="Cutout View">
-                                                <rect key="frame" x="0.0" y="-31" width="1133" height="100"/>
+                                            <view opaque="NO" contentMode="scaleToFill" id="fca-1o-8uw" userLabel="Cutout View">
+                                                <rect key="frame" x="0.0" y="-31" width="1300" height="100"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EwW-wF-YOr" userLabel="borderScan">
@@ -307,7 +307,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic-back" width="200" height="200"/>
+        <image name="ic-back" width="100" height="101"/>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

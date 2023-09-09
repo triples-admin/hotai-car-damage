@@ -172,6 +172,7 @@ const HomeScreen = () => {
   const getCaseListFromStorage = async () => {
     // await caseListPageStorage.remove();
     const result = await caseListPageStorage.get();
+    console.log('result', result)
     if (result) {
       let listData = result;
       listData.sort((a, b) => (a.createdTime < b.createdTime ? 1 : -1));

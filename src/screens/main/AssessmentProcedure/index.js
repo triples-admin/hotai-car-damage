@@ -28,6 +28,7 @@ import i18n from '../../../utils/i18n';
 import LoadingView from '../../../components/Loading';
 import { formatCurrency } from '../../../utils/utils';
 import TopScreen from '../../../components/TopScreen';
+import AlertRowModal from '../../../components/AlertRowModal';
 
 import RNFetchBlob from 'rn-fetch-blob';
 import { configGlobal } from '../../../api/endpoint';
@@ -187,6 +188,13 @@ const AssessmentProcedure = () => {
 
   const [contactName, setContactName] = useState(caseData?.contactName);
   const [contactPhone, setContactPhone] = useState(caseData?.contactPhone);
+  const [isShowAlert, setIsShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState({
+    title: ' ',
+    message: ' ',
+    onPressOK: () => { },
+    isShowCancel: true,
+  });
 
   const [price, setPrice] = useState({
     labour: 0,
@@ -227,10 +235,13 @@ const AssessmentProcedure = () => {
     let selfP = false;
     let assessmentTemp = bkCase.current?.assessment;
 
-    assessmentTemp.insuranceCompany = {
-      value: 'A',
-      label: '自費',
-    };
+    if (!assessmentTemp?.insuranceCompany?.label
+      || assessmentTemp?.insuranceCompany?.label == '') {
+      assessmentTemp.insuranceCompany = {
+        value: 'A',
+        label: '自費',
+      };
+    }
 
     if (assessmentTemp?.insuranceCompany?.value) {
       insur = true;
@@ -632,67 +643,71 @@ const AssessmentProcedure = () => {
   };
 
   const onPressUploadImages = () => {
-    // only insurrence
-    const _insurance = currentAssessment?.insuranceCompany?.label ?? '';
-    Alert.alert(
-      i18n.t('assessment_procedure_title_insurance', { insurance: _insurance }),
-      _assessment_procedure_content_insurance,
-      [
-        {
-          text: ar_cancel,
-          onPress: () => console.log('Cancel Pressed'),
-          style: 'cancel',
-        },
-        { text: ar_confirm, onPress: () => getEvanoData('exploration') },
-      ],
-    );
+    const title = i18n.t('assessment_procedure_title_insurance', { insurance: currentAssessment?.insuranceCompany?.label ?? '' ?? '' });
+    const message = _assessment_procedure_content_selfpay;
+    setAlertMessage({
+      title: title,
+      message: message,
+      onPressOK: () => {
+        setAlertMessage({
+          title: title,
+          message: _assessment_procedure_content_insurance,
+          onPressOK: () => {
+            setIsShowAlert(false);
+            getEvanoData('exploration');
+          }
+        });
+      },
+    });
+    setIsShowAlert(true);
   };
 
   const onPressUploadEcho = () => {
-    // insurrence or self-pay
-    if (selfPay) {
-      showAlertSelfPayEcho();
+    // 自費
+    if (disableUpload == true) {
+      const title = i18n.t('assessment_procedure_title_insurance_echo', { insurance: currentAssessment?.insuranceCompany?.label ?? '' });
+      const message = _assessment_procedure_content_insurance_echo;
+      setAlertMessage({
+        title: title,
+        message: message,
+        onPressOK: () => {
+          setIsShowAlert(false);
+          getEvanoData('selfpay');
+        },
+      });
+      setIsShowAlert(true);
     } else {
-      showAlertInsuranceEcho();
+      const title = i18n.t('assessment_procedure_title_insurance_echo', { insurance: currentAssessment?.insuranceCompany?.label ?? '' ?? '' });
+      const message = _assessment_procedure_content_selfpay;
+      setAlertMessage({
+        title: title,
+        message: message,
+        onPressOK: () => {
+          setAlertMessage({
+            title: title,
+            message: _assessment_procedure_content_insurance_echo,
+            onPressOK: () => {
+              setIsShowAlert(false);
+              getEvanoData('insurance_echo');
+            }
+          });
+        },
+      });
+      setIsShowAlert(true);
     }
   };
 
-  const showAlertSelfPayEcho = () => {
-    const _insurance = currentAssessment?.insuranceCompany?.label ?? '';
-    Alert.alert(
-      i18n.t('assessment_procedure_title_selfpay', { insurance: _insurance }),
-      _assessment_procedure_content_selfpay,
-      [
-        {
-          text: ar_cancel,
-          onPress: () => console.log('Cancel Pressed'),
-          style: 'cancel',
-        },
-        {
-          text: ar_confirm,
-          onPress: () => getEvanoData('selfpay'),
-        },
-      ],
-    );
-  };
-
-  const showAlertInsuranceEcho = () => {
-    const _insurance = currentAssessment?.insuranceCompany?.label ?? '';
-    Alert.alert(
-      i18n.t('assessment_procedure_title_insurance_echo', { insurance: _insurance }),
-      _assessment_procedure_content_insurance_echo,
-      [
-        {
-          text: ar_cancel,
-          onPress: () => console.log('Cancel Pressed'),
-          style: 'cancel',
-        },
-        {
-          text: ar_confirm,
-          onPress: () => getEvanoData('insurance_echo'),
-        },
-      ],
-    );
+  const renderAlertModal = () => {
+    return (
+      <AlertRowModal
+        visible={isShowAlert}
+        title={alertMessage?.title}
+        message={alertMessage?.message}
+        onPressCancel={() => setIsShowAlert(false)}
+        onPressOK={alertMessage?.onPressOK}
+        isShowCancel={alertMessage?.isShowCancel}
+      />
+    )
   }
 
   const showAlertSuccess = evano => {
@@ -1393,6 +1408,7 @@ const AssessmentProcedure = () => {
         {renderModalPicker()}
       </View>
       {isLoading && <LoadingView />}
+      {renderAlertModal()}
     </SafeAreaView>
   );
 };

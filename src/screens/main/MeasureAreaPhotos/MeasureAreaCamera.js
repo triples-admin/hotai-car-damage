@@ -17,6 +17,7 @@ import {
 import React, { useState, useRef, useEffect } from 'react';
 import ReactNativeZoomableView from '@dudigital/react-native-zoomable-view/src/ReactNativeZoomableView';
 import Header from '../../../components/Header';
+import AlertModal from '../../../components/AlertModal';
 import { colors } from '../../../theme';
 import { routes } from '../../../navigation/routes';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -212,6 +213,7 @@ const MeasureAreaCamera = () => {
     visible: false,
   });
   const [isFullPaint, setIsFullPaint] = useState(false);
+  const [isShowAlert, setIsShowAlert] = useState(false);
 
   const dataMappedMethod = dataMethod.map(item => {
     return {
@@ -390,51 +392,83 @@ const MeasureAreaCamera = () => {
     }
   };
 
+  const renderAlertModal = () => {
+    return (
+      <>
+        {/* 未支援此車型 */}
+        <AlertModal
+          visible={isShowAlert}
+          title={measure_camera_confirm_title}
+          type={'white'}
+          actionButton={[
+            {
+              'title': measure_camera_confirm_option_1,
+              'onPress': () => onPressConfirm('1')
+            },
+            {
+              'title': measure_camera_confirm_option_2,
+              'onPress': () => onPressConfirm('2')
+            },
+            {
+              'title': measure_camera_confirm_option_3,
+              'onPress': () => onPressConfirm('3')
+            }
+          ]}
+        />
+      </>
+    )
+  }
+
   const alertConfirm = () => {
-    Alert.alert(measure_camera_confirm_title, '', [
-      {
-        text: measure_camera_confirm_option_1,
-        onPress: () => onPressConfirm('1'),
-      },
-      {
-        text: measure_camera_confirm_option_2,
-        onPress: () => onPressConfirm('2'),
-      },
-      {
-        text: measure_camera_confirm_option_3,
-        onPress: () => onPressConfirm('3'),
-      },
-    ]);
+    setIsShowAlert(true);
+    // Alert.alert(measure_camera_confirm_title, '', [
+    //   {
+    //     text: measure_camera_confirm_option_1,
+    //     onPress: () => onPressConfirm('1'),
+    //   },
+    //   {
+    //     text: measure_camera_confirm_option_2,
+    //     onPress: () => onPressConfirm('2'),
+    //   },
+    //   {
+    //     text: measure_camera_confirm_option_3,
+    //     onPress: () => onPressConfirm('3'),
+    //   },
+    // ]);
   };
 
   const onPressConfirm = async option => {
-    if (option === '1') {
-      // measure photos again
-      if (NativeService) {
-        let issetFullPaint = false;
-        if (!_.isEmpty(caseData?.damagedPart)) {
-          caseData.damagedPart.forEach(element => {
-            if (element.id === 13) {
-              issetFullPaint = true;
-            }
-          })
+    setIsShowAlert(false);
+    setTimeout(async () => {
+      if (option === '1') {
+        // measure photos again
+        if (NativeService) {
+          let issetFullPaint = false;
+          if (!_.isEmpty(caseData?.damagedPart)) {
+            caseData.damagedPart.forEach(element => {
+              if (element.id === 13) {
+                issetFullPaint = true;
+              }
+            })
+          }
+          let resData = await NativeService.startMeasure(
+            caseData?.licensePlate,
+            currentDamage.current?.name,
+            issetFullPaint,
+          );
+          // console.log("----------- JS send -- start measure : " + JSON.stringify(resData));
         }
-        let resData = await NativeService.startMeasure(
-          caseData?.licensePlate,
-          currentDamage.current?.name,
-          issetFullPaint,
-        );
-        // console.log("----------- JS send -- start measure : " + JSON.stringify(resData));
+      } else if (option === '2') {
+        // references photos
+        allowMeasure.current = false;
+        setShowCamera(true);
+      } else if (option === '3') {
+        // no
+        allowMeasure.current = true;
+        setNextDamagedPart();
       }
-    } else if (option === '2') {
-      // references photos
-      allowMeasure.current = false;
-      setShowCamera(true);
-    } else if (option === '3') {
-      // no
-      allowMeasure.current = true;
-      setNextDamagedPart();
-    }
+    }, 100);
+
   };
 
   const getImageSkeleton = angle => {
@@ -875,6 +909,7 @@ const MeasureAreaCamera = () => {
           setValue={setSliderValue}
         />
       ) : null}
+      {renderAlertModal()}
     </SafeAreaView>
   );
 };

@@ -25,6 +25,7 @@ import caseListPageStorage from '../../../api/storage/caseListPage';
 import procedureAPI from '../../../api/axios/procedure';
 import LoadingView from '../../../components/Loading';
 import TopScreen from '../../../components/TopScreen';
+import AlertRowModal from '../../../components/AlertRowModal';
 
 const screenSize = Dimensions.get('window');
 
@@ -155,6 +156,7 @@ const MainProcedure = () => {
   const caseListPage = useRef([]);
   const [currentCase, setCurrentCase] = useState({});
   const [currentPart, setCurrentPart] = useState([]);
+  const [isShowAlert, setIsShowAlert] = useState(false);
 
   const bkCase = useRef(caseData);
 
@@ -895,8 +897,24 @@ const MainProcedure = () => {
   };
 
   const onPressNext = () => {
-    submitMainProcedure();
+    setIsShowAlert(true);
   };
+
+  const renderAlertModal = () => {
+    return (
+      <AlertRowModal
+        visible={isShowAlert}
+        title={'您要進入下一步嗎？'}
+        message={'請注意：帶出附屬零件後，便無法修改主要零件。\n若要修改，請刪除此案件之後，重新開始'}
+        type={'white'}
+        onPressCancel={() => setIsShowAlert(false)}
+        onPressOK={() => {
+          setIsShowAlert(false);
+          submitMainProcedure();
+        }}
+      />
+    )
+  }
 
   const renderFilter = () => {
     const specialCoating = ar_special_coating;
@@ -1382,6 +1400,7 @@ const MainProcedure = () => {
 
         {isLoading && <LoadingView />}
       </View>
+      {renderAlertModal()}
     </SafeAreaView>
   );
 };
