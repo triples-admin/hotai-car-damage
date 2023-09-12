@@ -6,7 +6,7 @@ const axiosCustom = axios.create({
   baseURL: configGlobal.serverAPI,
   timeout: 300000, // 5 minutes
   headers: {
-    'Ocp-Apim-Subscription-Key': '149625204d9248d7a343d83b46cd8ab9',
+    'Ocp-Apim-Subscription-Key': '9ac46c6328914575b9088a8ad2219ec7', //正式版
     'User-Agent': 'LexusEvaapp/2308prod',
     'content-type': 'application/json',
   },

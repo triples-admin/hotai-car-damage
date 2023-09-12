@@ -176,14 +176,14 @@ class ViewController: UIViewController {
     
     func changeButtonAfterGetPlateNumber(_reset: Bool = false){
         if _reset {
-            buttonBottomLeft.backgroundColor = UIColor.init(red: 253/255, green: 151/255, blue: 2/255, alpha: 1)
+            buttonBottomLeft.backgroundColor = UIColor.init(red: 30/255, green: 40/255, blue: 50/255, alpha: 1)
             buttonBottomLeft.setTitle("手動輸入", for: .normal)
             buttonBottomRight.backgroundColor = UIColor.init(red: 169/255, green: 169/255, blue: 169/255, alpha: 1)
             bottomView.backgroundColor = UIColor.init(white: 0, alpha: 1)
         } else {
             buttonBottomLeft.backgroundColor = UIColor.init(red: 68/255, green: 68/255, blue: 68/255, alpha: 1)
             buttonBottomLeft.setTitle("重新辨識", for: .normal)
-            buttonBottomRight.backgroundColor = UIColor.init(red: 253/255, green: 151/255, blue: 2/255, alpha: 1)
+            buttonBottomRight.backgroundColor = UIColor.init(red: 30/255, green: 40/255, blue: 50/255, alpha: 1)
             bottomView.backgroundColor = UIColor.init(white: 0, alpha: 0)
         }
     }

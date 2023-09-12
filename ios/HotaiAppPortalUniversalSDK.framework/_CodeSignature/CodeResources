@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/HotaiAppPortalSDK.h</key>
 		<data>
-		0G43rFPsSSxYITaMk/MOczia+8k=
+		wFe8X6g1dDvobxSTgITtmn2jIfo=
 		</data>
 		<key>Headers/HotaiAppPortalUniversalSDK.h</key>
 		<data>
@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		1ZUNVitz9KSv3HSZ/CibqBy2kj4=
+		eFh69zJkm11D5TLM3ZFnT0pG0hI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -51,11 +51,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			0G43rFPsSSxYITaMk/MOczia+8k=
+			wFe8X6g1dDvobxSTgITtmn2jIfo=
 			</data>
 			<key>hash2</key>
 			<data>
-			YG98d+9EYz2YYjnu06poWFVDBisi8mpG7ms4jJwKrKE=
+			kVc+TEeEZzWmIPtj1HGjvoEkBtEV8T7BELwsLWFnlwU=
 			</data>
 		</dict>
 		<key>Headers/HotaiAppPortalUniversalSDK.h</key>

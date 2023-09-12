@@ -11,6 +11,7 @@ import {
   Dimensions,
   ActivityIndicator,
   Image,
+  Linking
 } from 'react-native';
 import React, { useState, useRef, useEffect } from 'react';
 import { icons } from '../../../assets';
@@ -290,7 +291,11 @@ const LicensePlate = () => {
   };
 
   const apiCallFailed = () => {
-    setIsShowAlert(true);
+    Alert.alert(license_plate_message_error, '', [
+      { text: i18n.t('license_plate_message_option1'), onPress: () => alertOption1()},
+      { text: i18n.t('license_plate_message_option2'), onPress: () => alertOption2()},
+    ]);
+    // setIsShowAlert(true);
   };
 
   const onPressNextStep = async () => {
@@ -390,6 +395,10 @@ const LicensePlate = () => {
     //   dataConfig: dataConfig.current,
     //   authen: authen,
     // });
+
+    console.log('caseData', caseData);
+    console.log('dataConfig', dataConfig);
+    console.log('authen', authen);
 
     navigation.navigate(routes.INSURANCE, {
       caseData: caseData.current,
@@ -548,12 +557,12 @@ const LicensePlate = () => {
 
   const alertOption1 = () => {
     //TODO 連結  
-    console.log('alertOption1');
+    Linking.openURL('https://drive.google.com/drive/folders/1yFdEMgNsqGN9iGcLfDAqPWbfu1YEJPKj?usp=drive_link');
   }
 
   const alertOption2 = () => {
     //TODO 連結
-    console.log('alertOption2');
+    Linking.openURL('https://drive.google.com/drive/folders/1yFdEMgNsqGN9iGcLfDAqPWbfu1YEJPKj?usp=drive_link');
   }
 
   const renderAlertModal = () => {

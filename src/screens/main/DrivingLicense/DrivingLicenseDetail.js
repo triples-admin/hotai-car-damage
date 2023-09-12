@@ -18,6 +18,7 @@ import LoadingView from '../../../components/Loading';
 import { launchImageLibrary } from 'react-native-image-picker';
 import RNFS from 'react-native-fs';
 import ImageResizer from 'react-native-image-resizer';
+import { ScrollView } from 'react-native-gesture-handler';
 import _ from 'lodash';
 const screen = Dimensions.get('window');
 const _width = screen.width;
@@ -236,7 +237,7 @@ const DrivingLicenseDetail = () => {
             {name}
           </Text>
           <TouchableOpacity onPress={() => onPressCheckbox(index - 1, item)}>
-            <Image style={{ width: 36, height: 36 }} source={url} />
+            <Image style={{ width: 30, height: 30 }} source={url} />
           </TouchableOpacity>
         </View>
       </View>
@@ -253,69 +254,70 @@ const DrivingLicenseDetail = () => {
       view.push(renderItem(i + 1, item, widthBox, heightBox));
     }
     return (
-      <View style={{ flex: 1, flexDirection: 'column' }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            padding: 20,
-            flexWrap: 'wrap',
-          }}>
-          {view}
-          {listData.length < 5 && (
-            <View
-              style={{
-                flexDirection: 'column',
-              }}>
-              <TouchableOpacity
-                style={{
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: widthBox,
-                  height: heightBox,
-                  backgroundColor: colors.gray,
-                  borderRadius: 8,
-                }}
-                onPress={() => onPressNewImage()}>
-                <Image
-                  style={{ width: 50, height: 50 }}
-                  source={require('../../../assets/icons/ic_add.png')}
-                />
-              </TouchableOpacity>
+      <ScrollView>
+        <View style={{ flex: 1, flexDirection: 'column' }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              padding: 20,
+              flexWrap: 'wrap',
+            }}>
+            {view}
+            {listData.length < 5 && (
               <View
                 style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  marginTop: 10,
-                  marginBottom: 20,
+                  flexDirection: 'column',
                 }}>
-                <Text
-                  style={{ flex: 1, fontSize: 20, color: colors.blackGray }}
-                  numberOfLines={1}>
-                  {title}
-                  {'-'}
-                  {listData.length + 1}
-                </Text>
-                <View style={{ width: 36, height: 36 }} />
+                <TouchableOpacity
+                  style={{
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: widthBox,
+                    height: heightBox,
+                    backgroundColor: colors.gray,
+                    borderRadius: 8,
+                  }}
+                  onPress={() => onPressNewImage()}>
+                  <Image
+                    style={{ width: 50, height: 50 }}
+                    source={require('../../../assets/icons/ic_add.png')}
+                  />
+                </TouchableOpacity>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    marginTop: 10,
+                    marginBottom: 20,
+                  }}>
+                  <Text
+                    style={{ flex: 1, fontSize: 20, color: colors.blackGray }}
+                    numberOfLines={1}>
+                    {title}
+                    {'-'}
+                    {listData.length + 1}
+                  </Text>
+                  <View style={{ width: 36, height: 36 }} />
+                </View>
               </View>
-            </View>
-          )}
+            )}
+          </View>
         </View>
-      </View>
+      </ScrollView>
     );
   };
 
   const renderBottom = () => {
     const bgColor = isDelete ? colors.blackGray : colors.gray;
     const disableDelete = isDelete ? false : true;
+    const left = _width / 2 - 27;
     return (
       <View
         style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginTop: 10,
-          marginBottom: 16,
+          position: 'absolute',
+          bottom: 10,
+          left: left,
         }}>
         <TouchableOpacity
           disabled={disableDelete}
