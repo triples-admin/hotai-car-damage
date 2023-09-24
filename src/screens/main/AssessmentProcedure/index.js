@@ -1185,6 +1185,7 @@ const AssessmentProcedure = () => {
     }
   };
 
+  const tel = contactPhone.length >= 10 ? `${contactPhone.substring(0, contactPhone.length - 4)}****` : contactPhone ;
   return (
     <SafeAreaView style={styles.container}>
       <Header
@@ -1227,7 +1228,7 @@ const AssessmentProcedure = () => {
             <TextInput
               placeholder={assessment_procedure_contact_number}
               underlineColorAndroid="transparent"
-              value={contactPhone}
+              value={tel}
               maxLength={20}
               onChangeText={text => onChangeContactPhone(text)}
               style={[

@@ -90,6 +90,21 @@ const MeasureArea = () => {
   const [modalImage, setModalImage] = useState(false);
   const [toggleStatus, setToggleStatus] = useState(caseData?.toggleStatus);
 
+  const [isProgressOverSize, setIsProgressOverSize] = useState(false);
+
+  useEffect(() => {
+    checkProgress();
+  });
+
+  const checkProgress = async () => {
+    const result = await caseListPageStorage.get();
+    console.log('result', result)
+    const item = result?.find(element => element.id == caseData?.id);
+    if (item?.progress >= 6) {
+      setIsProgressOverSize(true);
+    }    
+  }
+
   useEffect(() => {
     navigation.addListener('focus', () => {
       const getCaseList = async () => {
@@ -411,7 +426,7 @@ const MeasureArea = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Header
-        iconBack={caseData.progress >= 6 ? false : true}
+        iconBack={isProgressOverSize ? false : true}
         onPressBack={() => onPressGoBack()}
         iconHome
         onPressHome={() => onPressGoHome()}

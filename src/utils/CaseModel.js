@@ -13,16 +13,16 @@ export async function createNewCase() {
     paintFilm: {},
     toggleStatus: true,
     drivingLicense: {
-      photo1: [], // [{ path: 'base64data' }] passport image
-      photo2: [], // driving image
-      photo3: [], // 
-      photo4: [], // 
-      photo5: [], //
-      photo6: [], // 
-      photo7: [], // 
-      photo8: [], // 
-      photo9: [], //
-      photo10: [], // other image
+      'photo1': [], // [{ path: 'base64data' }] passport image
+      'photo2': [], // driving image
+      'photo3': [], // 
+      'photo4': [], // 
+      'photo5': [], //
+      'photo6': [], // 
+      'photo7': [], // 
+      'photo8': [], // 
+      'photo9': [], //
+      'photo10': [],
     },
     damagedPart: [],
     damagedAngle: [],

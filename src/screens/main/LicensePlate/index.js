@@ -292,8 +292,8 @@ const LicensePlate = () => {
 
   const apiCallFailed = () => {
     Alert.alert(license_plate_message_error, '', [
-      { text: i18n.t('license_plate_message_option1'), onPress: () => alertOption1()},
-      { text: i18n.t('license_plate_message_option2'), onPress: () => alertOption2()},
+      { text: i18n.t('license_plate_message_option1'), onPress: () => openVisionScan() },
+      { text: i18n.t('license_plate_message_option2'), onPress: () => alertOption2() },
     ]);
     // setIsShowAlert(true);
   };

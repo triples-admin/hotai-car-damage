@@ -214,6 +214,7 @@ const MeasureAreaCamera = () => {
   });
   const [isFullPaint, setIsFullPaint] = useState(false);
   const [isShowAlert, setIsShowAlert] = useState(false);
+  const [isShowAlert1, setIsShowAlert1] = useState(false);
 
   const dataMappedMethod = dataMethod.map(item => {
     return {
@@ -336,7 +337,7 @@ const MeasureAreaCamera = () => {
       'onSkipImageAR',
       result => {
         // console.log('--------- JS onSkipImageAR -----------', result);
-        alertConfirm();
+        alertConfirm(result);
       },
     );
     const unsubscribe = () => {
@@ -419,8 +420,38 @@ const MeasureAreaCamera = () => {
     )
   }
 
-  const alertConfirm = () => {
-    setIsShowAlert(true);
+  const renderAlert1Modal = () => {
+    return (
+      <>
+        {/* 無法辨識此功能 */}
+        <AlertModal
+          visible={isShowAlert1}
+          title={'無法開啟AR辨識功能'}
+          type={'white'}
+          actionButton={[
+            {
+              'title': '再次嘗試開啟AR辨識',
+              'onPress': () => onPressConfirm('1')
+            },
+            {
+              'title': '跳過AR辨識',
+              'onPress': () => onPressConfirm('3')
+            }
+          ]}
+        />
+      </>
+    )
+  }
+
+  const alertConfirm = (action) => {
+    console.log('onSkipImageAR', '***超過10秒應該會跳這個Alert');  
+
+    if (action == 'skip') {
+      setIsShowAlert1(true);
+    } else {
+      setIsShowAlert(true);
+    }
+    
     // Alert.alert(measure_camera_confirm_title, '', [
     //   {
     //     text: measure_camera_confirm_option_1,
@@ -439,6 +470,7 @@ const MeasureAreaCamera = () => {
 
   const onPressConfirm = async option => {
     setIsShowAlert(false);
+    setIsShowAlert1(false)
     setTimeout(async () => {
       if (option === '1') {
         // measure photos again
@@ -476,6 +508,7 @@ const MeasureAreaCamera = () => {
     const _info = dataConfig[0];
     const _config = _info[0];
     const _name = _config?.EPCID ?? '';
+    console.log('jzjz_++_name', _name)
     if (_name.toUpperCase().includes('ALTIS')) {
       result = ALTIS[angle];
     } else if (_name.toUpperCase().includes('C-HR')) {
@@ -492,13 +525,14 @@ const MeasureAreaCamera = () => {
       result = VIOS[angle];
     } else if (_name.toUpperCase().includes('YARIS')) {
       result = YARIS[angle];
-    } else if (_name.toUpperCase().includes('ES')) {
+    } else if (_name.toUpperCase().indexOf('ES') == 0) {
       result = ES[angle];
-    } else if (_name.toUpperCase().includes('NX')) {
+    } else if (_name.toUpperCase().indexOf('NX') == 0) {
       result = NX[angle];
-    } else if (_name.toUpperCase().includes('UX')) {
+    } else if (_name.toUpperCase().indexOf('UX') == 0) {
       result = UX[angle];
     }
+    console.log('result', result)
     return result;
   };
 
@@ -910,6 +944,7 @@ const MeasureAreaCamera = () => {
         />
       ) : null}
       {renderAlertModal()}
+      {renderAlert1Modal()}
     </SafeAreaView>
   );
 };

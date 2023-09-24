@@ -93,7 +93,7 @@ const DrivingLicense = () => {
     caseData.current?.drivingLicense?.photo9,
   );
   const [photo10, setPhoto10] = useState(
-    caseData.current?.drivingLicense?.photo9,
+    caseData.current?.drivingLicense?.photo10,
   );
 
   const [toggleStatus, setToggleStatus] = useState(
@@ -139,6 +139,7 @@ const DrivingLicense = () => {
           photo7: photo7,
           photo8: photo8,
           photo9: photo9,
+          photo10: photo10,
         };
         element.drivingLicense = newDrivingLicense;
         caseData.current.drivingLicense = newDrivingLicense;
@@ -162,6 +163,7 @@ const DrivingLicense = () => {
     list7,
     list8,
     list9,
+    list10,
   ) => {
     // console.log('--- autoSave : ' + JSON.stringify(list2));
     const newList = caseListPage.current;
@@ -177,6 +179,7 @@ const DrivingLicense = () => {
           photo7: list7,
           photo8: list8,
           photo9: list9,
+          photo10: list10,
         };
         element.drivingLicense = newDrivingLicense;
         caseData.current.drivingLicense = newDrivingLicense;
