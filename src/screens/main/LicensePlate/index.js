@@ -342,6 +342,7 @@ const LicensePlate = () => {
       newCase.name = _info[0]?.CARNM ?? '';
       newCase.progress = 2;
       newCase.licensePlate = licenPlate;
+      newCase.isInsurance = true;
       caseData.current = newCase;
       arrList.push(newCase);
       await caseListPageStorage.set(arrList);

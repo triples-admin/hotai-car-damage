@@ -1061,14 +1061,22 @@ const HomeScreen = () => {
         authen: authen,
         onlyFullBodyPaint: onlyFullBodyPaint,
       });
-    } else if (itemData.progress == 2) {
-      navigation.navigate(routes.DRIVING_LICENSE, {
-        caseData: itemData,
-        dataConfig: dataConfig,
-        fromHome: true,
-        authen: authen,
-        onlyFullBodyPaint: onlyFullBodyPaint,
-      });
+    } else if (itemData.progress == 2 ) {
+      if (itemData.isInsurance == true) {
+        navigation.navigate(routes.INSURANCE, {
+          caseData: itemData,
+          dataConfig: dataConfig,
+          authen: authen,
+        });
+      } else {
+        navigation.navigate(routes.DRIVING_LICENSE, {
+          caseData: itemData,
+          dataConfig: dataConfig,
+          fromHome: true,
+          authen: authen,
+          onlyFullBodyPaint: onlyFullBodyPaint,
+        });
+      }
     } else if (itemData.progress == 3) {
       console.log('jzjz+aaa', dataConfig);
       navigation.navigate(routes.DAMAGEPARTSCREEN, {

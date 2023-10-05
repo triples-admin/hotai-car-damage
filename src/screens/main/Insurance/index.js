@@ -53,6 +53,16 @@ const Insurance = () => {
 
     useEffect(() => {
         let list = insuranceList.map(element => ({ label: element['INSURNM'], value: element['INSURCD'] }));
+        list = list?.filter(element => 
+            element.label != '航聯' &&
+            element.label != '國華' &&
+            element.label != '環球' &&
+            element.label != '宏泰' &&
+            element.label != '聯邦' &&
+            element.label != '新安東京' &&
+            element.label != '商聯' &&
+            element.label != '華山'
+        )
         list = [{ label: '請選擇保險公司', value: 'null' }, ...list];
         setDataModal(list);
 
@@ -81,6 +91,7 @@ const Insurance = () => {
     };
 
     const onPressNext = async () => {
+        caseData.isInsurance = false;
         if (caseNumber != '' && modalValue != 'null') {
             // 記錄 AsyncStorage
             const caseList = await caseListPageStorage.get();
@@ -91,6 +102,7 @@ const Insurance = () => {
                         label: selectValue,
                         value: modalValue,
                     };
+                    element.isInsurance = false
                 }
             });
             caseListPageStorage.set(caseList);
@@ -107,6 +119,12 @@ const Insurance = () => {
                 value: modalValue,
             };
 
+            // COMPONENTSPROCEDURESCREEN
+
+            // ASSESSMENTPROCEDURESCREEN
+
+            // MAINPROCEDURESCREEN
+
             navigation.navigate(routes.DAMAGEPARTSCREEN, {
                 caseData: caseData,
                 dataConfig: dataConfig,
@@ -115,6 +133,13 @@ const Insurance = () => {
                 onlyFullBodyPaint: onlyFullBodyPaint,
             });
         } else {
+            const caseList = await caseListPageStorage.get();
+            caseList.forEach(element => {
+                if (element.id == caseData.id) {                   
+                    element.isInsurance = false
+                }
+            });
+            caseListPageStorage.set(caseList);
             // 跳轉至 應備文件
             navigation.navigate(routes.DRIVING_LICENSE, {
                 caseData: caseData,
