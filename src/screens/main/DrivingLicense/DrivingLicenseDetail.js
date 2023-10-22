@@ -44,8 +44,6 @@ const DrivingLicenseDetail = () => {
   const [modalImage, setModalImage] = useState(false);
   const [imageSelected, setImageSelected] = useState();
   const [photos, setPhotos] = useState(caseData.drivingLicense[photoType]);
-  console.log(caseData.drivingLicense)
-  console.log(caseData.drivingLicense[photoType])
   const [isDelete, setIsDelete] = useState(false);
   // console.log('--- caseData.drivingLicense : ' + JSON.stringify(caseData.drivingLicense));
 
