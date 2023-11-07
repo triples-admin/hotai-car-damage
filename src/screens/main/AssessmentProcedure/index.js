@@ -139,7 +139,8 @@ const AssessmentProcedure = () => {
       temp != '聯邦' &&
       temp != '新安東京' &&
       temp != '商聯' &&
-      temp != '華山'
+      temp != '華山' &&
+      temp != ''
     ) {
       newInsurCom.push(element);
     }
@@ -1185,7 +1186,7 @@ const AssessmentProcedure = () => {
     }
   };
 
-  const tel = contactPhone.length >= 10 ? `${contactPhone.substring(0, contactPhone.length - 4)}****` : contactPhone ;
+  const tel = contactPhone.length >= 10 ? `${contactPhone.substring(0, contactPhone.length - 4)}****` : contactPhone;
   return (
     <SafeAreaView style={styles.container}>
       <Header

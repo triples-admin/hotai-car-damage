@@ -53,7 +53,7 @@ const Insurance = () => {
 
     useEffect(() => {
         let list = insuranceList.map(element => ({ label: element['INSURNM'], value: element['INSURCD'] }));
-        list = list?.filter(element => 
+        list = list?.filter(element =>
             element.label != '航聯' &&
             element.label != '國華' &&
             element.label != '環球' &&
@@ -61,7 +61,8 @@ const Insurance = () => {
             element.label != '聯邦' &&
             element.label != '新安東京' &&
             element.label != '商聯' &&
-            element.label != '華山'
+            element.label != '華山' &&
+            element.label != ''
         )
         list = [{ label: '請選擇保險公司', value: 'null' }, ...list];
         setDataModal(list);
@@ -135,7 +136,7 @@ const Insurance = () => {
         } else {
             const caseList = await caseListPageStorage.get();
             caseList.forEach(element => {
-                if (element.id == caseData.id) {                   
+                if (element.id == caseData.id) {
                     element.isInsurance = false
                 }
             });

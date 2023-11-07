@@ -71,6 +71,9 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+       
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+    cutoutView.addGestureRecognizer(tapGesture)
 		
     // Load existed plate number
     if (!prefix.isEmpty && !suffix.isEmpty) {
@@ -113,6 +116,11 @@ class ViewController: UIViewController {
         fieldInput1.delegate = self
         fieldInput2.delegate = self
 	}
+  
+  @objc func dismissKeyboard() {
+    fieldInput1.resignFirstResponder();
+    fieldInput2.resignFirstResponder();
+  }
     
     @objc func clickButtonBottomLeft(_ sender: ButtonView){
         if self.plateNumber != "" {

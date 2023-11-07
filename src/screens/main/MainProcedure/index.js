@@ -766,7 +766,7 @@ const MainProcedure = () => {
     setModalValue(value);
   };
 
-  const saveToStorage = async () => {
+  const saveToStorage = async (next = false) => {
     let updateCase = currentCase;
     const newList = caseListPage.current;
     newList.forEach(element => {
@@ -782,7 +782,9 @@ const MainProcedure = () => {
         element.paintFilm = currentCase.paintFilm;
         element.progress = element.progress == 7 ? 7 : 5;
         // console.log('--- element : ' + JSON.stringify(element));
-
+        if (next == true) {
+          element.isProgressOverSize = true;
+        }
         updateCase = element;
       }
     });
@@ -876,7 +878,7 @@ const MainProcedure = () => {
   };
 
   const gotoNextPage = async () => {
-    const updateCase = await saveToStorage();
+    const updateCase = await saveToStorage(true);
     // console.log('--- updateCase : ' + JSON.stringify(updateCase)); 
     if (onlyFullBodyPaint) {
       await callI02(updateCase);
