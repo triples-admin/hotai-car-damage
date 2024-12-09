@@ -76,6 +76,7 @@ class NativeService: RCTEventEmitter {
   @objc func getUserInfo(_ resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
   
    let isSDKLoging = HotaiAppPortalSDK.sharedInstance()?.checkPortalLoginStatusValid();
+  //  Test Flight if (true) {
    if (isSDKLoging == true) {
      print("------- isSDKLoging = true ---- ");
      let dictUserProfile = HotaiAppPortalSDK.sharedInstance()?.getUserProfile()

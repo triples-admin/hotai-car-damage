@@ -6,6 +6,9 @@ import * as RNLocalize from "react-native-localize";
 const languageDefault = 'zh'; // china, taiwan, hongkong, macao
 
 const getLanguageCode = () => {
+  // Language Test
+  // com.hotai.lexusevaapp
+  // com.auto.insurance
   let result = languageDefault;
   const listLanguage = RNLocalize.getLocales();
   if (listLanguage && listLanguage.length > 0) {

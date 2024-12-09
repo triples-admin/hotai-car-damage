@@ -59,7 +59,6 @@
     "preset": "react-native"
   },
   "engines": {
-    "npm": ">=9.0.0",
-    "node": ">=10.0.0 <16.0.0"
+    "npm": ">=9.0.0"
   }
 }

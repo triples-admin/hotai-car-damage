@@ -250,6 +250,10 @@ const AssessmentProcedure = () => {
     if (assessmentTemp?.caseNumber) {
       setCaseNumber(assessmentTemp.caseNumber);
     }
+
+    if (assessmentTemp?.insuranceCompany?.value) {
+      setModalValue(assessmentTemp?.insuranceCompany.value);
+    }
     setCurrentAssessment(assessmentTemp);
 
     showHideButtonUpload(insur, selfP, assessmentTemp);
@@ -756,12 +760,14 @@ const AssessmentProcedure = () => {
       BRNHCD: authen?.BRNHCD,
       USERID: authen?.USERID,
       LICSNO: bkCase.current?.licensePlate,
-      INSUR: insurance ? 'Y' : 'A', // insurence or self-pay
-      INSUCD: modalValue, // insurence company
+      INSUR: modalValue == '' || modalValue == 'A' ? 'A' : 'Y', // insurence or self-pay
+      INSUCD: modalValue == 'A' ? '' : modalValue, // insurence company
       INSURNO: caseNumber,
       CONTANM: contactName,
       CONTATEL: contactPhone,
     };
+
+    console.log('_body', _body)
 
     const result = await procedureAPI.getEVANO(_body, _config);
     if (result && result.status === 200 && result?.data?.length > 0) {

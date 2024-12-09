@@ -27,13 +27,24 @@ static void InitializeFlipper(UIApplication *application) {
 
 @implementation AppDelegate
 
+// Disabling third party keyboards
+-(BOOL)application:(UIApplication *)application shouldAllowExtensionPointIdentifier:(NSString *)extensionPointIdentifier
+{
+  if (extensionPointIdentifier == UIApplicationKeyboardExtensionPointIdentifier)
+  {
+    return NO;
+  }
+  return YES;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   
   //1. App Portal SDK 初始化 (連結正式環境 HotaiAppPortalSDKHost_PROD | 連結測試環境 HotaiAppPortalSDKHost_TEST，並帶入配發之PGMID及PGMNM)
       
- NSString *pPGMID = @"APP068";
+ NSString *pPGMID = @"APP069";
  NSString *pPGMNM = @"PortalApp";
+ // Test Flight
  [[HotaiAppPortalSDK sharedInstance] setAppPortalSDKWithEndPoint:HotaiAppPortalSDKHost_PROD andProgramId:pPGMID andProgramName:pPGMNM];
       
       //2. 更新 App 版本資訊

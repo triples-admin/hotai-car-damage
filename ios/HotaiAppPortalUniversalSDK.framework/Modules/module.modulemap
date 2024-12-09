@@ -1,6 +1,0 @@
-framework module HotaiAppPortalUniversalSDK {
-  umbrella header "HotaiAppPortalUniversalSDK.h"
-
-  export *
-  module * { export * }
-}

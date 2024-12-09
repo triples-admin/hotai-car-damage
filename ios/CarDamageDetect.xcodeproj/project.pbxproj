@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* CarDamageDetectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CarDamageDetectTests.m */; };
-		031641862A8153A60082A3BE /* measureAreaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C347ABC5286DECB100D4C41B /* measureAreaFramework.framework */; };
+		031641862A8153A60082A3BE /* measureAreaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C347ABC5286DECB100D4C41B /* measureAreaFramework.framework */; platformFilter = ios; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -44,7 +44,7 @@
 		C347ABDC286DECB100D4C41B /* measureAreaFramework.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = C347ABC0286DECB100D4C41B /* measureAreaFramework.xcworkspace */; };
 		C347ABDD286DECB100D4C41B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C347ABC1286DECB100D4C41B /* Podfile */; };
 		C347ABDE286DECB100D4C41B /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = C347ABC2286DECB100D4C41B /* Podfile.lock */; };
-		C347ABE0286DEDA400D4C41B /* measureAreaFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C347ABC5286DECB100D4C41B /* measureAreaFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C347ABE0286DEDA400D4C41B /* measureAreaFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C347ABC5286DECB100D4C41B /* measureAreaFramework.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C365B60D28579604007897E0 /* PortalHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C365B60C28579604007897E0 /* PortalHUD.bundle */; };
 		C3E72AA4284BBCA800071008 /* NativeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E72AA3284BBCA800071008 /* NativeService.swift */; };
 		C3E72AA6284BBCCC00071008 /* NativeService.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E72AA5284BBCCC00071008 /* NativeService.m */; };
@@ -570,7 +570,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "set -e\n\nexport NODE_BINARY=node\nexport NODE_OPTIONS=--openssl-legacy-provider\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		4F61D37FE4542E0565F73DCB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -846,11 +846,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CarDamageDetect/CarDamageDetectDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = BRAT5675T3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -864,19 +862,19 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.16;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hotai.lexusevaapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auto.insurance;
 				PRODUCT_NAME = CarDamageDetect;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "202302 Lexus EVAAPP";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "CarDamageDetect-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -895,7 +893,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = BRAT5675T3;
 				ENABLE_BITCODE = NO;
@@ -911,7 +909,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.16;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -920,10 +918,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hotai.lexusevaapp;
 				PRODUCT_NAME = CarDamageDetect;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "202303 Lexus EVAAPP";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "202401 Lexus EVAAPP";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "CarDamageDetect-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
