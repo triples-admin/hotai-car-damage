@@ -1,1 +1,0 @@
-"# hotai-car-damage" 
